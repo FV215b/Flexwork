@@ -34,9 +34,9 @@ public class MongoClient {
 
         do {
             server = try Server(at: host, port: port, using: authorization, automatically: true)
-            //print("MongoDB server on host: \(host) and port: \(port) is connected!")     
+            print("MongoDB server on host: \(host) and port: \(port) is connected!")     
         } catch {
-            //print("MongoDB is not available on host: \(host) and port: \(port)")
+            print("MongoDB is not available on host: \(host) and port: \(port)")
             Log.info("MongoDB is not available on host: \(host) and port: \(port)")
             exit(1)
         }
@@ -48,11 +48,16 @@ public class MongoClient {
         
         do {
             server = try Server("mongodb://\(username):\(password)@\(host):\(port)", automatically: true)
-            //print("MongoDB server on host: \(host) and port: \(port) is connected!")
+            print("MongoDB server on host: \(host) and port: \(port) is connected!")
         } catch {
-            //print("MongoDB is not available on host: \(host) and port: \(port)")
+            print("MongoDB is not available on host: \(host) and port: \(port)")
             Log.info("MongoDB is not available on the given host: \(host) and port: \(port)")
             exit(1)
         }
+    }
+
+    // TODO: need an exception handler when the requested database doesn't exist.
+    public subscript (dbName: String) -> MongoDatabase {
+        return MongoDatabase(server, databaseName: dbName);
     }
 }
