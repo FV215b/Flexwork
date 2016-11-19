@@ -33,7 +33,6 @@ public class FlexworkController {
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         // router.delete("/:dbname/:collectionname/:id", onDeleteItems)
     }
-
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
             try response.send("Hello World").end() 
@@ -44,9 +43,28 @@ public class FlexworkController {
 
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
-        let collectionName = request.parameters["collectionname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        let operation = request.queryParameters["op"] ?? ""
+        let field = request.queryParameters["field"] ?? ""
+        let value = request.queryParameters["value"] ?? ""
+        let opComparison: comparison
+        switch operation {
+        case "<":
+            opComparison = .lessThan
+        case "<=":
+            opComparison = .lessThanOrEqualTo
+        case ">":
+            opComparison = .greaterThan
+        case ">=":
+            opComparison = .greaterThanOrEqualTo
+        case "!=":
+            opComparison = .notEqualTo
+        default:
+            opComparison = .equalTo
+        }
+        let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
         do {
-            try response.send("Database: \(dbName), Collection: \(collectionName)").end() 
+            try response.send(flexwork.find(collectionName: colName, query: parseQuery)).end()
         } catch {
             
         }
