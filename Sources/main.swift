@@ -41,7 +41,7 @@ flexwork.count(fieldName: "id", fieldVal: "gh84")
 flexwork.find(fieldName: "count", fieldVal: 90)
 
 flexwork.update(fieldName: "id", fieldVal: "gh84")
-
+print("*************find_test_for_buildQuery****************")
 flexwork.find_test_for_buildQuery()
 
 print("Test Finish!")

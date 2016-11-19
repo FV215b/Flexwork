@@ -133,8 +133,8 @@ public class Flexwork {
             let database = server[databaseName]
             let collection = database[collectionName]
 
-            let query = QueryBuilder.buildQuery(fieldName: "id", fieldVal: "jy175") && 
-                        QueryBuilder.buildQuery(fieldName: "count", fieldVal: 90)
+            let query = QueryBuilder.buildQuery(fieldName: "id", fieldVal: "jy175", comparisonOperator: Comparison.equalTo) && 
+                        QueryBuilder.buildQuery(fieldName: "count", fieldVal: 90, comparisonOperator: Comparison.lessThanOrEqualTo)
 
             let docs = try collection.find(matching: query)
             for doc in docs {
