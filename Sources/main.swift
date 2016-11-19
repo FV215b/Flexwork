@@ -44,4 +44,7 @@ flexwork.update(fieldName: "id", fieldVal: "gh84")
 print("*************find_test_for_buildQuery****************")
 flexwork.find_test_for_buildQuery()
 
+print("*************test_create_collection_by_name***********")
+flexwork.createCollection(name: "aspofdpsaofdjposajdfpojsafd", document: doc)
+
 print("Test Finish!")

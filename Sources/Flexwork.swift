@@ -166,4 +166,18 @@ public class Flexwork {
             // handle exception
         }
     }
+
+    // test create collection
+    func createCollection(name: String, document: Document) {
+        do {
+            if !server.isConnected { try server.connect() }
+
+            let database = server[databaseName]
+            try database.createCollection(name)
+            let collection = database[name]
+            try collection.insert(document)
+        } catch {
+            // handle exception
+        }        
+    }
 }
