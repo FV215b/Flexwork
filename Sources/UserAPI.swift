@@ -1,7 +1,7 @@
 import Foundation
 
 class UserAPI {
-    func get(_ db: String, _ col: String, _ op: String, _ filt: String, _ val: String, completion: ([String:AnyObject]?) -> ()) {
+    func get(_ db: String, _ col: String, _ op: String, _ filt: String, _ val: String, completion: (String) -> ()) {
         let url = URL(string: "http://127.0.0.1:8080/\(db)/\(col)")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
