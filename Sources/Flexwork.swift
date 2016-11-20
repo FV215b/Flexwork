@@ -190,7 +190,7 @@ public class Flexwork: FlexworkAPI {
     }
 
     // test create collection
-    //public func createCollection(name: String) {
+    // public func createCollection(name: String) {
     //    do {
     //        if !server.isConnected { try server.connect() }
     //        let database = server[databaseName]
