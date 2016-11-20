@@ -9,7 +9,7 @@ public protocol FlexworkAPI {
     func insert(databaseName: String, collectionName: String, document: Document)
     func find(databaseName: String, collectionName: String, query: Query) -> Cursor<Document> 
 
-    //func update(databaseName: String, collectionName: String, query: Query, document: Document)
+    func update(databaseName: String, collectionName: String, query: Query, document: Document)
 
     func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType?
 }
