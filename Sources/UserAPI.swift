@@ -4,18 +4,9 @@ import Foundation
  * Make something final
  *
  */
- 
-public enum CompOperation {
-    case lessThan
-    case lessThanOrEqualTo
-    case equalTo
-    case greaterThan
-    case greaterThanOrEqualTo
-    case notEqualTo
-}
 
 public class UserAPI {
-/*    func get(_ db: String, _ col: String, _ op: CompOperation, _ field: String, _ value: String, completion: (String) -> ()) {
+/*    func get(_ db: String, _ col: String, _ op: Comparison, _ field: String, _ value: String, completion: (String) -> ()) {
         let operation: String
         switch op {
             case .lessThan:
