@@ -156,17 +156,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-    // test create collection
-    // public func createCollection(name: String) {
-    //    do {
-    //        if !server.isConnected { try server.connect() }
-    //        let database = server[databaseName]
-    //        try database.createCollection(name)
-    //    } catch {
-    //        // handle exception
-    //    }        
-    //}
-
+    
     public func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType? {
         if let colConfig = dictionary[databaseName],
            let config = colConfig[collectionName] {
