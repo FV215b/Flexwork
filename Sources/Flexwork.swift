@@ -201,6 +201,18 @@ public class Flexwork: FlexworkAPI {
         }
     }   
 
+    public func delete(databaseName: String, collectionName: String, query: Query) {
+        do {
+            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            try collection.remove(matching: query)
+            
+        } catch {
+            // TODO: handle exception  
+            exit(1)
+        }
+    }
+
+
     private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
