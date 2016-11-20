@@ -21,14 +21,17 @@ public class Flexwork: FlexworkAPI {
     static let defaultPassword = "password"
 
     let server: Server!
+    //let collectionConfigDictionary: [String: CollectionConfiguration]
+    let dictionary: [String: [String: CollectionConfiguration]]
 
     // These two vars are used for testing only
     let databaseName = Flexwork.defaultDatabaseName
     let collectionName = "test_collection"
     
     // Find database if it is already running
-    public init(_ dbConfig: DatabaseConfiguration) {
+    public init(_ dbConfig: DatabaseConfiguration, dictionary: [String: [String: CollectionConfiguration]]) {
         
+        self.dictionary = dictionary
         var authorization: (username: String, password: String, against: String)? = nil
         guard let host = dbConfig.host,
               let port = dbConfig.port else {
@@ -52,7 +55,9 @@ public class Flexwork: FlexworkAPI {
 
     public init(database: String = Flexwork.defaultDatabaseName, host: String = Flexwork.defaultMongoHost, 
         port: UInt16 = Flexwork.defaultMongoPort, username: String = Flexwork.defaultUsername,
-        password: String = Flexwork.defaultPassword) {
+        password: String = Flexwork.defaultPassword, dictionary: [String: [String: CollectionConfiguration]]) {
+
+        self.dictionary = dictionary
         
         do {
             server = try Server("mongodb://\(username):\(password)@\(host):\(port)", automatically: true)
@@ -105,6 +110,19 @@ public class Flexwork: FlexworkAPI {
             let collection = database[collectionName]
 
             try collection.insert(document)
+        } catch {
+            // handle exception
+        }
+    }
+
+    public func test_insert(doc: Document) {
+        do {
+            if !server.isConnected { try server.connect() }
+
+            let database = server[databaseName]
+            let collection = database["asdfasdfaasdfasdffasdfasdf"]
+
+            try collection.insert(doc)
         } catch {
             // handle exception
         }
@@ -172,17 +190,23 @@ public class Flexwork: FlexworkAPI {
     }
 
     // test create collection
-    func createCollection(name: String, document: Document) {
-        do {
-            if !server.isConnected { try server.connect() }
+    //public func createCollection(name: String) {
+    //    do {
+    //        if !server.isConnected { try server.connect() }
+    //        let database = server[databaseName]
+    //        try database.createCollection(name)
+    //    } catch {
+    //        // handle exception
+    //    }        
+    //}
 
-            let database = server[databaseName]
-            try database.createCollection(name)
-            let collection = database[name]
-            try collection.insert(document)
-        } catch {
-            // handle exception
-        }        
+    public func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType? {
+        if let colConfig = dictionary[databaseName],
+           let config = colConfig[collectionName] {
+            return config.getFieldType(fieldName: fieldName)       
+        } else {
+            return nil
+        } 
     }
 
     // Methods in FlexworkAPI

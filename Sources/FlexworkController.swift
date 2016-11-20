@@ -48,8 +48,11 @@ public class FlexworkController {
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
         let opComparison: Comparison
+        let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field)!
+        
         switch operation {
         // !!!!!!!!!!!!!! you need to cast the unicode back to the operator you defined.
+        // also encapsulate this switch code into a getOperation() method. cuz you will reuse these code
         case "<":
             opComparison = .lessThan
         case "<=":
@@ -63,6 +66,7 @@ public class FlexworkController {
         default:
             opComparison = .equalTo
         }
+        
         let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
         //******************************************** testing
         print("dbName: \(dbName)")

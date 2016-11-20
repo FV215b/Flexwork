@@ -8,13 +8,6 @@ import Foundation
 * Only the field used for defining query rules needed to be included.
 */
 
-enum FieldType {
-    case int
-    case boolean
-    case double
-    case string
-}
-
 public class CollectionConfiguration {
 
     var name = "test_collection"
@@ -26,5 +19,9 @@ public class CollectionConfiguration {
 
     func addNewFieldType(fieldName: String, type: FieldType) {
         queryFieldType[fieldName] = type
+    }
+
+    func getFieldType(fieldName: String) -> FieldType? {
+        return queryFieldType[fieldName]
     }
 }

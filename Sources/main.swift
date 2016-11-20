@@ -10,7 +10,33 @@
 import Kitura
 import MongoKitten
 
-let flexwork = Flexwork()
+let databaseName = "test_db"
+
+let collectionName_1 = "test_collection"
+let fieldName_1 = "id"
+let fieldType_1 = FieldType.string
+let fieldName_2 = "count"
+let fieldType_2 = FieldType.int
+let collectionConfig_1 = CollectionConfiguration(collectionName: collectionName_1)
+collectionConfig_1.addNewFieldType(fieldName: fieldName_1, type: fieldType_1)
+collectionConfig_1.addNewFieldType(fieldName: fieldName_2, type: fieldType_2)
+
+let collectionName_2 = "test_collection2"
+let collectionConfig_2 = CollectionConfiguration(collectionName: collectionName_2)
+
+let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2]]
+
+let dbConfig = DatabaseConfiguration(host: "127.0.0.1", port: UInt16(27017), username: nil, password: nil)
+
+let flexwork = Flexwork(dbConfig, dictionary: dictionary)
+
+let doc: Document = [
+    "id": "gh84",
+    "count": 66
+]
+
+flexwork.test_insert(doc: doc)
+
 let controller = FlexworkController(backend: flexwork)
 
 Kitura.addHTTPServer(onPort: 8090, with: controller.router)

@@ -4,7 +4,7 @@ import Foundation
 /**
  * Define operation types: <, <=, ==, >, >=, !=
  */
-enum Comparison {
+public enum Comparison {
     case lessThan
     case lessThanOrEqualTo
     case equalTo
