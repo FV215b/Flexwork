@@ -115,18 +115,6 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-    public func test_insert(doc: Document) {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database["asdfasdfaasdfasdffasdfasdf"]
-
-            try collection.insert(doc)
-        } catch {
-            // handle exception
-        }
-    }
 
     public func find(fieldName: String, fieldVal: Int) {
         do {
@@ -136,27 +124,6 @@ public class Flexwork: FlexworkAPI {
             let collection = database[collectionName]
 
             let query: Query = fieldName <= fieldVal && "id" == "jy175"
-
-            let docs = try collection.find(matching: query)
-            for doc in docs {
-                print(doc)
-            }
-            
-        } catch {
-            // handle exception
-        }
-    }
-
-    // test func for QueryBuilder
-    public func find_test_for_buildQuery() {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query = QueryBuilder.buildQuery(fieldName: "id", fieldVal: "jy175", comparisonOperator: Comparison.equalTo) && 
-                        QueryBuilder.buildQuery(fieldName: "count", fieldVal: 90, comparisonOperator: Comparison.lessThanOrEqualTo)
 
             let docs = try collection.find(matching: query)
             for doc in docs {
