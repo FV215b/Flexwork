@@ -53,27 +53,43 @@ public class FlexworkController {
         switch operation {
         // !!!!!!!!!!!!!! you need to cast the unicode back to the operator you defined.
         // also encapsulate this switch code into a getOperation() method. cuz you will reuse these code
-        case "<":
+        case "lessThan": //"<"
             opComparison = .lessThan
-        case "<=":
+        case "lessThanOrEqualTo": //"<="
             opComparison = .lessThanOrEqualTo
-        case ">":
+        case "greaterThan": //">"
             opComparison = .greaterThan
-        case ">=":
+        case "greaterThanOrEqualTo": //">="
             opComparison = .greaterThanOrEqualTo
-        case "!=":
+        case "notEqualTo": //"!="
             opComparison = .notEqualTo
-        default:
+        default: //"="
             opComparison = .equalTo
         }
         
-        let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
+        let parseQuery: Query
+        switch fieldType {
+        case .int:
+            let v = Int(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+        case .bool:
+            let v = Bool(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+        case .double:
+            let v = Double(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+        default:
+            let v = String(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+        }
+        
         //******************************************** testing
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
         print("op: \(operation)")
         print("field: \(field)")
         print("value: \(value)")
+        print("fieldType: \(fieldType)")
         let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
             for doc in docs {
                 print("\(doc)")
