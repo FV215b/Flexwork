@@ -5,7 +5,7 @@ public protocol FlexworkAPI {
     
     //func count(collectionName: String, query: Query) -> Int
     //func delete(collectionName: String, query: Query)
-    //func insert(collectionName: String, document: Document)
+    func insert(databaseName: String, collectionName: String, document: Document)
     func find(databaseName: String, collectionName: String, query: Query) -> Cursor<Document> 
     //func update(collectionName: String, query: Query, document: Document)
     //func setupCollection()

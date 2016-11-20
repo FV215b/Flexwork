@@ -35,7 +35,7 @@ let doc: Document = [
     "count": 66
 ]
 
-flexwork.test_insert(doc: doc)
+// flexwork.test_insert(doc: doc)
 
 let controller = FlexworkController(backend: flexwork)
 

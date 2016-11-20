@@ -69,18 +69,28 @@ public class FlexworkController {
         
         let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
         //******************************************** testing
+        print("fieldType: \(fieldType)")
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
         print("op: \(operation)")
         print("field: \(field)")
         print("value: \(value)")
+        
+        var res = [String: [String]]()
+        res["doc"] = [String]()
         let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
             for doc in docs {
-                print("\(doc)")
+                res["doc"]!.append(doc.makeExtendedJSON())
+                print("doc: \(doc)")
+                print("doc.makeExtendedJSON(): \(doc.makeExtendedJSON())")
             }
         //********************************************
+        print("res: \(res)")
         do {
-            try response.send("\(docs)").end()
+            let jsonData = try JSONSerialization.data(withJSONObject: res, options: [])
+            print("\(jsonData)")
+            //try response.send("\(res)").end()
+            try response.send(data: jsonData).end()
         } catch {
             
         }

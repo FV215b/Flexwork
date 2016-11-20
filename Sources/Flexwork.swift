@@ -221,6 +221,17 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    // Methods in FlexworkAPI
+    public func insert(databaseName: String, collectionName: String, document: Document) {
+        do {
+            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            try collection.insert(document)
+        } catch {
+            // handle exception
+            exit(1)
+        }
+    }
+
     private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
