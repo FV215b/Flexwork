@@ -47,7 +47,7 @@ public class FlexworkController {
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
-        let opComparison: comparison
+        let opComparison: Comparison
         switch operation {
         case "<":
             opComparison = .lessThan
@@ -63,8 +63,19 @@ public class FlexworkController {
             opComparison = .equalTo
         }
         let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
+        //********************************************
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("op: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        let docs = flexwork.find(collectionName: colName, query: parseQuery)
+            for doc in docs {
+                print("\(doc)")
+            }
+        //********************************************
         do {
-            try response.send(flexwork.find(collectionName: colName, query: parseQuery)).end()
+            try response.send("\(flexwork.find(collectionName: colName, query: parseQuery))").end()
         } catch {
             
         }

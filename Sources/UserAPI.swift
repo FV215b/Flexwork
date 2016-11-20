@@ -1,7 +1,7 @@
 import Foundation
 
 public class UserAPI {
-    func get(_ db: String, _ col: String, _ op: String, _ field: String, _ val: String, completion: (String) -> ()) {
+/*    func get(_ db: String, _ col: String, _ op: String, _ field: String, _ val: String, completion: (String) -> ()) {
         let url = URL(string: "http://127.0.0.1:8080/\(db)/\(col)?op=\(op)&field=\(field)&value=\(val)")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -16,5 +16,5 @@ public class UserAPI {
             }
         }
         task.resume()
-    }
+    }    */
 }

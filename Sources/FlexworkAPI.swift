@@ -1,7 +1,6 @@
 import MongoKitten
 import Foundation
 //import LoggerAPI
-
 public protocol FlexworkAPI {
     
     //func count(collectionName: String, query: Query) -> Int

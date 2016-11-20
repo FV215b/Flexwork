@@ -9,7 +9,7 @@ import LoggerAPI
     typealias Valuetype = AnyObject
 #endif
 
-public class Flexwork {
+public class Flexwork: FlexworkAPI {
 
     static let defaultMongoHost = "127.0.0.1"
     static let defaultMongoPort = UInt16(27017)
@@ -179,5 +179,22 @@ public class Flexwork {
         } catch {
             // handle exception
         }        
+    }
+
+    // Method in FlexworkAPI
+    public func find(collectionName: String, query: Query) -> Cursor<Document> {
+        do {
+            if !server.isConnected { try server.connect() }
+
+            let database = server[databaseName]
+            let collection = database[collectionName]
+
+            let docs = try collection.find(matching: query)
+
+            return docs
+        } catch {
+            // handle exception
+            exit(1)
+        }
     }
 }

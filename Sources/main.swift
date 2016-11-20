@@ -10,13 +10,14 @@
 import Kitura
 import MongoKitten
 
-//let flexwork = Flexwork()
-//let controller = FlexworkController(backend: flexwork)
+let flexwork = Flexwork()
+let controller = FlexworkController(backend: flexwork)
 
-//Kitura.addHTTPServer(onPort: 8090, with: controller.router)
+Kitura.addHTTPServer(onPort: 8090, with: controller.router)
 
-//Kitura.run()
+Kitura.run()
 
+/*
 print("Test Begin!")
 
 let dbConfig = DatabaseConfiguration(host: "127.0.0.1", port: UInt16(27017), username: nil, password: nil)
@@ -25,6 +26,7 @@ let flexwork = Flexwork(dbConfig)
 flexwork.count(fieldName: "id", fieldVal: "jz173")
 flexwork.count(fieldName: "id", fieldVal: "jy175")
 flexwork.count(fieldName: "id", fieldVal: "gh84")
+flexwork.count(fieldName: "id", fieldVal: "jz173")
 
 print("delete document with id == gh84")
 flexwork.delete(fieldName: "id", fieldVal: "gh84")
@@ -48,3 +50,4 @@ print("*************test_create_collection_by_name***********")
 flexwork.createCollection(name: "aspofdpsaofdjposajdfpojsafd", document: doc)
 
 print("Test Finish!")
+*/
