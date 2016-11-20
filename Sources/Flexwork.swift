@@ -199,6 +199,18 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    public func count(databaseName: String, collectionName: String, query: Query) -> Int {
+    	do {
+            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let count = try collection.count(matching: query)
+            
+            return count
+        } catch {
+            // TODO: handle exception
+            exit(1);
+        }
+    }   
+
     private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
