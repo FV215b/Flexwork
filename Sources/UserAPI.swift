@@ -1,5 +1,10 @@
 import Foundation
 
+/**
+ * Make something final
+ *
+ */
+
 public class UserAPI {
 /*    func get(_ db: String, _ col: String, _ op: String, _ field: String, _ val: String, completion: (String) -> ()) {
         let url = URL(string: "http://127.0.0.1:8080/\(db)/\(col)?op=\(op)&field=\(field)&value=\(val)")

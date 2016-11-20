@@ -2,10 +2,10 @@ import Foundation
 
 public struct DatabaseConfiguration {
 
-    public var host: String?
-    public var port: UInt16?
-    public var username: String?
-    public var password: String?
+    var host: String?
+    var port: UInt16?
+    var username: String?
+    var password: String?
     
     public init(host: String?, port: UInt16?, username: String?, password: String?) {
         self.host = host

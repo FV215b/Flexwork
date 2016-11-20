@@ -1,7 +1,6 @@
 import MongoKitten
 import Foundation
 import LoggerAPI
-//import Kitura
 
 #if os(Linux)
     typealias Valuetype = Any
@@ -9,6 +8,10 @@ import LoggerAPI
     typealias Valuetype = AnyObject
 #endif
 
+/**
+ * Flexwork implements FlexworkAPI. Provides solid methods to interact with databse including 
+ * count(), query(), insert(), delete() and update()
+ */
 public class Flexwork: FlexworkAPI {
 
     static let defaultMongoHost = "127.0.0.1"
@@ -17,11 +20,12 @@ public class Flexwork: FlexworkAPI {
     static let defaultUsername = "username"
     static let defaultPassword = "password"
 
-    let databaseName = Flexwork.defaultDatabaseName
-    let collectionName = "test_collection"
-
     let server: Server!
 
+    // These two vars are used for testing only
+    let databaseName = Flexwork.defaultDatabaseName
+    let collectionName = "test_collection"
+    
     // Find database if it is already running
     public init(_ dbConfig: DatabaseConfiguration) {
         
@@ -181,20 +185,26 @@ public class Flexwork: FlexworkAPI {
         }        
     }
 
-    // Method in FlexworkAPI
-    public func find(collectionName: String, query: Query) -> Cursor<Document> {
+    // Methods in FlexworkAPI
+    public func find(databaseName: String, collectionName: String, query: Query) -> Cursor<Document> {
         do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
+            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
             let docs = try collection.find(matching: query)
-
             return docs
         } catch {
             // handle exception
             exit(1)
         }
+    }
+
+    private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
+        do {
+            if !server.isConnected { try server.connect() }
+            let database = server[databaseName]
+            return database[collectionName]
+        } catch {
+            // TODO: handle exception
+            exit(1)
+        }        
     }
 }

@@ -49,6 +49,7 @@ public class FlexworkController {
         let value = request.queryParameters["value"] ?? ""
         let opComparison: Comparison
         switch operation {
+        // !!!!!!!!!!!!!! you need to cast the unicode back to the operator you defined.
         case "<":
             opComparison = .lessThan
         case "<=":
@@ -63,19 +64,19 @@ public class FlexworkController {
             opComparison = .equalTo
         }
         let parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: value, comparisonOperator: opComparison)
-        //********************************************
+        //******************************************** testing
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
         print("op: \(operation)")
         print("field: \(field)")
         print("value: \(value)")
-        let docs = flexwork.find(collectionName: colName, query: parseQuery)
+        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
             for doc in docs {
                 print("\(doc)")
             }
         //********************************************
         do {
-            try response.send("\(flexwork.find(collectionName: colName, query: parseQuery))").end()
+            try response.send("\(docs)").end()
         } catch {
             
         }

@@ -1,6 +1,9 @@
 import MongoKitten
 import Foundation
 
+/**
+ * Define operation types: <, <=, ==, >, >=, !=
+ */
 enum Comparison {
     case lessThan
     case lessThanOrEqualTo
@@ -10,12 +13,14 @@ enum Comparison {
     case notEqualTo
 }
 
+/**
+ * QueryBuilder is used for returning the query rule based on the input params. For now, flexwork can be queried with 4 value 
+ * type: Int, String, Double, Bool. Because it only makes sense to do the comparison with few types. Maybe we will support
+ * other types (like Date) later, depending on our schedule.
+ */
 public class QueryBuilder {
 
-    // We need bunch of overloaded buildQuery() because fieldVal could have different types
     static func buildQuery(fieldName: String, fieldVal: String, comparisonOperator: Comparison) -> Query {
-        //let query: Query = fieldName == fieldVal ?? "defaultVal"
-        //return query
         switch comparisonOperator {
         case Comparison.lessThan:
             return fieldName < fieldVal
@@ -29,16 +34,10 @@ public class QueryBuilder {
             return fieldName >= fieldVal
         case Comparison.notEqualTo:
             return fieldName != fieldVal
-        //default:
-            // TODO: should throw an exception.
-            //return fieldName == fieldVal 
         }
     }   
 
     static func buildQuery(fieldName: String, fieldVal: Int, comparisonOperator: Comparison) -> Query {
-        //let query: Query = fieldName == fieldVal
-        //return query
-        //return fieldName == fieldVal
         switch comparisonOperator {
         case Comparison.lessThan:
             return fieldName < fieldVal
@@ -52,9 +51,36 @@ public class QueryBuilder {
             return fieldName >= fieldVal
         case Comparison.notEqualTo:
             return fieldName != fieldVal
-        //default:
-            // TODO: should throw an exception.
-            //return fieldName == fieldVal 
+        }
+    }
+
+    static func buildQuery(fieldName: String, fieldVal: Double, comparisonOperator: Comparison) -> Query {
+        switch comparisonOperator {
+        case Comparison.lessThan:
+            return fieldName < fieldVal
+        case Comparison.lessThanOrEqualTo:
+            return fieldName <= fieldVal
+        case Comparison.equalTo:
+            return fieldName == fieldVal
+        case Comparison.greaterThan:
+            return fieldName > fieldVal
+        case Comparison.greaterThanOrEqualTo:
+            return fieldName >= fieldVal
+        case Comparison.notEqualTo:
+            return fieldName != fieldVal
+        }
+    }
+
+    static func buildQuery(fieldName: String, fieldVal: Bool, comparisonOperator: Comparison) -> Query {
+        switch comparisonOperator {
+        case Comparison.equalTo:
+            return fieldName == fieldVal
+        case Comparison.notEqualTo:
+            return fieldName != fieldVal
+        default:
+            // make it return something for now. Should revise later
+            // TODO: throw exception
+            return fieldName == fieldVal
         }
     }
 }
