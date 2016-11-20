@@ -2,18 +2,6 @@ import MongoKitten
 import Foundation
 
 /**
- * Define operation types: <, <=, ==, >, >=, !=
- */
-public enum Comparison {
-    case lessThan
-    case lessThanOrEqualTo
-    case equalTo
-    case greaterThan
-    case greaterThanOrEqualTo
-    case notEqualTo
-}
-
-/**
  * QueryBuilder is used for returning the query rule based on the input params. For now, flexwork can be queried with 4 value 
  * type: Int, String, Double, Bool. Because it only makes sense to do the comparison with few types. Maybe we will support
  * other types (like Date) later, depending on our schedule.
