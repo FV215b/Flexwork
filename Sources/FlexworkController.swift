@@ -4,6 +4,18 @@ import LoggerAPI
 import Kitura
 import SwiftyJSON
 
+/*public indirect enum ParsedBody {
+    case json(JSON)
+    case text
+    case raw
+    case multipart
+    case urlEncoded
+    case asJSON
+    case asMultiPart
+    case asText
+    case asURLEncode
+}*/
+
 class AllRemoteOriginMiddleware: RouterMiddleware {
     func handle(request: RouterRequest, response: RouterResponse, next: @escaping () -> Swift.Void) {
         response.headers["Access-Control-Allow-Origin"] = "*"
@@ -28,7 +40,7 @@ public class FlexworkController {
         router.get("/:dbname/:collectionname", handler: onGetItems)
         router.get("/get_json_body", handler: onGetJsonBody)
         router.get("/", handler: onGetTest)
-        router.post("/:dbname/:collectionname", onPostItems)
+        router.post("/:dbname/:collectionname",handler: onPostItems)
         // router.put("/:dbname/:collectionname/:id", onPutItems)
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         // router.delete("/:dbname/:collectionname/:id", onDeleteItems)
@@ -49,15 +61,16 @@ public class FlexworkController {
             Log.error("Body contains invalid JSON")
             return
         }
+        //let bodyString = request.readString() as! [String:String]
         var doc = Document()
         for (key, value) in json {
-            doc["key"] = value
+            doc[key] = ~value
         }
         print("\(doc)")
         flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
         do {
-            let success = Data("success")
-            try response.status(.OK).send(data: success).end()
+            let success: String = "success"
+            try response.status(.OK).send(success).end()
         } catch {
             Log.error("Error sending response")
         }
