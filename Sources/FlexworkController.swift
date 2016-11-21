@@ -28,7 +28,7 @@ public class FlexworkController {
         router.get("/:dbname/:collectionname", handler: onGetItems)
         router.get("/get_json_body", handler: onGetJsonBody)
         router.get("/", handler: onGetTest)
-        // router.post("/:dbname/:collectionname/:id", onPostItems)
+        router.post("/:dbname/:collectionname", onPostItems)
         // router.put("/:dbname/:collectionname/:id", onPutItems)
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         // router.delete("/:dbname/:collectionname/:id", onDeleteItems)
@@ -41,6 +41,28 @@ public class FlexworkController {
         }
     }
 
+    private func onPostItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        guard case let .json(json) = request.body else {
+            response.status(.badRequest)
+            Log.error("Body contains invalid JSON")
+            return
+        }
+        var doc = Document()
+        for (key, value) in json {
+            doc["key"] = value
+        }
+        print("\(doc)")
+        flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
+        do {
+            let success = Data("success")
+            try response.status(.OK).send(data: success).end()
+        } catch {
+            Log.error("Error sending response")
+        }
+    }
+    
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
