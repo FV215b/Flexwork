@@ -36,9 +36,9 @@ public class FlexworkController {
 
     private func setupRouter() {
         router.all("/*", middleware: AllRemoteOriginMiddleware())
-        router.all("/get_json_body", middleware: BodyParser())
+        router.all("/*", middleware: BodyParser())
         router.get("/:dbname/:collectionname", handler: onGetItems)
-        router.get("/get_json_body", handler: onGetJsonBody)
+        //router.get("/get_json_body", handler: onGetJsonBody)
         router.get("/", handler: onGetTest)
         router.post("/:dbname/:collectionname",handler: onPostItems)
         // router.put("/:dbname/:collectionname/:id", onPutItems)
@@ -56,21 +56,39 @@ public class FlexworkController {
     private func onPostItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
-        guard case let .json(json) = request.body else {
+        print(dbName)
+        print(colName)
+        guard case let .json(json) = request.body! else {
             response.status(.badRequest)
             Log.error("Body contains invalid JSON")
             return
         }
-        //let bodyString = request.readString() as! [String:String]
-        var doc = Document()
-        for (key, value) in json {
-            doc[key] = ~value
-        }
-        print("\(doc)")
-        flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
+        print("json = \(json)")
+        let dict: [String:Any] = json.object as! [String:Any]
+        print("dict = \(dict)")
+        var dataToSend = Data()
         do {
-            let success: String = "success"
-            try response.status(.OK).send(success).end()
+            dataToSend = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        } catch  {
+            response.status(.badRequest)
+            Log.error("Body parsing failed")
+            return
+        }
+        if let dataString = NSString(data: dataToSend, encoding: String.Encoding.utf8.rawValue){
+            print("dataString = \(dataString)") 
+//Above is all ok
+            let doc: Document = Document(data: dataToSend)
+// Here it prints nothing, Although I tried to init it with Data/Uint8/Array/DictionaryElement/DictionaryLiteral 
+            print("doc = \(doc)")
+            flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
+        }
+        else {
+            response.status(.badRequest)
+            Log.error("Body parsing failed")
+            return
+        }
+        do {
+            try response.status(.OK).send("Success").end()
         } catch {
             Log.error("Error sending response")
         }
