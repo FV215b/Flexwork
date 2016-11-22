@@ -59,7 +59,7 @@ public class FlexworkController {
             if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key){
             switch fieldType {
             case .int:
-                let temp: (String, Value) = (key, ~(val as! Int))
+                let temp: (String, Value) = (key, (~Int32(val as! Int)))
                 docDict.append(temp)
                 print("\(key) has int \(val)")
             case .bool:
