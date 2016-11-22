@@ -4,18 +4,6 @@ import LoggerAPI
 import Kitura
 import SwiftyJSON
 
-/*public indirect enum ParsedBody {
-    case json(JSON)
-    case text
-    case raw
-    case multipart
-    case urlEncoded
-    case asJSON
-    case asMultiPart
-    case asText
-    case asURLEncode
-}*/
-
 class AllRemoteOriginMiddleware: RouterMiddleware {
     func handle(request: RouterRequest, response: RouterResponse, next: @escaping () -> Swift.Void) {
         response.headers["Access-Control-Allow-Origin"] = "*"
@@ -66,27 +54,55 @@ public class FlexworkController {
         print("json = \(json)")
         let dict: [String:Any] = json.object as! [String:Any]
         print("dict = \(dict)")
-        var dataToSend = Data()
+        var docDict = [(String, Value)]()
+        for (key, val) in dict {
+            if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key){
+            switch fieldType {
+            case .int:
+                let temp: (String, Value) = (key, ~(val as! Int))
+                docDict.append(temp)
+                print("\(key) has int \(val)")
+            case .bool:
+                let temp: (String, Value) = (key, ~(val as! Bool))
+                docDict.append(temp)
+                print("\(key) has bool \(val)")
+            case .double:
+                let temp: (String, Value) = (key, ~(val as! Double))
+                docDict.append(temp)
+                print("\(key) has double \(val)")
+            default:
+                let temp: (String, Value) = (key, ~(val as! String))
+                docDict.append(temp)
+                print("\(key) has string \(val)")
+            }
+            }
+            else {
+                print("fieldType \(key) is nil")
+            }
+        }
+        print("docDict = \(docDict)")
+        /*var dataToSend = Data()
         do {
-            dataToSend = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+            print("dataToSend start")
+            dataToSend = try JSONSerialization.data(withJSONObject: docDict, options: .prettyPrinted)
+            print("dataToSend success")
         } catch  {
             response.status(.badRequest)
             Log.error("Body parsing failed")
             return
         }
         if let dataString = NSString(data: dataToSend, encoding: String.Encoding.utf8.rawValue){
-            print("dataString = \(dataString)") 
-//Above is all ok
-            let doc: Document = Document(data: dataToSend)
-// Here it prints nothing, Although I tried to init it with Data/Uint8/Array/DictionaryElement/DictionaryLiteral 
+            print("dataString = \(dataString)") */
+
+            let doc: Document = Document(dictionaryElements: docDict)
             print("doc = \(doc)")
             flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
-        }
+        /*}
         else {
             response.status(.badRequest)
             Log.error("Body parsing failed")
             return
-        }
+        }*/
         do {
             try response.status(.OK).send("Success").end()
         } catch {
@@ -101,8 +117,17 @@ public class FlexworkController {
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
         let opComparison: Comparison
-        let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field)!
-        
+        print("ready to get fieldType")
+        guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else{
+            do {
+                try response.status(.badRequest).send("Field type does not exist").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+            return 
+        }
+        //Get field failed if not "id" or "count", did you set it as static at the back? 
+        print("get fieldType success")
         switch operation {
         // !!!!!!!!!!!!!! you need to cast the unicode back to the operator you defined.
         // also encapsulate this switch code into a getOperation() method. cuz you will reuse these code
@@ -161,7 +186,7 @@ public class FlexworkController {
             //try response.send("\(res)").end()
             try response.send(data: jsonData).end()
         } catch {
-            
+             Log.error("Error sending response")
         }
     }
 
