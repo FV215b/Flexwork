@@ -231,6 +231,6 @@ public class Flexwork: FlexworkAPI {
         } catch {
             // TODO: handle exception
             exit(1)
-        }        
+        }
     }
 }
