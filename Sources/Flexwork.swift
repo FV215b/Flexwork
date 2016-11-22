@@ -37,7 +37,7 @@ public class Flexwork: FlexworkAPI {
               let port = dbConfig.port else {
 
                     Log.info("Host and port were not provided")
-                    exit(1)
+//                    exit(1)
         }
 
         if let username = dbConfig.username, let password = dbConfig.password {
@@ -49,7 +49,7 @@ public class Flexwork: FlexworkAPI {
         } catch {
             print("Error: MongoDB is not available on host: \(host) and port: \(port)")
             Log.info("MongoDB is not available on host: \(host) and port: \(port)")
-            exit(1)
+//            exit(1)
         }
     }
 
@@ -63,7 +63,7 @@ public class Flexwork: FlexworkAPI {
             server = try Server("mongodb://\(username):\(password)@\(host):\(port)", automatically: true)
         } catch {
             Log.info("MongoDB is not available on host: \(host) and port: \(port)")
-            exit(1) 
+//            exit(1) 
         }
     }
 
@@ -174,7 +174,7 @@ public class Flexwork: FlexworkAPI {
             return docs
         } catch {
             // handle exception
-            exit(1)
+//            exit(1)
         }
     }
 
@@ -185,7 +185,7 @@ public class Flexwork: FlexworkAPI {
             try collection.insert(document)
         } catch {
             // handle exception
-            exit(1)
+//            exit(1)
         }
     }
 
@@ -197,7 +197,7 @@ public class Flexwork: FlexworkAPI {
             return count
         } catch {
             // TODO: handle exception
-            exit(1);
+//            exit(1);
         }
     }   
 
@@ -208,7 +208,7 @@ public class Flexwork: FlexworkAPI {
             
         } catch {
             // TODO: handle exception  
-            exit(1)
+//            exit(1)
         }
     }
 
@@ -218,7 +218,7 @@ public class Flexwork: FlexworkAPI {
             try collection.update(matching: query, to: document)
         } catch {
             // TODO: handle exception
-            exit(1)
+//            exit(1)
         }
     }
 
@@ -230,7 +230,7 @@ public class Flexwork: FlexworkAPI {
             return database[collectionName]
         } catch {
             // TODO: handle exception
-            exit(1)
-        }        
+//            exit(1)
+        }
     }
 }
