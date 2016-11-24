@@ -46,7 +46,13 @@ public class FlexworkController {
         let colName = request.parameters["collectionname"] ?? ""
         print(dbName)
         print(colName)
-        guard case let .json(json) = request.body! else {
+        guard let requestBody = request.body else {
+            print("request body is nil")
+            response.status(.badRequest)//.send("request body is nil").end()
+            Log.error("Body contains invalid JSON")
+            return
+        }
+        guard case let .json(json) = requestBody else {
             response.status(.badRequest)
             Log.error("Body contains invalid JSON")
             return
@@ -59,7 +65,7 @@ public class FlexworkController {
             if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key){
             switch fieldType {
             case .int:
-                let temp: (String, Value) = (key, (~Int32(val as! Int)))
+                let temp: (String, Value) = (key, ~Int32(val as! Int))
                 docDict.append(temp)
                 print("\(key) has int \(val)")
             case .bool:
@@ -110,14 +116,30 @@ public class FlexworkController {
         }
     }
     
+    private func getEnumComparisonType(op: String) -> Comparison {
+        switch op {
+        case "lessThan": 
+            return .lessThan
+        case "lessThanOrEqualTo": 
+            return .lessThanOrEqualTo
+        case "greaterThan": 
+            return .greaterThan
+        case "greaterThanOrEqualTo": 
+            return .greaterThanOrEqualTo
+        case "notEqualTo": 
+            return .notEqualTo
+        default: 
+            return .equalTo
+        }
+    }
+
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
-        let opComparison: Comparison
-        print("ready to get fieldType")
+        let opComparison: Comparison = getEnumComparisonType(op: operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else{
             do {
                 try response.status(.badRequest).send("Field type does not exist").end()
@@ -126,39 +148,20 @@ public class FlexworkController {
             }
             return 
         }
-        //Get field failed if not "id" or "count", did you set it as static at the back? 
-        print("get fieldType success")
-        switch operation {
-        // !!!!!!!!!!!!!! you need to cast the unicode back to the operator you defined.
-        // also encapsulate this switch code into a getOperation() method. cuz you will reuse these code
-        case "lessThan": //"<"
-            opComparison = .lessThan
-        case "lessThanOrEqualTo": //"<="
-            opComparison = .lessThanOrEqualTo
-        case "greaterThan": //">"
-            opComparison = .greaterThan
-        case "greaterThanOrEqualTo": //">="
-            opComparison = .greaterThanOrEqualTo
-        case "notEqualTo": //"!="
-            opComparison = .notEqualTo
-        default: //"="
-            opComparison = .equalTo
-        }
-        
         let parseQuery: Query
         switch fieldType {
         case .int:
-            let v = Int(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+            let valWithType = Int(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
         case .bool:
-            let v = Bool(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+            let valWithType = Bool(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
         case .double:
-            let v = Double(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+            let valWithType = Double(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
         default:
-            let v = String(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: v, comparisonOperator: opComparison)
+            let valWithType = String(value)!
+            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
         }
         
         //******************************************** testing
@@ -169,21 +172,48 @@ public class FlexworkController {
         print("field: \(field)")
         print("value: \(value)")
         print("fieldType: \(fieldType)")
-        
-        var res = [String: [String]]()
-        res["doc"] = [String]()
-        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
-            for doc in docs {
-                res["doc"]!.append(doc.makeExtendedJSON())
-                print("doc: \(doc)")
-                print("doc.makeExtendedJSON(): \(doc.makeExtendedJSON())")
-            }
         //********************************************
-        print("res: \(res)")
+
+        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
+        let returnDict: [[String:Any]] = Array(docs).flatMap {
+            doc in
+
+            var element = [String:Any]()
+            for (key, value) in doc {
+                guard key != "_id" else {
+                    continue
+                }
+                guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
+                    do {
+                        try response.status(.badRequest).send("Field type does not exist").end()
+                    } catch {
+                        Log.error("Error sending response")
+                    }
+                    return nil
+                }
+                switch type {
+                case .int:
+                    element[key] = value.int
+                case .bool:
+                    element[key] = value.bool
+                case .double:
+                    element[key] = value.double
+                default:
+                    element[key] = value.string
+                }
+            }
+            return element
+        }
+        print("return dict = \(returnDict)")
+        /*for doc in docs {
+            result.append(doc.makeExtendedJSON())
+            print("doc: \(doc)")
+            print("doc.makeExtendedJSON(): \(doc.makeExtendedJSON())")
+        }
+        print("result: \(result)")*/
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: res, options: [])
+            let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: [])
             print("\(jsonData)")
-            //try response.send("\(res)").end()
             try response.send(data: jsonData).end()
         } catch {
              Log.error("Error sending response")
