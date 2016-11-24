@@ -1,7 +1,7 @@
 dependencies: \
-  /home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/utils.c \
-  /home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h \
-  /home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h \
+  /home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/utils.c \
+  /home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h \
+  /home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h \
   /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
   /usr/include/stdc-predef.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \

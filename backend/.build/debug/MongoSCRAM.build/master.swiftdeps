@@ -1,5 +1,5 @@
-version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
-options: "1d412b40a79ccfd61be41c3ca3a11073"
-build_time: [533336706, 994421000]
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "8db5cd332ae6b3dd557d6c83f53df9f2"
+build_time: [533337295, 690528000]
 inputs:
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/MongoKitten-1.7.3/Sources/MongoSCRAM/SCRAM.swift": [533336499, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/MongoKitten-1.7.3/Sources/MongoSCRAM/SCRAM.swift": [533337273, 0]

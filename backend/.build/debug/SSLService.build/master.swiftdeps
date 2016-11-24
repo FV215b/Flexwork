@@ -1,5 +1,5 @@
-version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
-options: "1b769eda920b726e92b119bc07980b12"
-build_time: [533336697, 590326000]
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "4f6aff17ddb147750751f1e10f2a77e6"
+build_time: [533337290, 772847000]
 inputs:
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/SSLService-0.11.56/Sources/SSLService.swift": [533336495, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/SSLService-0.11.56/Sources/SSLService.swift": [533337264, 0]

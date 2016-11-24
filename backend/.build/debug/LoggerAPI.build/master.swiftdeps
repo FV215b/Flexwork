@@ -1,5 +1,5 @@
-version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
-options: "8a0c9530c305bbb9eda42a009381ac8d"
-build_time: [533336696, 926454000]
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "cb06e974b39bc38732eaf79bb437114b"
+build_time: [533337286, 194037000]
 inputs:
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": [533336488, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": [533337256, 0]

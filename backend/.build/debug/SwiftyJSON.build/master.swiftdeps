@@ -1,6 +1,6 @@
-version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
-options: "1ae17022c84a2cbc04e80831931c6901"
-build_time: [533336686, 185275000]
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "fbe594b29e6661eac69af574d2986f9d"
+build_time: [533337282, 17534000]
 inputs:
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/SwiftyJSON-15.0.1/Source/SwiftyJSON.swift": [533336497, 0]
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/SwiftyJSON-15.0.1/Source/LclJSONSerialization.swift": [533336497, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/SwiftyJSON-15.0.1/Source/SwiftyJSON.swift": [533337267, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/SwiftyJSON-15.0.1/Source/LclJSONSerialization.swift": [533337267, 0]
