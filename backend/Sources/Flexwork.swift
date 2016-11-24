@@ -212,6 +212,16 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    public func update(databaseName: String, collectionName: String, query: Query, document: Document) {
+        do {
+            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            try collection.update(matching: query, to: document)
+        } catch {
+            // TODO: handle exception
+            exit(1)
+        }
+    }
+
 
     private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
         do {
@@ -221,6 +231,6 @@ public class Flexwork: FlexworkAPI {
         } catch {
             // TODO: handle exception
             exit(1)
-        }        
+        }
     }
 }

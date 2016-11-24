@@ -1,11 +1,11 @@
 {
   "": {
-    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/HeliumLogger.build/master.swiftdeps"
+    "swift-dependencies": "/home/ubuntu/flexwork_revise/project/backend/.build/debug/HeliumLogger.build/master.swiftdeps"
   },
-  "/home/yuchen/Documents/Veggies/project/backend/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": {
-    "dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.d",
-    "object": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.swift.o",
-    "swiftmodule": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/HeliumLogger.build/HeliumLogger~partial.swiftmodule",
-    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.swiftdeps"
+  "/home/ubuntu/flexwork_revise/project/backend/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": {
+    "dependencies": "/home/ubuntu/flexwork_revise/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.d",
+    "object": "/home/ubuntu/flexwork_revise/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.swift.o",
+    "swiftmodule": "/home/ubuntu/flexwork_revise/project/backend/.build/debug/HeliumLogger.build/HeliumLogger~partial.swiftmodule",
+    "swift-dependencies": "/home/ubuntu/flexwork_revise/project/backend/.build/debug/HeliumLogger.build/HeliumLogger.swiftdeps"
   }
 }

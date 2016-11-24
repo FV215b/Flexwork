@@ -6,8 +6,8 @@ provides-nominal:
 provides-member:
 - ["P20KituraTemplateEngine14TemplateEngine", ""]
 depends-top-level:
-- "TemplateEngine"
 - "String"
+- "TemplateEngine"
 depends-member:
 - ["P20KituraTemplateEngine14TemplateEngine", "String"]
 - ["P20KituraTemplateEngine14TemplateEngine", "fileExtension"]
@@ -17,21 +17,21 @@ depends-nominal:
 - "P20KituraTemplateEngine14TemplateEngine"
 depends-dynamic-lookup:
 depends-external:
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
 interface-hash: "a1ddc7b6abcb0ea7d3072612688bda91"

@@ -1,5 +1,5 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "53ab138227de13f482d6f1a8ad007df4"
-build_time: [533335330, 707359000]
+version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
+options: "c46ffbe5faffa1815a82b742a606ca79"
+build_time: [533336697, 498244000]
 inputs:
-  "/home/yuchen/Documents/Veggies/project/backend/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": [533335320, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": [533336502, 0]

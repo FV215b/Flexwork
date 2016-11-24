@@ -1,15 +1,15 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "da9129ccf51b7a9c0246390493066da3"
-build_time: [533335354, 628501000]
+version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
+options: "5a2b6683801886044c81444cf4505b68"
+build_time: [533336726, 210507000]
 inputs:
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/DictionaryConvertible.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/FlexworkAPI.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/Flexwork.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/main.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/CollectionConfiguration.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/Comparison.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/UserAPI.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/QueryBuilder.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/FlexworkController.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/DatabaseConfiguration.swift": [533335271, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Sources/FieldType.swift": [533335271, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/DictionaryConvertible.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/Comparison.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/QueryBuilder.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/CollectionConfiguration.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/FlexworkAPI.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/FlexworkController.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/main.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/DatabaseConfiguration.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/UserAPI.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/Flexwork.swift": [533336652, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Sources/FieldType.swift": [533336652, 0]

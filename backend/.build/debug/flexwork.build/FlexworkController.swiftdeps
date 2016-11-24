@@ -9,31 +9,40 @@ provides-member:
 - ["C8flexwork25AllRemoteOriginMiddleware", ""]
 - ["C8flexwork18FlexworkController", ""]
 depends-top-level:
-- !private "Comparison"
-- !private "BodyParser"
-- !private "String"
-- "AllRemoteOriginMiddleware"
 - !private "UnicodeScalarType"
-- !private "Query"
+- !private "Comparison"
+- !private "String"
+- !private "BodyParser"
+- "RouterMiddleware"
+- !private "FloatLiteralType"
 - !private "JSONSerialization"
-- !private "Void"
-- "Swift"
-- !private "??"
-- !private "Bool"
-- !private "print"
-- "RouterResponse"
 - !private "QueryBuilder"
-- !private "Double"
+- !private "IntegerLiteralType"
 - !private "~="
 - "AssignmentPrecedence"
-- "Router"
-- "RouterRequest"
+- !private "Bool"
+- !private "CastingPrecedence"
+- !private "Value"
 - "Flexwork"
-- !private "Array"
-- "FlexworkController"
-- !private "Int"
+- !private "print"
+- !private "!="
+- !private "??"
+- "Swift"
+- "Router"
+- !private "Void"
+- "RouterRequest"
+- !private "~"
 - !private "StringLiteralType"
-- "RouterMiddleware"
+- !private "Int"
+- "RouterResponse"
+- !private "Int32"
+- !private "Array"
+- !private "Double"
+- !private "Document"
+- !private "Log"
+- "AllRemoteOriginMiddleware"
+- "FlexworkController"
+- !private "Query"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - ["C8flexwork25AllRemoteOriginMiddleware", "RouterRequest"]
@@ -44,54 +53,68 @@ depends-member:
 - ["C8flexwork25AllRemoteOriginMiddleware", "init"]
 - !private ["Vs11AnyIterator", "Element"]
 - !private ["Ps9AnyObject", "AllRemoteOriginMiddleware"]
+- !private ["Ps9AnyObject", "Array"]
 - !private ["Ps9AnyObject", "BodyParser"]
 - !private ["Ps9AnyObject", "Bool"]
+- !private ["Ps9AnyObject", "Document"]
 - !private ["Ps9AnyObject", "Double"]
 - !private ["Ps9AnyObject", "Int"]
+- !private ["Ps9AnyObject", "Int32"]
 - !private ["Ps9AnyObject", "Iterator"]
 - !private ["Ps9AnyObject", "JSONSerialization"]
+- !private ["Ps9AnyObject", "Log"]
 - !private ["Ps9AnyObject", "QueryBuilder"]
 - ["Ps9AnyObject", "Router"]
 - !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "Value"]
 - !private ["Ps9AnyObject", "all"]
 - !private ["Ps9AnyObject", "body"]
 - !private ["Ps9AnyObject", "buildQuery"]
 - !private ["Ps9AnyObject", "data"]
 - !private ["Ps9AnyObject", "end"]
+- !private ["Ps9AnyObject", "error"]
 - !private ["Ps9AnyObject", "find"]
 - !private ["Ps9AnyObject", "flexwork"]
 - !private ["Ps9AnyObject", "get"]
+- !private ["Ps9AnyObject", "getEnumComparisonType"]
 - !private ["Ps9AnyObject", "getFieldType"]
 - ["Ps9AnyObject", "handle"]
 - !private ["Ps9AnyObject", "headers"]
 - ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "insert"]
 - !private ["Ps9AnyObject", "onGetItems"]
-- !private ["Ps9AnyObject", "onGetJsonBody"]
 - !private ["Ps9AnyObject", "onGetTest"]
+- !private ["Ps9AnyObject", "onPostItems"]
 - !private ["Ps9AnyObject", "parameters"]
+- !private ["Ps9AnyObject", "post"]
 - !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "queryParameters"]
 - !private ["Ps9AnyObject", "router"]
 - !private ["Ps9AnyObject", "send"]
 - !private ["Ps9AnyObject", "setupRouter"]
+- !private ["Ps9AnyObject", "status"]
 - ["Ps9AnyObject", ""]
 - !private ["Sa", "Iterator"]
 - !private ["Sa", "_Element"]
 - !private ["Sa", "append"]
 - !private ["Sa", "deinit"]
+- !private ["Sa", "flatMap"]
 - !private ["Sa", "init"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "Iterator"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "_Element"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "append"]
+- !private ["P21MongoCryptoEssentials13ArrayProtocol", "flatMap"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "init"]
 - !private ["P4BSON17BSONBytesProtocol", "init"]
 - !private ["Ps23BidirectionalCollection", "Iterator"]
 - !private ["Ps23BidirectionalCollection", "_Element"]
 - !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "flatMap"]
 - !private ["Ps23BidirectionalCollection", "init"]
 - !private ["Ps22BidirectionalIndexable", "Iterator"]
 - !private ["Ps22BidirectionalIndexable", "_Element"]
 - !private ["Ps22BidirectionalIndexable", "append"]
+- !private ["Ps22BidirectionalIndexable", "flatMap"]
 - !private ["Ps22BidirectionalIndexable", "init"]
 - !private ["Ps19BinaryFloatingPoint", "init"]
 - !private ["P21MongoCryptoEssentials26BitshiftOperationsProtocol", "init"]
@@ -110,10 +133,16 @@ depends-member:
 - !private ["Ps10Collection", "SubSequence"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "flatMap"]
 - !private ["Ps10Collection", "init"]
-- !private ["Ps10Collection", "makeExtendedJSON"]
+- !private ["Ps10Collection", "object"]
 - !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "bool"]
+- !private ["Ps10Comparable", "double"]
 - !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "int"]
+- !private ["Ps10Comparable", "object"]
+- !private ["Ps10Comparable", "string"]
 - !private ["O8flexwork10Comparison", "deinit"]
 - !private ["O8flexwork10Comparison", "equalTo"]
 - !private ["O8flexwork10Comparison", "greaterThan"]
@@ -132,16 +161,19 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
 - !private ["Ps28CustomDebugStringConvertible", "data"]
+- !private ["Ps28CustomDebugStringConvertible", "flatMap"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "Iterator"]
 - !private ["Ps17CustomReflectable", "SubSequence"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "flatMap"]
 - !private ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps23CustomStringConvertible", "Index"]
@@ -151,22 +183,29 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "append"]
 - !private ["Ps23CustomStringConvertible", "data"]
+- !private ["Ps23CustomStringConvertible", "flatMap"]
 - !private ["Ps23CustomStringConvertible", "init"]
-- !private ["Ps23CustomStringConvertible", "makeExtendedJSON"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["V10Foundation4Data", "deinit"]
 - !private ["Vs10Dictionary", "Index"]
+- !private ["Vs10Dictionary", "Iterator"]
 - !private ["Vs10Dictionary", "SubSequence"]
 - !private ["Vs10Dictionary", "deinit"]
 - !private ["Vs10Dictionary", "init"]
 - !private ["Vs10Dictionary", "subscript"]
+- !private ["Vs18DictionaryIterator", "Element"]
+- !private ["V4BSON8Document", "Iterator"]
 - !private ["V4BSON8Document", "deinit"]
-- !private ["V4BSON8Document", "makeExtendedJSON"]
+- !private ["V4BSON8Document", "init"]
 - !private ["Sd", "deinit"]
 - !private ["Sd", "init"]
 - !private ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "Iterator"]
+- !private ["Ps9Equatable", "OK"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "badRequest"]
 - !private ["Ps9Equatable", "bool"]
+- !private ["Ps9Equatable", "boolean"]
 - !private ["Ps9Equatable", "data"]
 - !private ["Ps9Equatable", "double"]
 - !private ["Ps9Equatable", "equalTo"]
@@ -174,73 +213,130 @@ depends-member:
 - !private ["Ps9Equatable", "greaterThanOrEqualTo"]
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "int"]
+- !private ["Ps9Equatable", "int32"]
 - !private ["Ps9Equatable", "lessThan"]
 - !private ["Ps9Equatable", "lessThanOrEqualTo"]
-- !private ["Ps9Equatable", "makeExtendedJSON"]
 - !private ["Ps9Equatable", "notEqualTo"]
+- !private ["Ps9Equatable", "object"]
+- !private ["Ps9Equatable", "string"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps25ExpressibleByArrayLiteral", "bool"]
+- !private ["Ps25ExpressibleByArrayLiteral", "double"]
+- !private ["Ps25ExpressibleByArrayLiteral", "flatMap"]
 - !private ["Ps25ExpressibleByArrayLiteral", "init"]
-- !private ["Ps25ExpressibleByArrayLiteral", "makeExtendedJSON"]
+- !private ["Ps25ExpressibleByArrayLiteral", "int"]
+- !private ["Ps25ExpressibleByArrayLiteral", "object"]
+- !private ["Ps25ExpressibleByArrayLiteral", "string"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "bool"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "double"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "init"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "int"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "object"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "string"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Iterator"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "bool"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "double"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
-- !private ["Ps30ExpressibleByDictionaryLiteral", "makeExtendedJSON"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "int"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "object"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "string"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "bool"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "double"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "int"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "object"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "string"]
+- !private ["Ps25ExpressibleByFloatLiteral", "bool"]
+- !private ["Ps25ExpressibleByFloatLiteral", "double"]
 - !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "int"]
+- !private ["Ps25ExpressibleByFloatLiteral", "object"]
+- !private ["Ps25ExpressibleByFloatLiteral", "string"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "bool"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "double"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "int"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "object"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "string"]
+- !private ["Ps23ExpressibleByNilLiteral", "object"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "bool"]
+- !private ["Ps26ExpressibleByStringLiteral", "double"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "int"]
+- !private ["Ps26ExpressibleByStringLiteral", "object"]
+- !private ["Ps26ExpressibleByStringLiteral", "string"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "bool"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "double"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
-- !private ["O8flexwork9FieldType", "bool"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "int"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "object"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "string"]
+- !private ["O8flexwork9FieldType", "boolean"]
 - !private ["O8flexwork9FieldType", "deinit"]
 - !private ["O8flexwork9FieldType", "double"]
-- !private ["O8flexwork9FieldType", "int"]
+- !private ["O8flexwork9FieldType", "int32"]
 - ["C8flexwork8Flexwork", "deinit"]
 - !private ["C8flexwork8Flexwork", "find"]
 - !private ["C8flexwork8Flexwork", "getFieldType"]
+- !private ["C8flexwork8Flexwork", "insert"]
 - !private ["P8flexwork11FlexworkAPI", "find"]
 - !private ["P8flexwork11FlexworkAPI", "getFieldType"]
+- !private ["P8flexwork11FlexworkAPI", "insert"]
 - !private ["C8flexwork18FlexworkController", "AllRemoteOriginMiddleware"]
+- !private ["C8flexwork18FlexworkController", "Array"]
 - !private ["C8flexwork18FlexworkController", "BodyParser"]
 - !private ["C8flexwork18FlexworkController", "Bool"]
 - !private ["C8flexwork18FlexworkController", "Comparison"]
+- !private ["C8flexwork18FlexworkController", "Document"]
 - !private ["C8flexwork18FlexworkController", "Double"]
 - ["C8flexwork18FlexworkController", "Flexwork"]
 - !private ["C8flexwork18FlexworkController", "Int"]
+- !private ["C8flexwork18FlexworkController", "Int32"]
 - !private ["C8flexwork18FlexworkController", "JSONSerialization"]
+- !private ["C8flexwork18FlexworkController", "Log"]
 - !private ["C8flexwork18FlexworkController", "Query"]
 - !private ["C8flexwork18FlexworkController", "QueryBuilder"]
 - ["C8flexwork18FlexworkController", "Router"]
 - !private ["C8flexwork18FlexworkController", "RouterRequest"]
 - !private ["C8flexwork18FlexworkController", "RouterResponse"]
 - !private ["C8flexwork18FlexworkController", "String"]
+- !private ["C8flexwork18FlexworkController", "Value"]
 - !private ["C8flexwork18FlexworkController", "Void"]
 - ["C8flexwork18FlexworkController", "deinit"]
 - ["C8flexwork18FlexworkController", "flexwork"]
+- !private ["C8flexwork18FlexworkController", "getEnumComparisonType"]
 - ["C8flexwork18FlexworkController", "init"]
 - !private ["C8flexwork18FlexworkController", "onGetItems"]
 - !private ["C8flexwork18FlexworkController", "onGetJsonBody"]
 - !private ["C8flexwork18FlexworkController", "onGetTest"]
+- !private ["C8flexwork18FlexworkController", "onPostItems"]
 - !private ["C8flexwork18FlexworkController", "print"]
 - ["C8flexwork18FlexworkController", "router"]
 - !private ["C8flexwork18FlexworkController", "setupRouter"]
 - !private ["Sf", "deinit"]
 - !private ["Ps13FloatingPoint", "init"]
+- !private ["O9KituraNet14HTTPStatusCode", "OK"]
+- !private ["O9KituraNet14HTTPStatusCode", "badRequest"]
+- !private ["O9KituraNet14HTTPStatusCode", "deinit"]
+- !private ["Ps8Hashable", "OK"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
-- !private ["Ps8Hashable", "bool"]
+- !private ["Ps8Hashable", "badRequest"]
+- !private ["Ps8Hashable", "boolean"]
 - !private ["Ps8Hashable", "data"]
 - !private ["Ps8Hashable", "double"]
 - !private ["Ps8Hashable", "equalTo"]
 - !private ["Ps8Hashable", "greaterThan"]
 - !private ["Ps8Hashable", "greaterThanOrEqualTo"]
 - !private ["Ps8Hashable", "init"]
-- !private ["Ps8Hashable", "int"]
+- !private ["Ps8Hashable", "int32"]
 - !private ["Ps8Hashable", "lessThan"]
 - !private ["Ps8Hashable", "lessThanOrEqualTo"]
 - !private ["Ps8Hashable", "notEqualTo"]
@@ -251,16 +347,18 @@ depends-member:
 - !private ["Ps9Indexable", "SubSequence"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "append"]
+- !private ["Ps9Indexable", "flatMap"]
 - !private ["Ps9Indexable", "init"]
-- !private ["Ps9Indexable", "makeExtendedJSON"]
+- !private ["Ps9Indexable", "object"]
 - !private ["Ps9Indexable", "subscript"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "Iterator"]
 - !private ["Ps13IndexableBase", "SubSequence"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "append"]
+- !private ["Ps13IndexableBase", "flatMap"]
 - !private ["Ps13IndexableBase", "init"]
-- !private ["Ps13IndexableBase", "makeExtendedJSON"]
+- !private ["Ps13IndexableBase", "object"]
 - !private ["Ps13IndexableBase", "subscript"]
 - !private ["Vs16IndexingIterator", "Element"]
 - !private ["P21MongoCryptoEssentials9Initiable", "init"]
@@ -268,58 +366,75 @@ depends-member:
 - !private ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int32", "init"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["V10SwiftyJSON4JSON", "deinit"]
+- !private ["V10SwiftyJSON4JSON", "object"]
 - !private ["C10Foundation17JSONSerialization", "data"]
 - !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["C9LoggerAPI3Log", "error"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["Ps17MutableCollection", "Iterator"]
 - !private ["Ps17MutableCollection", "_Element"]
 - !private ["Ps17MutableCollection", "append"]
+- !private ["Ps17MutableCollection", "flatMap"]
 - !private ["Ps17MutableCollection", "init"]
 - !private ["Ps16MutableIndexable", "Iterator"]
 - !private ["Ps16MutableIndexable", "_Element"]
 - !private ["Ps16MutableIndexable", "append"]
+- !private ["Ps16MutableIndexable", "flatMap"]
 - !private ["Ps16MutableIndexable", "init"]
 - !private ["C10Foundation8NSObject", "data"]
 - !private ["P10Foundation16NSObjectProtocol", "data"]
 - !private ["Ps9OptionSet", "Element"]
 - !private ["Sq", "deinit"]
 - !private ["O6Kitura10ParsedBody", "deinit"]
+- !private ["O6Kitura10ParsedBody", "json"]
 - !private ["V11MongoKitten5Query", "deinit"]
 - !private ["C8flexwork12QueryBuilder", "buildQuery"]
-- !private ["P11MongoKitten13QueryProtocol", "makeExtendedJSON"]
+- !private ["P11MongoKitten13QueryProtocol", "Iterator"]
+- !private ["P11MongoKitten13QueryProtocol", "init"]
 - !private ["Ps22RandomAccessCollection", "Iterator"]
 - !private ["Ps22RandomAccessCollection", "_Element"]
 - !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps22RandomAccessCollection", "flatMap"]
 - !private ["Ps22RandomAccessCollection", "init"]
 - !private ["Ps21RandomAccessIndexable", "Iterator"]
 - !private ["Ps21RandomAccessIndexable", "_Element"]
 - !private ["Ps21RandomAccessIndexable", "append"]
+- !private ["Ps21RandomAccessIndexable", "flatMap"]
 - !private ["Ps21RandomAccessIndexable", "init"]
 - !private ["Vs5Range", "deinit"]
 - !private ["Ps26RangeReplaceableCollection", "Iterator"]
 - !private ["Ps26RangeReplaceableCollection", "_Element"]
 - !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "flatMap"]
 - !private ["Ps26RangeReplaceableCollection", "init"]
 - !private ["Ps25RangeReplaceableIndexable", "Iterator"]
 - !private ["Ps25RangeReplaceableIndexable", "_Element"]
 - !private ["Ps25RangeReplaceableIndexable", "append"]
+- !private ["Ps25RangeReplaceableIndexable", "flatMap"]
 - !private ["Ps25RangeReplaceableIndexable", "init"]
 - !private ["Ps16RawRepresentable", "Element"]
+- !private ["Ps16RawRepresentable", "OK"]
+- !private ["Ps16RawRepresentable", "badRequest"]
+- !private ["Ps16RawRepresentable", "object"]
 - !private ["C6Kitura6Router", "all"]
 - ["C6Kitura6Router", "deinit"]
 - !private ["C6Kitura6Router", "get"]
 - ["C6Kitura6Router", "init"]
+- !private ["C6Kitura6Router", "post"]
 - !private ["P6Kitura16RouterMiddleware", "all"]
 - !private ["P6Kitura16RouterMiddleware", "get"]
 - ["P6Kitura16RouterMiddleware", "handle"]
 - ["P6Kitura16RouterMiddleware", "init"]
+- !private ["P6Kitura16RouterMiddleware", "post"]
 - ["P6Kitura16RouterMiddleware", ""]
 - !private ["C6Kitura13RouterRequest", "body"]
 - !private ["C6Kitura13RouterRequest", "deinit"]
@@ -329,18 +444,21 @@ depends-member:
 - !private ["C6Kitura14RouterResponse", "end"]
 - !private ["C6Kitura14RouterResponse", "headers"]
 - !private ["C6Kitura14RouterResponse", "send"]
+- !private ["C6Kitura14RouterResponse", "status"]
 - !private ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "Index"]
 - !private ["Ps8Sequence", "Iterator"]
 - !private ["Ps8Sequence", "SubSequence"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "flatMap"]
 - !private ["Ps8Sequence", "init"]
-- !private ["Ps8Sequence", "makeExtendedJSON"]
+- !private ["Ps8Sequence", "object"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["P9KituraNet14ServerDelegate", "all"]
 - !private ["P9KituraNet14ServerDelegate", "get"]
 - ["P9KituraNet14ServerDelegate", "init"]
+- !private ["P9KituraNet14ServerDelegate", "post"]
 - !private ["Ps10SetAlgebra", "Element"]
 - !private ["Ps13SignedInteger", "init"]
 - !private ["Ps12SignedNumber", "init"]
@@ -359,14 +477,28 @@ depends-member:
 - !private ["Vs6UInt64", "deinit"]
 - !private ["Vs5UInt8", "deinit"]
 - !private ["Sc", "deinit"]
+- !private ["O4BSON5Value", "bool"]
+- !private ["O4BSON5Value", "deinit"]
+- !private ["O4BSON5Value", "double"]
+- !private ["O4BSON5Value", "int"]
+- !private ["O4BSON5Value", "string"]
+- !private ["P4BSON16ValueConvertible", "Iterator"]
 - !private ["P4BSON16ValueConvertible", "_getBuiltinLogicValue"]
+- !private ["P4BSON16ValueConvertible", "bool"]
+- !private ["P4BSON16ValueConvertible", "double"]
 - !private ["P4BSON16ValueConvertible", "init"]
-- !private ["P4BSON16ValueConvertible", "makeExtendedJSON"]
+- !private ["P4BSON16ValueConvertible", "int"]
+- !private ["P4BSON16ValueConvertible", "string"]
+- !private ["P11MongoKitten13ValueProtocol", "bool"]
+- !private ["P11MongoKitten13ValueProtocol", "double"]
+- !private ["P11MongoKitten13ValueProtocol", "int"]
+- !private ["P11MongoKitten13ValueProtocol", "string"]
 - !private ["VC10Foundation17JSONSerialization14WritingOptions", "Element"]
 - !private ["VC10Foundation17JSONSerialization14WritingOptions", "deinit"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "append"]
+- !private ["Ps14_ArrayProtocol", "flatMap"]
 - !private ["Ps14_ArrayProtocol", "init"]
 - !private ["P10Foundation13_BitShiftable", "init"]
 - !private ["P10Foundation12_CFBridgable", "Index"]
@@ -375,6 +507,7 @@ depends-member:
 - !private ["P10Foundation12_CFBridgable", "_Element"]
 - !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation12_CFBridgable", "append"]
+- !private ["P10Foundation12_CFBridgable", "flatMap"]
 - !private ["P10Foundation12_CFBridgable", "init"]
 - !private ["P10Foundation12_CFBridgable", "subscript"]
 - !private ["Ps15_CVarArgAligned", "init"]
@@ -382,6 +515,7 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
 - !private ["Ps24_DestructorSafeContainer", "_Element"]
 - !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "flatMap"]
 - !private ["Ps24_DestructorSafeContainer", "init"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "init"]
@@ -393,15 +527,17 @@ depends-member:
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["P10Foundation20_FloatArithmeticType", "init"]
 - !private ["P10Foundation10_FloatLike", "init"]
+- !private ["Ps9_Hashable", "OK"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
-- !private ["Ps9_Hashable", "bool"]
+- !private ["Ps9_Hashable", "badRequest"]
+- !private ["Ps9_Hashable", "boolean"]
 - !private ["Ps9_Hashable", "data"]
 - !private ["Ps9_Hashable", "double"]
 - !private ["Ps9_Hashable", "equalTo"]
 - !private ["Ps9_Hashable", "greaterThan"]
 - !private ["Ps9_Hashable", "greaterThanOrEqualTo"]
 - !private ["Ps9_Hashable", "init"]
-- !private ["Ps9_Hashable", "int"]
+- !private ["Ps9_Hashable", "int32"]
 - !private ["Ps9_Hashable", "lessThan"]
 - !private ["Ps9_Hashable", "lessThanOrEqualTo"]
 - !private ["Ps9_Hashable", "notEqualTo"]
@@ -414,6 +550,7 @@ depends-member:
 - !private ["P10Foundation12_NSBridgable", "SubSequence"]
 - !private ["P10Foundation12_NSBridgable", "_Element"]
 - !private ["P10Foundation12_NSBridgable", "append"]
+- !private ["P10Foundation12_NSBridgable", "flatMap"]
 - !private ["P10Foundation12_NSBridgable", "init"]
 - !private ["P10Foundation12_NSBridgable", "subscript"]
 - !private ["P10Foundation17_ObjectBridgeable", "Index"]
@@ -422,6 +559,7 @@ depends-member:
 - !private ["P10Foundation17_ObjectBridgeable", "_Element"]
 - !private ["P10Foundation17_ObjectBridgeable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation17_ObjectBridgeable", "append"]
+- !private ["P10Foundation17_ObjectBridgeable", "flatMap"]
 - !private ["P10Foundation17_ObjectBridgeable", "init"]
 - !private ["P10Foundation17_ObjectBridgeable", "subscript"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "Index"]
@@ -430,12 +568,14 @@ depends-member:
 - !private ["P10Foundation21_ObjectTypeBridgeable", "_Element"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "append"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "flatMap"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "init"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "subscript"]
 - !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps14_SignedInteger", "init"]
 - !private ["Ps11_Strideable", "init"]
-- !private ["P4BSON35__DocumentProtocolForArrayAdditions", "makeExtendedJSON"]
+- !private ["P4BSON35__DocumentProtocolForArrayAdditions", "Iterator"]
+- !private ["P4BSON35__DocumentProtocolForArrayAdditions", "init"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "C8flexwork25AllRemoteOriginMiddleware"
@@ -468,6 +608,7 @@ depends-nominal:
 - !private "Ps23CustomStringConvertible"
 - !private "V10Foundation4Data"
 - !private "Vs10Dictionary"
+- !private "Vs18DictionaryIterator"
 - !private "V4BSON8Document"
 - !private "Sd"
 - !private "Ps9Equatable"
@@ -477,6 +618,7 @@ depends-nominal:
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps25ExpressibleByFloatLiteral"
 - !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
@@ -486,6 +628,7 @@ depends-nominal:
 - "C8flexwork18FlexworkController"
 - !private "Sf"
 - !private "Ps13FloatingPoint"
+- !private "O9KituraNet14HTTPStatusCode"
 - !private "Ps8Hashable"
 - !private "V6Kitura7Headers"
 - "SQ"
@@ -501,8 +644,10 @@ depends-nominal:
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
+- !private "V10SwiftyJSON4JSON"
 - !private "C10Foundation17JSONSerialization"
 - !private "P10SwiftyJSON17JSONSubscriptType"
+- !private "C9LoggerAPI3Log"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
@@ -541,7 +686,9 @@ depends-nominal:
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
 - !private "Sc"
+- !private "O4BSON5Value"
 - !private "P4BSON16ValueConvertible"
+- !private "P11MongoKitten13ValueProtocol"
 - !private "VC10Foundation17JSONSerialization14WritingOptions"
 - !private "Ps14_ArrayProtocol"
 - !private "P10Foundation13_BitShiftable"
@@ -572,49 +719,49 @@ depends-nominal:
 - !private "P4BSON35__DocumentProtocolForArrayAdditions"
 depends-dynamic-lookup:
 depends-external:
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoKitten.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/BSON.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoHMAC.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoMD5.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSCRAM.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSHA1.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socks.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SocksCore.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/LoggerAPI.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Kitura.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraNet.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/shim.h"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CCurl-0.2.3/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SSLService.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "b2a201919418963df63f382724a61a8b"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/ubuntu/swift-3.0.1-GM-CANDIDATE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoKitten.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/BSON.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoHMAC.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoMD5.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoSCRAM.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/MongoSHA1.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/Socks.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/SocksCore.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/LoggerAPI.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/Kitura.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/KituraNet.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/CEpoll-0.1.0/shim.h"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/SSLService.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/Socket.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/ubuntu/flexwork_revise/project/backend/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "501d456078f8bed6b21677582fbced89"

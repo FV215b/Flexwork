@@ -16,7 +16,7 @@ let collectionName_1 = "test_collection"
 let fieldName_1 = "id"
 let fieldType_1 = FieldType.string
 let fieldName_2 = "count"
-let fieldType_2 = FieldType.int
+let fieldType_2 = FieldType.int32
 let collectionConfig_1 = CollectionConfiguration(collectionName: collectionName_1)
 collectionConfig_1.addNewFieldType(fieldName: fieldName_1, type: fieldType_1)
 collectionConfig_1.addNewFieldType(fieldName: fieldName_2, type: fieldType_2)

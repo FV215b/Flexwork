@@ -1,7 +1,7 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "3a5d06810adccd4d2873938d30b7a363"
-build_time: [533335326, 85314000]
+version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
+options: "65fc4937c0913f6a3637705ee1fffed4"
+build_time: [533336690, 540616000]
 inputs:
-  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/SocketProtocols.swift": [533335302, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/SocketUtils.swift": [533335300, 0]
-  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/Socket.swift": [533335302, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Packages/Socket-0.11.40/Sources/Socket.swift": [533336489, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Packages/Socket-0.11.40/Sources/SocketProtocols.swift": [533336489, 0]
+  "/home/ubuntu/flexwork_revise/project/backend/Packages/Socket-0.11.40/Sources/SocketUtils.swift": [533336488, 0]

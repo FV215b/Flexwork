@@ -1,5 +1,5 @@
 module CHTTPParser {
-    umbrella "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include"
+    umbrella "/home/ubuntu/flexwork_revise/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include"
     link "CHTTPParser"
     export *
 }
