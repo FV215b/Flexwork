@@ -64,11 +64,11 @@ public class FlexworkController {
         for (key, val) in dict {
             if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key){
             switch fieldType {
-            case .int:
+            case .int32:
                 let temp: (String, Value) = (key, ~Int32(val as! Int))
                 docDict.append(temp)
                 print("\(key) has int \(val)")
-            case .bool:
+            case .boolean:
                 let temp: (String, Value) = (key, ~(val as! Bool))
                 docDict.append(temp)
                 print("\(key) has bool \(val)")
@@ -150,10 +150,10 @@ public class FlexworkController {
         }
         let parseQuery: Query
         switch fieldType {
-        case .int:
+        case .int32:
             let valWithType = Int(value)!
             parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
-        case .bool:
+        case .boolean:
             let valWithType = Bool(value)!
             parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
         case .double:
@@ -192,9 +192,9 @@ public class FlexworkController {
                     return nil
                 }
                 switch type {
-                case .int:
+                case .int32:
                     element[key] = value.int
-                case .bool:
+                case .boolean:
                     element[key] = value.bool
                 case .double:
                     element[key] = value.double
