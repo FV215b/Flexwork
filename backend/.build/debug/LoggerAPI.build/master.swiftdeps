@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "cb06e974b39bc38732eaf79bb437114b"
+build_time: [533335324, 936771000]
+inputs:
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": [533335300, 0]

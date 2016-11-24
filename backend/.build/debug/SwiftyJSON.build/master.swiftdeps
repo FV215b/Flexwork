@@ -1,0 +1,6 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "fbe594b29e6661eac69af574d2986f9d"
+build_time: [533335325, 855798000]
+inputs:
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/SwiftyJSON-15.0.1/Source/SwiftyJSON.swift": [533335310, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/SwiftyJSON-15.0.1/Source/LclJSONSerialization.swift": [533335310, 0]

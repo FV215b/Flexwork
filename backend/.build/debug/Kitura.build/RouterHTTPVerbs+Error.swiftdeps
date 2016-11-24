@@ -1,0 +1,82 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["C6Kitura6Router", ""]
+- ["C6Kitura6Router", "error"]
+- ["C6Kitura6Router", "error"]
+- ["C6Kitura6Router", "error"]
+- ["C6Kitura6Router", "error"]
+depends-top-level:
+- "RouterMiddleware"
+- "RouterHandler"
+- "Router"
+depends-member:
+- !private ["Ps9AnyObject", "routingHelper"]
+- ["Sa", "deinit"]
+- !private ["Ps23CustomStringConvertible", "error"]
+- !private ["Ps9Equatable", "error"]
+- !private ["Ps8Hashable", "error"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "error"]
+- ["C6Kitura6Router", "Router"]
+- ["C6Kitura6Router", "RouterHandler"]
+- ["C6Kitura6Router", "RouterMiddleware"]
+- ["C6Kitura6Router", "deinit"]
+- ["C6Kitura6Router", "error"]
+- !private ["C6Kitura6Router", "routingHelper"]
+- ["O6Kitura12RouterMethod", "deinit"]
+- !private ["O6Kitura12RouterMethod", "error"]
+- !private ["P6Kitura16RouterMiddleware", "routingHelper"]
+- !private ["P9KituraNet14ServerDelegate", "routingHelper"]
+- !private ["Ps9_Hashable", "error"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- "Sa"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps8Hashable"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- "C6Kitura6Router"
+- "O6Kitura12RouterMethod"
+- !private "P6Kitura16RouterMiddleware"
+- !private "P9KituraNet14ServerDelegate"
+- !private "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SSLService.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraNet.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/shim.h"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/LoggerAPI.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SwiftyJSON.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
+interface-hash: "8d862ea279fe14fb76a388c15bd30dfb"

@@ -1,0 +1,46 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Cipher"
+- "BlockCipher"
+provides-nominal:
+- "P21MongoCryptoEssentials6Cipher"
+- "P21MongoCryptoEssentials11BlockCipher"
+provides-member:
+- ["P21MongoCryptoEssentials6Cipher", ""]
+- ["P21MongoCryptoEssentials11BlockCipher", ""]
+depends-top-level:
+- "BlockCipher"
+- "BlockMode"
+- "Cipher"
+depends-member:
+- ["P21MongoCryptoEssentials11BlockCipher", "BlockMode"]
+- ["P21MongoCryptoEssentials11BlockCipher", "Mode"]
+- ["P21MongoCryptoEssentials6Cipher", "BlockMode"]
+- ["P21MongoCryptoEssentials6Cipher", ""]
+depends-nominal:
+- "P21MongoCryptoEssentials11BlockCipher"
+- "P21MongoCryptoEssentials6Cipher"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+interface-hash: "c9ba5ecdcb53d38af5d864bd9e4d80a2"

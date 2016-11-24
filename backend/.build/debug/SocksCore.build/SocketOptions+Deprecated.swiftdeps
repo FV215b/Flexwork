@@ -1,0 +1,78 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["P9SocksCore9RawSocket", ""]
+- ["P9SocksCore9RawSocket", "errorCode"]
+- ["P9SocksCore9RawSocket", "keepAlive"]
+- ["P9SocksCore9RawSocket", "reuseAddress"]
+- ["P9SocksCore9RawSocket", "receivingTimeout"]
+- ["P9SocksCore9RawSocket", "sendingTimeout"]
+depends-top-level:
+- !private "??"
+- "Glibc"
+- !private "SO_REUSEADDR"
+- "RawSocket"
+- "Bool"
+- !private "SO_ERROR"
+- !private "SOL_SOCKET"
+- !private "s_socket"
+- !private "SO_KEEPALIVE"
+- !private "BooleanLiteralType"
+- !private "SO_RCVTIMEO"
+- !private "s_close"
+- !private "SO_SNDTIMEO"
+- !private "FloatLiteralType"
+- "timeval"
+- "Int32"
+- !private "IntegerLiteralType"
+depends-member:
+- !private ["Ps9Equatable", "init"]
+- ["P9SocksCore9RawSocket", "Bool"]
+- ["P9SocksCore9RawSocket", "Int32"]
+- !private ["P9SocksCore9RawSocket", "SOL_SOCKET"]
+- !private ["P9SocksCore9RawSocket", "SO_ERROR"]
+- !private ["P9SocksCore9RawSocket", "SO_KEEPALIVE"]
+- !private ["P9SocksCore9RawSocket", "SO_RCVTIMEO"]
+- !private ["P9SocksCore9RawSocket", "SO_REUSEADDR"]
+- !private ["P9SocksCore9RawSocket", "SO_SNDTIMEO"]
+- !private ["P9SocksCore9RawSocket", "Self"]
+- !private ["P9SocksCore9RawSocket", "descriptor"]
+- ["P9SocksCore9RawSocket", "errorCode"]
+- !private ["P9SocksCore9RawSocket", "getBoolOption"]
+- !private ["P9SocksCore9RawSocket", "getOption"]
+- ["P9SocksCore9RawSocket", "keepAlive"]
+- ["P9SocksCore9RawSocket", "receivingTimeout"]
+- ["P9SocksCore9RawSocket", "reuseAddress"]
+- ["P9SocksCore9RawSocket", "sendingTimeout"]
+- !private ["P9SocksCore9RawSocket", "setBoolOption"]
+- !private ["P9SocksCore9RawSocket", "setOption"]
+- ["P9SocksCore9RawSocket", "timeval"]
+- !private ["VSC7timeval", "init"]
+depends-nominal:
+- !private "Ps9Equatable"
+- "P9SocksCore9RawSocket"
+- !private "VSC7timeval"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+interface-hash: "29ddad6f0be0378379305df7f0067079"

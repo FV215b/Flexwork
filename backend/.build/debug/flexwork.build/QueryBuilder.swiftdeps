@@ -1,0 +1,122 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "QueryBuilder"
+provides-nominal:
+- "C8flexwork12QueryBuilder"
+provides-member:
+- ["C8flexwork12QueryBuilder", ""]
+depends-top-level:
+- !private "=="
+- !private "<="
+- !private "!="
+- !private ">"
+- "Query"
+- "Comparison"
+- "QueryBuilder"
+- "Int"
+- "String"
+- "Bool"
+- "Double"
+- !private ">="
+- !private "<"
+depends-member:
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- ["O8flexwork10Comparison", "deinit"]
+- ["O8flexwork10Comparison", "equalTo"]
+- ["O8flexwork10Comparison", "greaterThan"]
+- ["O8flexwork10Comparison", "greaterThanOrEqualTo"]
+- ["O8flexwork10Comparison", "lessThan"]
+- ["O8flexwork10Comparison", "lessThanOrEqualTo"]
+- ["O8flexwork10Comparison", "notEqualTo"]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "equalTo"]
+- ["Ps9Equatable", "greaterThan"]
+- ["Ps9Equatable", "greaterThanOrEqualTo"]
+- ["Ps9Equatable", "lessThan"]
+- ["Ps9Equatable", "lessThanOrEqualTo"]
+- ["Ps9Equatable", "notEqualTo"]
+- ["Ps8Hashable", "equalTo"]
+- ["Ps8Hashable", "greaterThan"]
+- ["Ps8Hashable", "greaterThanOrEqualTo"]
+- ["Ps8Hashable", "lessThan"]
+- ["Ps8Hashable", "lessThanOrEqualTo"]
+- ["Ps8Hashable", "notEqualTo"]
+- ["Si", "deinit"]
+- ["V11MongoKitten5Query", "deinit"]
+- ["C8flexwork12QueryBuilder", "Bool"]
+- ["C8flexwork12QueryBuilder", "Comparison"]
+- ["C8flexwork12QueryBuilder", "Double"]
+- ["C8flexwork12QueryBuilder", "Int"]
+- ["C8flexwork12QueryBuilder", "Query"]
+- ["C8flexwork12QueryBuilder", "String"]
+- ["C8flexwork12QueryBuilder", "buildQuery"]
+- ["C8flexwork12QueryBuilder", "deinit"]
+- ["C8flexwork12QueryBuilder", "init"]
+- ["SS", "deinit"]
+- ["Ps9_Hashable", "equalTo"]
+- ["Ps9_Hashable", "greaterThan"]
+- ["Ps9_Hashable", "greaterThanOrEqualTo"]
+- ["Ps9_Hashable", "lessThan"]
+- ["Ps9_Hashable", "lessThanOrEqualTo"]
+- ["Ps9_Hashable", "notEqualTo"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "O8flexwork10Comparison"
+- "Sd"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "Si"
+- "V11MongoKitten5Query"
+- "C8flexwork12QueryBuilder"
+- "SS"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoKitten.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/BSON.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoHMAC.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoMD5.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSCRAM.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSHA1.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socks.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SocksCore.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/LoggerAPI.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Kitura.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraNet.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/shim.h"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SSLService.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "dd5024b83ce4586055109135fe9044ac"

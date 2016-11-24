@@ -1,0 +1,54 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "HashProtocol"
+- "KeyDerivationFunction"
+provides-nominal:
+- "P21MongoCryptoEssentials12HashProtocol"
+- "P21MongoCryptoEssentials21KeyDerivationFunction"
+provides-member:
+- ["P21MongoCryptoEssentials12HashProtocol", ""]
+- ["P21MongoCryptoEssentials21KeyDerivationFunction", ""]
+depends-top-level:
+- "UInt8"
+- "Int"
+- "UInt"
+- "String"
+- "HashProtocol"
+- "KeyDerivationFunction"
+depends-member:
+- ["P21MongoCryptoEssentials12HashProtocol", "Int"]
+- ["P21MongoCryptoEssentials12HashProtocol", "UInt8"]
+- ["P21MongoCryptoEssentials12HashProtocol", "calculate"]
+- ["P21MongoCryptoEssentials12HashProtocol", "size"]
+- ["P21MongoCryptoEssentials12HashProtocol", ""]
+- ["P21MongoCryptoEssentials21KeyDerivationFunction", "String"]
+- ["P21MongoCryptoEssentials21KeyDerivationFunction", "UInt"]
+- ["P21MongoCryptoEssentials21KeyDerivationFunction", "UInt8"]
+- ["P21MongoCryptoEssentials21KeyDerivationFunction", "derive"]
+depends-nominal:
+- "P21MongoCryptoEssentials12HashProtocol"
+- "P21MongoCryptoEssentials21KeyDerivationFunction"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+interface-hash: "b8cf6f00f6d7650841e5b3bd7742b164"
