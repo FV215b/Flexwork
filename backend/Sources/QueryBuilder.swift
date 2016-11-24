@@ -59,16 +59,15 @@ public class QueryBuilder {
         }
     }
 
-    static func buildQuery(fieldName: String, fieldVal: Bool, comparisonOperator: Comparison) -> Query {
+    static func buildQuery(fieldName: String, fieldVal: Bool, comparisonOperator: Comparison) throws -> Query {
         switch comparisonOperator {
         case Comparison.equalTo:
             return fieldName == fieldVal
         case Comparison.notEqualTo:
             return fieldName != fieldVal
         default:
-            // make it return something for now. Should revise later
-            // TODO: throw exception
-            return fieldName == fieldVal
+            // throw an exception, cuz other type of comparison is not allowded on Bool
+            throw FlexworkError.comparisonNotAllowdedError("Can only compare bool value with equalTo or notEqualTo")
         }
     }
 }

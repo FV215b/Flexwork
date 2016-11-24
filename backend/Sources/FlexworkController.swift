@@ -148,20 +148,28 @@ public class FlexworkController {
             }
             return 
         }
-        let parseQuery: Query
+        let parseQuery: Query?
+        do {
         switch fieldType {
-        case .int32:
-            let valWithType = Int(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
-        case .boolean:
-            let valWithType = Bool(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
-        case .double:
-            let valWithType = Double(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
-        default:
-            let valWithType = String(value)!
-            parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+            case .int32:
+                let valWithType = Int(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+            case .boolean:
+                let valWithType = Bool(value)!
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+            case .double:
+                let valWithType = Double(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+            default:
+                let valWithType = String(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+            }
+        } catch let error as FlexworkError {
+            parseQuery = nil
+            handleError(flexworkError: error)
+        } catch {
+            parseQuery = nil
+            Log.error("Exception when building a query document")
         }
         
         //******************************************** testing
@@ -174,7 +182,8 @@ public class FlexworkController {
         print("fieldType: \(fieldType)")
         //********************************************
 
-        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery)
+        // TODO: make the do-try-catch enclose the entire function
+        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!)
         let returnDict: [[String:Any]] = Array(docs).flatMap {
             doc in
 
@@ -230,6 +239,13 @@ public class FlexworkController {
             try response.send("\(parseBody)").end()
         } catch {
 
+        }
+    }
+
+    private func handleError(flexworkError error: FlexworkError) {
+        switch error {
+            case .comparisonNotAllowdedError(let msg):
+            Log.error(msg)
         }
     }
 }
