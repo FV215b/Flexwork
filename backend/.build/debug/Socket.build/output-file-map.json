@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/master.swiftdeps"
+  },
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/SocketProtocols.swift": {
+    "dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketProtocols.d",
+    "object": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketProtocols.swift.o",
+    "swiftmodule": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketProtocols~partial.swiftmodule",
+    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketProtocols.swiftdeps"
+  },
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/SocketUtils.swift": {
+    "dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketUtils.d",
+    "object": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketUtils.swift.o",
+    "swiftmodule": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketUtils~partial.swiftmodule",
+    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/SocketUtils.swiftdeps"
+  },
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/Socket-0.11.40/Sources/Socket.swift": {
+    "dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/Socket.d",
+    "object": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/Socket.swift.o",
+    "swiftmodule": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/Socket~partial.swiftmodule",
+    "swift-dependencies": "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.build/Socket.swiftdeps"
+  }
+}

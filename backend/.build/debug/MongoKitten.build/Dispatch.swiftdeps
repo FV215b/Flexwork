@@ -1,0 +1,56 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "backgroundQueue"
+- "background"
+provides-nominal:
+provides-member:
+depends-top-level:
+- "Void"
+- "DispatchQueue"
+- "backgroundQueue"
+- "background"
+depends-member:
+- !private ["Ps9AnyObject", "async"]
+- ["Ps9AnyObject", "global"]
+- !private ["C8Dispatch14DispatchObject", "async"]
+- ["C8Dispatch14DispatchObject", "global"]
+- !private ["C8Dispatch13DispatchQueue", "async"]
+- ["C8Dispatch13DispatchQueue", "deinit"]
+- ["C8Dispatch13DispatchQueue", "global"]
+depends-nominal:
+- "Ps9AnyObject"
+- "C8Dispatch14DispatchObject"
+- "C8Dispatch13DispatchQueue"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/BSON.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socks.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SocksCore.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoMD5.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSCRAM.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoHMAC.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
+- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSHA1.swiftmodule"
+interface-hash: "6f45b7302cf584608f8f4134bea300b6"

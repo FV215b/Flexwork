@@ -1,0 +1,117 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "OFB"
+provides-nominal:
+- "C21MongoCryptoEssentials3OFB"
+provides-member:
+- ["C21MongoCryptoEssentials3OFB", ""]
+depends-top-level:
+- "BlockModeOptions"
+- "CipherBlockOperation"
+- "InputBlockType"
+- !private "AssignmentPrecedence"
+- "OFB"
+- "BlockMode"
+- "UInt8"
+- !private "xor"
+- "AnyIterator"
+- "Array"
+- !private "??"
+depends-member:
+- ["Vs11AnyIterator", "deinit"]
+- !private ["Vs11AnyIterator", "init"]
+- !private ["Vs11AnyIterator", "next"]
+- !private ["Ps9AnyObject", "AnyIterator"]
+- ["Ps9AnyObject", "InputBlockType"]
+- ["Ps9AnyObject", "blockType"]
+- ["Ps9AnyObject", "makeDecryptionIterator"]
+- ["Ps9AnyObject", "makeEncryptionIterator"]
+- ["Ps9AnyObject", "options"]
+- !private ["Ps9AnyObject", "xor"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "deinit"]
+- !private ["P21MongoCryptoEssentials9BlockMode", "AnyIterator"]
+- ["P21MongoCryptoEssentials9BlockMode", "InputBlockType"]
+- ["P21MongoCryptoEssentials9BlockMode", "blockType"]
+- ["P21MongoCryptoEssentials9BlockMode", "makeDecryptionIterator"]
+- ["P21MongoCryptoEssentials9BlockMode", "makeEncryptionIterator"]
+- ["P21MongoCryptoEssentials9BlockMode", "options"]
+- !private ["P21MongoCryptoEssentials9BlockMode", "xor"]
+- ["P21MongoCryptoEssentials9BlockMode", ""]
+- ["V21MongoCryptoEssentials16BlockModeOptions", "Element"]
+- ["V21MongoCryptoEssentials16BlockModeOptions", "deinit"]
+- ["V21MongoCryptoEssentials16BlockModeOptions", "initializationVectorRequired"]
+- ["Ps9Equatable", "Element"]
+- ["Ps9Equatable", "encrypt"]
+- ["Ps9Equatable", "initializationVectorRequired"]
+- ["Ps25ExpressibleByArrayLiteral", "Element"]
+- ["Ps25ExpressibleByArrayLiteral", "initializationVectorRequired"]
+- ["Ps8Hashable", "encrypt"]
+- ["O21MongoCryptoEssentials14InputBlockType", "deinit"]
+- ["O21MongoCryptoEssentials14InputBlockType", "encrypt"]
+- !private ["Ps16IteratorProtocol", "init"]
+- !private ["Ps16IteratorProtocol", "next"]
+- ["C21MongoCryptoEssentials3OFB", "AnyIterator"]
+- ["C21MongoCryptoEssentials3OFB", "BlockModeOptions"]
+- ["C21MongoCryptoEssentials3OFB", "CipherBlockOperation"]
+- ["C21MongoCryptoEssentials3OFB", "InputBlockType"]
+- ["C21MongoCryptoEssentials3OFB", "UInt8"]
+- ["C21MongoCryptoEssentials3OFB", "blockType"]
+- ["C21MongoCryptoEssentials3OFB", "deinit"]
+- ["C21MongoCryptoEssentials3OFB", "init"]
+- ["C21MongoCryptoEssentials3OFB", "makeDecryptionIterator"]
+- ["C21MongoCryptoEssentials3OFB", "makeEncryptionIterator"]
+- ["C21MongoCryptoEssentials3OFB", "options"]
+- !private ["C21MongoCryptoEssentials3OFB", "xor"]
+- ["Ps9OptionSet", "Element"]
+- ["Ps9OptionSet", "initializationVectorRequired"]
+- ["Sq", "deinit"]
+- ["Ps16RawRepresentable", "Element"]
+- ["Ps16RawRepresentable", "initializationVectorRequired"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "next"]
+- ["Ps10SetAlgebra", "Element"]
+- ["Ps10SetAlgebra", "initializationVectorRequired"]
+- ["Ps9_Hashable", "encrypt"]
+depends-nominal:
+- "Vs11AnyIterator"
+- "Ps9AnyObject"
+- !private "Sa"
+- "P21MongoCryptoEssentials9BlockMode"
+- "V21MongoCryptoEssentials16BlockModeOptions"
+- "Ps9Equatable"
+- "Ps25ExpressibleByArrayLiteral"
+- "Ps8Hashable"
+- "O21MongoCryptoEssentials14InputBlockType"
+- !private "Ps16IteratorProtocol"
+- "C21MongoCryptoEssentials3OFB"
+- "Ps9OptionSet"
+- "Sq"
+- "Ps16RawRepresentable"
+- !private "Ps8Sequence"
+- "Ps10SetAlgebra"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+interface-hash: "8aabb75ed9261577c422f9467e2b8731"

@@ -1,0 +1,114 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "InternetSocket"
+provides-nominal:
+- "P9SocksCore14InternetSocket"
+provides-member:
+- ["P9SocksCore14InternetSocket", ""]
+- ["P9SocksCore14InternetSocket", "bind"]
+depends-top-level:
+- "Socket"
+- "ResolvedInternetAddress"
+- "Glibc"
+- !private ">"
+- !private "SocksError"
+- "Descriptor"
+- "InternetSocket"
+- !private "socket_bind"
+- !private "FloatLiteralType"
+- "SocketConfig"
+- !private "IntegerLiteralType"
+depends-member:
+- !private ["Ps9AnyObject", "raw"]
+- !private ["Ps9AnyObject", "rawLen"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "raw"]
+- !private ["Ps23CustomStringConvertible", "rawLen"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "raw"]
+- !private ["Ps9Equatable", "rawLen"]
+- !private ["Ps5Error", "init"]
+- !private ["O9SocksCore11ErrorReason", "bindFailed"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["P9SocksCore14InternetSocket", "Descriptor"]
+- ["P9SocksCore14InternetSocket", "ResolvedInternetAddress"]
+- ["P9SocksCore14InternetSocket", "SocketConfig"]
+- !private ["P9SocksCore14InternetSocket", "SocksError"]
+- ["P9SocksCore14InternetSocket", "address"]
+- ["P9SocksCore14InternetSocket", "bind"]
+- !private ["P9SocksCore14InternetSocket", "descriptor"]
+- ["P9SocksCore14InternetSocket", "init"]
+- !private ["P9SocksCore14InternetSocket", "socket_bind"]
+- ["P9SocksCore14InternetSocket", ""]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["P9SocksCore9RawSocket", "Descriptor"]
+- ["P9SocksCore9RawSocket", "ResolvedInternetAddress"]
+- ["P9SocksCore9RawSocket", "SocketConfig"]
+- !private ["P9SocksCore9RawSocket", "SocksError"]
+- ["P9SocksCore9RawSocket", "address"]
+- !private ["P9SocksCore9RawSocket", "descriptor"]
+- ["P9SocksCore9RawSocket", "init"]
+- !private ["P9SocksCore9RawSocket", "socket_bind"]
+- ["P9SocksCore9RawSocket", ""]
+- !private ["C9SocksCore23ResolvedInternetAddress", "raw"]
+- !private ["C9SocksCore23ResolvedInternetAddress", "rawLen"]
+- ["P9SocksCore6Socket", "Descriptor"]
+- ["P9SocksCore6Socket", "ResolvedInternetAddress"]
+- ["P9SocksCore6Socket", "SocketConfig"]
+- !private ["P9SocksCore6Socket", "SocksError"]
+- ["P9SocksCore6Socket", "address"]
+- !private ["P9SocksCore6Socket", "descriptor"]
+- ["P9SocksCore6Socket", "init"]
+- !private ["P9SocksCore6Socket", "socket_bind"]
+- ["P9SocksCore6Socket", ""]
+- !private ["V9SocksCore10SocksError", "deinit"]
+- !private ["V9SocksCore10SocksError", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sb"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps5Error"
+- !private "O9SocksCore11ErrorReason"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps8Hashable"
+- "P9SocksCore14InternetSocket"
+- !private "Ps25LosslessStringConvertible"
+- "P9SocksCore9RawSocket"
+- !private "C9SocksCore23ResolvedInternetAddress"
+- "P9SocksCore6Socket"
+- !private "V9SocksCore10SocksError"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+interface-hash: "6ea5f651f86460ad4a0f069ed9eeb688"
