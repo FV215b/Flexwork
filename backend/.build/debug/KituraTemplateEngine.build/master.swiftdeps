@@ -1,5 +1,5 @@
-version: "Swift version 3.0.1 (swift-3.0.1-GM-CANDIDATE)"
-options: "5f9387134c63e3fd5fc097a5de2a7519"
-build_time: [533336686, 106382000]
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "7afd89c35f294e5bfd92984fff99478c"
+build_time: [533337281, 664688000]
 inputs:
-  "/home/ubuntu/flexwork_revise/project/backend/Packages/Kitura-TemplateEngine-1.1.0/Sources/KituraTemplateEngine/TemplateEngine.swift": [533336498, 0]
+  "/home/yuchen/Documents/Veggies/project/backend/Packages/Kitura-TemplateEngine-1.1.0/Sources/KituraTemplateEngine/TemplateEngine.swift": [533337269, 0]
