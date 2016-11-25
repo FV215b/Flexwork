@@ -187,7 +187,7 @@ public class FlexworkController {
                 }
                 switch type {
                 case .int32:
-                    element[key] = value.int32
+                    element[key] = value.int
                 case .boolean:
                     element[key] = value.bool
                 case .double:
