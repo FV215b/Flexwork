@@ -1,4 +1,5 @@
 /backend/.DS_Store	
 /backend/.build
 /backend/Packages
+/backend/*.xcodeproj
 /backend/*~
