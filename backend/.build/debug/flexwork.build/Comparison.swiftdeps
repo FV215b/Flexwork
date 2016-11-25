@@ -7,10 +7,10 @@ provides-nominal:
 provides-member:
 - ["O8flexwork10Comparison", ""]
 depends-top-level:
-- "=="
-- !private "IntegerLiteralType"
 - "Comparison"
 - !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "=="
 depends-member:
 - !private ["P4BSON17BSONBytesProtocol", "hashValue"]
 - !private ["P21MongoCryptoEssentials26BitshiftOperationsProtocol", "hashValue"]

@@ -6,21 +6,21 @@ provides-nominal:
 provides-member:
 - ["C8flexwork7UserAPI", ""]
 depends-top-level:
+- "UserAPI"
+- !private "print"
+- "Array"
+- !private "JSONSerialization"
+- "String"
 - !private "StringLiteralType"
-- !private "URLRequest"
+- !private "URL"
+- !private "NSError"
 - "AssignmentPrecedence"
 - !private "CastingPrecedence"
-- "Array"
-- "UserAPI"
-- !private "JSONSerialization"
-- !private "URL"
-- "String"
-- "Comparison"
-- !private "print"
-- !private "UnicodeScalarType"
 - !private "Data"
 - !private "URLSession"
-- !private "NSError"
+- !private "UnicodeScalarType"
+- "Comparison"
+- !private "URLRequest"
 depends-member:
 - !private ["Ps9AnyObject", "JSONSerialization"]
 - !private ["Ps9AnyObject", "String"]

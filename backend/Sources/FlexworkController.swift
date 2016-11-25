@@ -35,9 +35,9 @@ public class FlexworkController {
     }
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
-            try response.send("Hello World").end() 
+            try response.send("Connecting to Flexwork!").end() 
         } catch {
-
+            Log.error("Error in testing connection")
         }
     }
 
@@ -62,7 +62,7 @@ public class FlexworkController {
         print("dict = \(dict)")
         var docDict = [(String, Value)]()
         for (key, val) in dict {
-            if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key){
+            if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) {
             switch fieldType {
             case .int32:
                 let temp: (String, Value) = (key, ~Int32(val as! Int))
@@ -115,23 +115,6 @@ public class FlexworkController {
             Log.error("Error sending response")
         }
     }
-    
-    private func getEnumComparisonType(op: String) -> Comparison {
-        switch op {
-        case "lessThan": 
-            return .lessThan
-        case "lessThanOrEqualTo": 
-            return .lessThanOrEqualTo
-        case "greaterThan": 
-            return .greaterThan
-        case "greaterThanOrEqualTo": 
-            return .greaterThanOrEqualTo
-        case "notEqualTo": 
-            return .notEqualTo
-        default: 
-            return .equalTo
-        }
-    }
 
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
@@ -140,7 +123,8 @@ public class FlexworkController {
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
         let opComparison: Comparison = getEnumComparisonType(op: operation)
-        guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else{
+
+        guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
                 try response.status(.badRequest).send("Field type does not exist").end()
             } catch {
@@ -148,6 +132,7 @@ public class FlexworkController {
             }
             return 
         }
+
         let parseQuery: Query?
         do {
         switch fieldType {
@@ -239,6 +224,23 @@ public class FlexworkController {
             try response.send("\(parseBody)").end()
         } catch {
 
+        }
+    }
+
+    private func getEnumComparisonType(op: String) -> Comparison {
+        switch op {
+        case "lessThan": 
+            return .lessThan
+        case "lessThanOrEqualTo": 
+            return .lessThanOrEqualTo
+        case "greaterThan": 
+            return .greaterThan
+        case "greaterThanOrEqualTo": 
+            return .greaterThanOrEqualTo
+        case "notEqualTo": 
+            return .notEqualTo
+        default: 
+            return .equalTo
         }
     }
 
