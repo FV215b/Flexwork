@@ -210,6 +210,7 @@ public class FlexworkController {
             print("\(jsonData)")
             try response.send(data: jsonData).end()
         } catch {
+             print("Error sending response")
              Log.error("Error sending response")
         }
     }
