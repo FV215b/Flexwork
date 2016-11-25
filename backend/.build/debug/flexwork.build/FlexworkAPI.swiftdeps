@@ -6,13 +6,13 @@ provides-nominal:
 provides-member:
 - ["P8flexwork11FlexworkAPI", ""]
 depends-top-level:
-- "FlexworkAPI"
-- "Query"
-- "FieldType"
 - "Cursor"
-- "String"
+- "Query"
 - "Int"
 - "Document"
+- "String"
+- "FieldType"
+- "FlexworkAPI"
 depends-member:
 - ["P8flexwork11FlexworkAPI", "Cursor"]
 - ["P8flexwork11FlexworkAPI", "Document"]
@@ -75,4 +75,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "c24d6f0c8ba5cc92b6ee0216d4597284"
+interface-hash: "72fb1f3ff74686838ff664645c651453"

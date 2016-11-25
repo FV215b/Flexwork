@@ -151,7 +151,7 @@ public class FlexworkController {
             }
         } catch let error as FlexworkError {
             parseQuery = nil
-            handleError(flexworkError: error)
+            FlexworkError.handleError(flexworkError: error)
         } catch {
             parseQuery = nil
             Log.error("Exception when building a query document")
@@ -167,51 +167,53 @@ public class FlexworkController {
         print("fieldType: \(fieldType)")
         //********************************************
 
-        // TODO: make the do-try-catch enclose the entire function
-        let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!)
-        let returnDict: [[String:Any]] = Array(docs).flatMap {
-            doc in
+        
+        if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!) {
+            let returnDict: [[String:Any]] = Array(docs).flatMap {
+                doc in
 
-            var element = [String:Any]()
-            for (key, value) in doc {
-                guard key != "_id" else {
-                    continue
-                }
-                guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
-                    do {
-                        try response.status(.badRequest).send("Field type does not exist").end()
-                    } catch {
-                        Log.error("Error sending response")
+                var element = [String:Any]()
+                for (key, value) in doc {
+                    guard key != "_id" else {
+                        continue
                     }
-                    return nil
+                    guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
+                        do {
+                            try response.status(.badRequest).send("Field type does not exist").end()
+                        } catch {
+                            Log.error("Error sending response")
+                        }
+                        return nil
+                    }
+                    switch type {
+                    case .int32:
+                        element[key] = value.int
+                    case .boolean:
+                        element[key] = value.bool
+                    case .double:
+                        element[key] = value.double
+                    default:
+                        element[key] = value.string
+                    }
                 }
-                switch type {
-                case .int32:
-                    element[key] = value.int
-                case .boolean:
-                    element[key] = value.bool
-                case .double:
-                    element[key] = value.double
-                default:
-                    element[key] = value.string
-                }
+                return element
             }
-            return element
-        }
-        print("return dict = \(returnDict)")
-        /*for doc in docs {
-            result.append(doc.makeExtendedJSON())
-            print("doc: \(doc)")
-            print("doc.makeExtendedJSON(): \(doc.makeExtendedJSON())")
-        }
-        print("result: \(result)")*/
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: [])
-            print("\(jsonData)")
-            try response.send(data: jsonData).end()
-        } catch {
-             print("Error sending response")
-             Log.error("Error sending response")
+            print("return dict = \(returnDict)")
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: [])
+                print("\(jsonData)")
+                try response.send(data: jsonData).end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response")
+            }
+        } else {
+            do {
+                try response.status(.badRequest).send("Cannot get requested data").end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response") 
+            }
         }
     }
 
@@ -242,13 +244,6 @@ public class FlexworkController {
             return .notEqualTo
         default: 
             return .equalTo
-        }
-    }
-
-    private func handleError(flexworkError error: FlexworkError) {
-        switch error {
-            case .comparisonNotAllowdedError(let msg):
-            Log.error(msg)
         }
     }
 }

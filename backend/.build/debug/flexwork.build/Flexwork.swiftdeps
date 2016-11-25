@@ -6,33 +6,33 @@ provides-nominal:
 provides-member:
 - ["C8flexwork8Flexwork", ""]
 depends-top-level:
-- "FlexworkAPI"
-- "String"
-- "Query"
-- "Server"
-- "StringLiteralType"
-- !private "Log"
-- !private "<="
 - "AssignmentPrecedence"
-- "Flexwork"
 - !private "=="
-- !private "??"
-- "IntegerLiteralType"
-- "DatabaseConfiguration"
-- !private "print"
-- !private "exit"
 - "UInt16"
-- !private "Dictionary"
-- "FloatLiteralType"
-- !private "BooleanLiteralType"
+- "Document"
 - !private "!"
-- "CollectionConfiguration"
-- !private "UnicodeScalarType"
+- "IntegerLiteralType"
 - "Int"
 - "Cursor"
+- "Flexwork"
+- "CollectionConfiguration"
+- !private "exit"
+- "StringLiteralType"
+- !private "??"
+- !private "UnicodeScalarType"
+- "DatabaseConfiguration"
+- "Query"
+- "FlexworkAPI"
+- !private "<="
+- "Server"
+- !private "Dictionary"
+- "String"
+- !private "Log"
+- !private "print"
 - !private "MongoKitten"
 - "FieldType"
-- "Document"
+- "FloatLiteralType"
+- !private "BooleanLiteralType"
 - !private "&&"
 depends-member:
 - !private ["Vs11AnyIterator", "Element"]
@@ -52,6 +52,7 @@ depends-member:
 - !private ["Ps9AnyObject", "defaultUsername"]
 - ["Ps9AnyObject", "delete"]
 - !private ["Ps9AnyObject", "dictionary"]
+- !private ["Ps9AnyObject", "error"]
 - !private ["Ps9AnyObject", "exit"]
 - ["Ps9AnyObject", "find"]
 - !private ["Ps9AnyObject", "getCollection"]
@@ -240,6 +241,7 @@ depends-member:
 - ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["C9LoggerAPI3Log", "error"]
 - !private ["C9LoggerAPI3Log", "info"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
@@ -483,4 +485,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "fdb13656d062344d0e3f1c8cfd0cc9aa"
+interface-hash: "b21ac23d02c436dc1498bb6f2434b4ad"

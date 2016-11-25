@@ -161,70 +161,63 @@ public class Flexwork: FlexworkAPI {
     }
 
     // Methods in FlexworkAPI
-    public func find(databaseName: String, collectionName: String, query: Query) -> Cursor<Document> {
+    public func find(databaseName: String, collectionName: String, query: Query) -> Cursor<Document>? {
         do {
-            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             let docs = try collection.find(matching: query)
             return docs
         } catch {
-            // handle exception
-            exit(1)
+            Log.error("Error when querying the collection: \(collectionName) in database: \(databaseName)")
+            return nil
         }
     }
 
     // Methods in FlexworkAPI
     public func insert(databaseName: String, collectionName: String, document: Document) {
         do {
-            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             try collection.insert(document)
         } catch {
-            // handle exception
-            exit(1)
+            Log.error("Error when inserting document into the collection: \(collectionName) in database: \(databaseName)")
         }
     }
 
-    public func count(databaseName: String, collectionName: String, query: Query) -> Int {
+    public func count(databaseName: String, collectionName: String, query: Query) -> Int? {
     	do {
-            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             let count = try collection.count(matching: query)
-            
             return count
         } catch {
-            // TODO: handle exception
-            exit(1);
+            Log.error("Error when counting document in the collection: \(collectionName) in database: \(databaseName)")
+            return nil
         }
     }   
 
     public func delete(databaseName: String, collectionName: String, query: Query) {
         do {
-            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             try collection.remove(matching: query)
             
         } catch {
-            // TODO: handle exception  
-            exit(1)
+            Log.error("Error when deleting document in the collection: \(collectionName) in database: \(databaseName)")
         }
     }
 
     public func update(databaseName: String, collectionName: String, query: Query, document: Document) {
         do {
-            let collection = getCollection(databaseName: databaseName, collectionName: collectionName)
+            let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             try collection.update(matching: query, to: document)
         } catch {
-            // TODO: handle exception
-            exit(1)
+            Log.error("Error when updating document in the collection: \(collectionName) in database: \(databaseName)")
         }
     }
 
 
-    private func getCollection(databaseName: String, collectionName: String) -> MongoKitten.Collection {
+    private func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
             let database = server[databaseName]
             return database[collectionName]
-        } catch {
-            // TODO: handle exception
-            exit(1)
-        }
+        } 
     }
 }
