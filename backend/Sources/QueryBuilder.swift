@@ -8,6 +8,8 @@ import Foundation
  */
 public class QueryBuilder {
 
+    static let errorMsg = "Cannot apply the comparison on this field type"
+
     static func buildQuery(fieldName: String, fieldVal: String, comparisonOperator: Comparison) -> Query {
         switch comparisonOperator {
         case Comparison.lessThan:
@@ -67,7 +69,7 @@ public class QueryBuilder {
             return fieldName != fieldVal
         default:
             // throw an exception, cuz other type of comparison is not allowded on Bool
-            throw FlexworkError.comparisonNotAllowdedError("Can only compare bool value with equalTo or notEqualTo")
+            throw FlexworkError.comparisonNotAllowdedError(errorMsg)
         }
     }
 }

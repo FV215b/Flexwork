@@ -9,40 +9,41 @@ provides-member:
 - ["C8flexwork25AllRemoteOriginMiddleware", ""]
 - ["C8flexwork18FlexworkController", ""]
 depends-top-level:
-- "RouterMiddleware"
-- !private "Query"
-- !private "Bool"
-- !private "Document"
-- !private "Array"
-- "Swift"
-- !private "FloatLiteralType"
-- "Flexwork"
-- "AllRemoteOriginMiddleware"
-- !private "Comparison"
-- !private "IntegerLiteralType"
-- !private "UnicodeScalarType"
-- !private "QueryBuilder"
-- !private "Log"
-- "FlexworkController"
 - !private "Void"
-- !private "??"
-- !private "Double"
-- !private "Int"
-- !private "print"
-- !private "~="
-- "AssignmentPrecedence"
-- !private "!="
-- !private "CastingPrecedence"
-- !private "JSONSerialization"
-- !private "Int32"
+- !private "UnicodeScalarType"
 - "Router"
-- !private "Value"
+- !private "!="
+- !private "Int32"
+- "Flexwork"
+- !private "Int"
+- "AllRemoteOriginMiddleware"
+- !private "IntegerLiteralType"
+- !private "print"
+- "Swift"
+- "FlexworkController"
+- !private "??"
 - !private "~"
-- !private "String"
+- !private "Comparison"
+- !private "FloatLiteralType"
+- !private "Double"
+- !private "FlexworkError"
 - !private "BodyParser"
-- "RouterResponse"
-- !private "StringLiteralType"
+- "RouterMiddleware"
+- !private "Value"
+- !private "String"
+- "AssignmentPrecedence"
+- !private "~="
+- !private "CastingPrecedence"
+- !private "Log"
+- !private "Bool"
+- !private "QueryBuilder"
+- !private "JSONSerialization"
+- !private "Document"
 - "RouterRequest"
+- !private "StringLiteralType"
+- "RouterResponse"
+- !private "Query"
+- !private "Array"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - ["C8flexwork25AllRemoteOriginMiddleware", "RouterRequest"]
@@ -79,6 +80,7 @@ depends-member:
 - !private ["Ps9AnyObject", "getEnumComparisonType"]
 - !private ["Ps9AnyObject", "getFieldType"]
 - ["Ps9AnyObject", "handle"]
+- !private ["Ps9AnyObject", "handleError"]
 - !private ["Ps9AnyObject", "headers"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "insert"]
@@ -219,6 +221,7 @@ depends-member:
 - !private ["Ps9Equatable", "notEqualTo"]
 - !private ["Ps9Equatable", "object"]
 - !private ["Ps9Equatable", "string"]
+- !private ["Ps5Error", "comparisonNotAllowdedError"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
@@ -298,6 +301,7 @@ depends-member:
 - !private ["C8flexwork18FlexworkController", "Document"]
 - !private ["C8flexwork18FlexworkController", "Double"]
 - ["C8flexwork18FlexworkController", "Flexwork"]
+- !private ["C8flexwork18FlexworkController", "FlexworkError"]
 - !private ["C8flexwork18FlexworkController", "Int"]
 - !private ["C8flexwork18FlexworkController", "Int32"]
 - !private ["C8flexwork18FlexworkController", "JSONSerialization"]
@@ -313,6 +317,7 @@ depends-member:
 - ["C8flexwork18FlexworkController", "deinit"]
 - ["C8flexwork18FlexworkController", "flexwork"]
 - !private ["C8flexwork18FlexworkController", "getEnumComparisonType"]
+- !private ["C8flexwork18FlexworkController", "handleError"]
 - ["C8flexwork18FlexworkController", "init"]
 - !private ["C8flexwork18FlexworkController", "onGetItems"]
 - !private ["C8flexwork18FlexworkController", "onGetJsonBody"]
@@ -321,6 +326,8 @@ depends-member:
 - !private ["C8flexwork18FlexworkController", "print"]
 - ["C8flexwork18FlexworkController", "router"]
 - !private ["C8flexwork18FlexworkController", "setupRouter"]
+- !private ["O8flexwork13FlexworkError", "comparisonNotAllowdedError"]
+- !private ["O8flexwork13FlexworkError", "deinit"]
 - !private ["Sf", "deinit"]
 - !private ["Ps13FloatingPoint", "init"]
 - !private ["O9KituraNet14HTTPStatusCode", "OK"]
@@ -612,6 +619,7 @@ depends-nominal:
 - !private "V4BSON8Document"
 - !private "Sd"
 - !private "Ps9Equatable"
+- !private "Ps5Error"
 - !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
@@ -626,6 +634,7 @@ depends-nominal:
 - "C8flexwork8Flexwork"
 - !private "P8flexwork11FlexworkAPI"
 - "C8flexwork18FlexworkController"
+- !private "O8flexwork13FlexworkError"
 - !private "Sf"
 - !private "Ps13FloatingPoint"
 - !private "O9KituraNet14HTTPStatusCode"
@@ -719,49 +728,49 @@ depends-nominal:
 - !private "P4BSON35__DocumentProtocolForArrayAdditions"
 depends-dynamic-lookup:
 depends-external:
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
-- "/home/yuchen/Documents/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoKitten.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/BSON.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoHMAC.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoMD5.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSCRAM.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/MongoSHA1.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socks.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SocksCore.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/LoggerAPI.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Kitura.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraNet.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CEpoll-0.1.0/shim.h"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CCurl-0.2.3/module.modulemap"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
-- "/home/yuchen/Documents/Veggies/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SSLService.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/Socket.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
-- "/home/yuchen/Documents/Veggies/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "501d456078f8bed6b21677582fbced89"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/Visibility.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/RefCount.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/shims/module.modulemap"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoKitten.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/BSON.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoHMAC.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoCryptoEssentials.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoMD5.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoPBKDF2.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoSCRAM.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/MongoSHA1.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socks.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SocksCore.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/LoggerAPI.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Kitura.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraNet.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/CEpoll-0.1.0/shim.h"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SSLService.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "bdc723ec5ac1925ba3cd2ddf5677680d"

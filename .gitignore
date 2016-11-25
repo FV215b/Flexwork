@@ -1,5 +1,4 @@
-.DS_Store
-/.build
-/Packages
-/*.xcodeproj
-*~
+/backend/.DS_Store	
+/backend/.build
+/backend/Packages
+/backend/*~
