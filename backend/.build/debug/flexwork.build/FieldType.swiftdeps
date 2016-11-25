@@ -1,5 +1,6 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "Valuetype"
 - "FieldType"
 - "=="
 provides-nominal:
@@ -7,10 +8,11 @@ provides-nominal:
 provides-member:
 - ["O8flexwork9FieldType", ""]
 depends-top-level:
-- !private "FloatLiteralType"
 - "FieldType"
-- "=="
 - !private "IntegerLiteralType"
+- "=="
+- !private "FloatLiteralType"
+- "Valuetype"
 depends-member:
 - !private ["P4BSON17BSONBytesProtocol", "hashValue"]
 - !private ["P21MongoCryptoEssentials26BitshiftOperationsProtocol", "hashValue"]
@@ -38,13 +40,9 @@ depends-member:
 - ["O8flexwork9FieldType", "hashValue"]
 - ["O8flexwork9FieldType", "int32"]
 - ["O8flexwork9FieldType", "int64"]
-- ["O8flexwork9FieldType", "javascriptCode"]
-- ["O8flexwork9FieldType", "javascriptCodeWithScope"]
 - ["O8flexwork9FieldType", "null"]
 - ["O8flexwork9FieldType", "objectId"]
-- ["O8flexwork9FieldType", "regularExpression"]
 - ["O8flexwork9FieldType", "string"]
-- ["O8flexwork9FieldType", "timestamp"]
 - ["Ps8Hashable", "_toAnyHashable"]
 - ["Ps8Hashable", "hashValue"]
 - ["Ps8Hashable", ""]
@@ -155,4 +153,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "f3c6b80fb049fc207aef9758c3822687"
+interface-hash: "2fe20d5749d04dfeccb483491a794b63"

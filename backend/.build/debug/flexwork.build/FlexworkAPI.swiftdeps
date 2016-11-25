@@ -6,12 +6,12 @@ provides-nominal:
 provides-member:
 - ["P8flexwork11FlexworkAPI", ""]
 depends-top-level:
+- "String"
+- "FlexworkAPI"
 - "Int"
-- "Document"
 - "Cursor"
 - "FieldType"
-- "FlexworkAPI"
-- "String"
+- "Document"
 - "Query"
 depends-member:
 - ["P8flexwork11FlexworkAPI", "Cursor"]

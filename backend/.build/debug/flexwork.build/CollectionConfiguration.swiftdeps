@@ -6,10 +6,10 @@ provides-nominal:
 provides-member:
 - ["C8flexwork23CollectionConfiguration", ""]
 depends-top-level:
-- "AssignmentPrecedence"
-- "FieldType"
-- "StringLiteralType"
 - "CollectionConfiguration"
+- "StringLiteralType"
+- "FieldType"
+- "AssignmentPrecedence"
 - "String"
 depends-member:
 - ["Ps9AnyObject", "FieldType"]

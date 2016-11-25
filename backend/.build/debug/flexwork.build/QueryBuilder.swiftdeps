@@ -6,21 +6,24 @@ provides-nominal:
 provides-member:
 - ["C8flexwork12QueryBuilder", ""]
 depends-top-level:
+- "Document"
+- !private "!="
 - "StringLiteralType"
-- "Bool"
-- "String"
+- "ObjectId"
+- "Int64"
 - !private "=="
-- "Int"
+- !private ">"
+- "Int32"
+- "QueryBuilder"
+- "Query"
+- "Bool"
+- !private "<"
+- !private "<="
+- "Double"
+- "Comparison"
 - !private "FlexworkError"
 - !private ">="
-- "Double"
-- !private "!="
-- "Comparison"
-- "Query"
-- !private "<"
-- !private ">"
-- "QueryBuilder"
-- !private "<="
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "FlexworkError"]
 - !private ["Ps9AnyObject", "errorMsg"]
@@ -38,6 +41,7 @@ depends-member:
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - ["Ps17CustomReflectable", "init"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["V4BSON8Document", "deinit"]
 - ["Sd", "deinit"]
 - ["Ps9Equatable", "equalTo"]
 - ["Ps9Equatable", "greaterThan"]
@@ -60,16 +64,21 @@ depends-member:
 - ["Ps8Hashable", "lessThan"]
 - ["Ps8Hashable", "lessThanOrEqualTo"]
 - ["Ps8Hashable", "notEqualTo"]
-- ["Si", "deinit"]
+- ["Vs5Int32", "deinit"]
+- ["Vs5Int64", "deinit"]
 - ["P10SwiftyJSON17JSONSubscriptType", "init"]
 - ["Ps25LosslessStringConvertible", "init"]
 - ["Ps10MirrorPath", "init"]
+- ["V4BSON8ObjectId", "deinit"]
 - ["V11MongoKitten5Query", "deinit"]
 - ["C8flexwork12QueryBuilder", "Bool"]
 - ["C8flexwork12QueryBuilder", "Comparison"]
+- ["C8flexwork12QueryBuilder", "Document"]
 - ["C8flexwork12QueryBuilder", "Double"]
 - !private ["C8flexwork12QueryBuilder", "FlexworkError"]
-- ["C8flexwork12QueryBuilder", "Int"]
+- ["C8flexwork12QueryBuilder", "Int32"]
+- ["C8flexwork12QueryBuilder", "Int64"]
+- ["C8flexwork12QueryBuilder", "ObjectId"]
 - ["C8flexwork12QueryBuilder", "Query"]
 - ["C8flexwork12QueryBuilder", "String"]
 - ["C8flexwork12QueryBuilder", "buildQuery"]
@@ -105,6 +114,7 @@ depends-nominal:
 - "Ps29CustomPlaygroundQuickLookable"
 - "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
+- "V4BSON8Document"
 - "Sd"
 - "Ps9Equatable"
 - !private "Ps5Error"
@@ -114,10 +124,12 @@ depends-nominal:
 - "Ps33ExpressibleByUnicodeScalarLiteral"
 - "O8flexwork13FlexworkError"
 - "Ps8Hashable"
-- "Si"
+- "Vs5Int32"
+- "Vs5Int64"
 - "P10SwiftyJSON17JSONSubscriptType"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
+- "V4BSON8ObjectId"
 - "V11MongoKitten5Query"
 - "C8flexwork12QueryBuilder"
 - "SS"
@@ -180,4 +192,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "705dca2fed4a7c982a542ac7135f090d"
+interface-hash: "4075bef1662c8306f815842c3a4f4121"

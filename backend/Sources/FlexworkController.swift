@@ -152,7 +152,7 @@ public class FlexworkController {
         do {
         switch fieldType {
             case .int32:
-                let valWithType = Int(value)!
+                let valWithType = Int32(value)!
                 parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
             case .boolean:
                 let valWithType = Bool(value)!
@@ -202,7 +202,7 @@ public class FlexworkController {
                 }
                 switch type {
                 case .int32:
-                    element[key] = value.int
+                    element[key] = value.int32
                 case .boolean:
                     element[key] = value.bool
                 case .double:

@@ -2,12 +2,6 @@ import MongoKitten
 import Foundation
 import LoggerAPI
 
-#if os(Linux)
-    typealias Valuetype = Any
-#else 
-    typealias Valuetype = AnyObject
-#endif
-
 /**
  * Flexwork implements FlexworkAPI. Provides solid methods to interact with databse including 
  * count(), query(), insert(), delete() and update()

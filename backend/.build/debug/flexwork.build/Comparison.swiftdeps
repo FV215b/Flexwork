@@ -7,9 +7,9 @@ provides-nominal:
 provides-member:
 - ["O8flexwork10Comparison", ""]
 depends-top-level:
-- "Comparison"
-- !private "IntegerLiteralType"
 - "=="
+- !private "IntegerLiteralType"
+- "Comparison"
 - !private "FloatLiteralType"
 depends-member:
 - !private ["P4BSON17BSONBytesProtocol", "hashValue"]
