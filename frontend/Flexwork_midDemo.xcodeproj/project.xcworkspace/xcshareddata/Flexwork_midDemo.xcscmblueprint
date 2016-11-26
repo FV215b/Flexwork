@@ -1,0 +1,71 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CCF984214700D2A903656BB151000EB6798D0AF8+++DCB7622" : 9223372036854775807,
+    "D77C12B9F0BE53655F33605B9275504CB2ED61A4+++436B177" : 9223372036854775807,
+    "6F592973CDAFC6396CA0DD0B7DAC14E5B55161D2+++88C0EFC" : 9223372036854775807,
+    "CCF984214700D2A903656BB151000EB6798D0AF8+++DC45214" : 9223372036854775807,
+    "C336714D5E6B962BE9BAEAFC172177813C3795EC+++6C48451" : 9223372036854775807,
+    "B48A9580752F9C43885C949B19DDA563AC9BB228+++2CB60AC" : 9223372036854775807,
+    "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7+++B7515EA" : 9223372036854775807,
+    "40635794C1929E96A4709153927459486D34FA7B+++01AC7B6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6651D4EF-D983-4F8A-B708-E47EEE50C8D2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CCF984214700D2A903656BB151000EB6798D0AF8+++DCB7622" : "..\/backend\/Packages\/SwiftyJSON-15.0.1\/Package-Builder",
+    "D77C12B9F0BE53655F33605B9275504CB2ED61A4+++436B177" : "..\/..\/..\/ECE590\/Project_7\/hw7",
+    "6F592973CDAFC6396CA0DD0B7DAC14E5B55161D2+++88C0EFC" : "..\/backend\/Packages\/MongoKitten-1.7.3",
+    "CCF984214700D2A903656BB151000EB6798D0AF8+++DC45214" : "..\/backend\/Packages\/SwiftyJSON-15.0.1\/Package-Builder",
+    "C336714D5E6B962BE9BAEAFC172177813C3795EC+++6C48451" : "..",
+    "B48A9580752F9C43885C949B19DDA563AC9BB228+++2CB60AC" : "..\/backend\/Packages\/CHTTPParser-0.3.0",
+    "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7+++B7515EA" : "..\/backend\/Packages\/BSON-3.7.2",
+    "40635794C1929E96A4709153927459486D34FA7B+++01AC7B6" : "..\/backend\/Packages\/Kitura-net-1.1.1"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Flexwork_midDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Flexwork_midDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/Kitura-net.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40635794C1929E96A4709153927459486D34FA7B+++01AC7B6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OpenKitten\/BSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7+++B7515EA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OpenKitten\/MongoKitten.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F592973CDAFC6396CA0DD0B7DAC14E5B55161D2+++88C0EFC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/CHTTPParser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B48A9580752F9C43885C949B19DDA563AC9BB228+++2CB60AC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/gitlab.oit.duke.edu\/Veggies\/project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C336714D5E6B962BE9BAEAFC172177813C3795EC+++6C48451"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/Package-Builder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CCF984214700D2A903656BB151000EB6798D0AF8+++DC45214"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/Package-Builder.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CCF984214700D2A903656BB151000EB6798D0AF8+++DCB7622"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/gitlab.oit.duke.edu\/Veggies\/hw7.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D77C12B9F0BE53655F33605B9275504CB2ED61A4+++436B177"
+    }
+  ]
+}
