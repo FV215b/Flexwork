@@ -47,9 +47,9 @@ public class FlexworkController {
         print(dbName)
         print(colName)
         guard let requestBody = request.body else {
-            print("request body is nil")
-            response.status(.badRequest)//.send("request body is nil").end()
-            Log.error("Body contains invalid JSON")
+            print("Request body is nil")
+            response.status(.badRequest)
+            Log.error("Request body is nil")
             return
         }
         guard case let .json(json) = requestBody else {
@@ -63,52 +63,50 @@ public class FlexworkController {
         var docDict = [(String, Value)]()
         for (key, val) in dict {
             if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) {
-            switch fieldType {
-            case .int32:
-                let temp: (String, Value) = (key, ~Int32(val as! Int))
+                let temp: (String, Value)
+                switch fieldType {
+                case .int32:
+                    temp = (key, ~Int32(val as! Int))
+                    print("\(key) has int32 \(val)")
+                case .int64:
+                    temp = (key, ~Int64(val as! Int))
+                    print("\(key) has int64 \(val)")
+                case .binary:
+                    temp = (key, ~((val as! Data) as! ValueConvertible))
+                    print("\(key) has binary \(val)")
+                case .boolean:
+                    temp = (key, ~(val as! Bool))
+                    print("\(key) has bool \(val)")
+                case .dateTime:
+                    temp = (key, ~(val as! Date))
+                    print("\(key) has dateTime \(val)")
+                case .double:
+                    temp = (key, ~(val as! Double))
+                    print("\(key) has double \(val)")
+                case .array, .document:
+                    temp = (key, ~(val as! Document))
+                    print("\(key) has array/document \(val)")
+                case .objectId:
+                    temp = (key, ~(val as! ObjectId))
+                    print("\(key) has objectID \(val)")
+                case .regularExpression:
+                    temp = (key, ~((val as! RegularExpression) as! ValueConvertible))
+                    print("\(key) has regular expression \(val)")
+                default:
+                    temp = (key, ~(val as! String))
+                    print("\(key) has string \(val)")
+                }
                 docDict.append(temp)
-                print("\(key) has int \(val)")
-            case .boolean:
-                let temp: (String, Value) = (key, ~(val as! Bool))
-                docDict.append(temp)
-                print("\(key) has bool \(val)")
-            case .double:
-                let temp: (String, Value) = (key, ~(val as! Double))
-                docDict.append(temp)
-                print("\(key) has double \(val)")
-            default:
-                let temp: (String, Value) = (key, ~(val as! String))
-                docDict.append(temp)
-                print("\(key) has string \(val)")
-            }
             }
             else {
                 print("fieldType \(key) is nil")
             }
         }
         print("docDict = \(docDict)")
-        /*var dataToSend = Data()
-        do {
-            print("dataToSend start")
-            dataToSend = try JSONSerialization.data(withJSONObject: docDict, options: .prettyPrinted)
-            print("dataToSend success")
-        } catch  {
-            response.status(.badRequest)
-            Log.error("Body parsing failed")
-            return
-        }
-        if let dataString = NSString(data: dataToSend, encoding: String.Encoding.utf8.rawValue){
-            print("dataString = \(dataString)") */
 
-            let doc: Document = Document(dictionaryElements: docDict)
-            print("doc = \(doc)")
-            flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
-        /*}
-        else {
-            response.status(.badRequest)
-            Log.error("Body parsing failed")
-            return
-        }*/
+        let doc: Document = Document(dictionaryElements: docDict)
+        print("doc = \(doc)")
+        flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
         do {
             try response.status(.OK).send("Success").end()
         } catch {
@@ -122,7 +120,7 @@ public class FlexworkController {
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
-        let opComparison: Comparison = getEnumComparisonType(op: operation)
+        let opComparison: Comparison = getEnumComparisonType(operation)
 
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
@@ -135,19 +133,28 @@ public class FlexworkController {
 
         let parseQuery: Query?
         do {
-        switch fieldType {
+            switch fieldType {
             case .int32:
-                let valWithType = Int32(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+                let valueWithType = Int32(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
+            case .int64:
+                let valueWithType = Int64(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)    
             case .boolean:
-                let valWithType = Bool(value)!
-                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+                let valueWithType = Bool(value)!
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
             case .double:
-                let valWithType = Double(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+                let valueWithType = Double(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
+            case .document:
+                let valueWithType = try Document(extendedJSON: value)
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
+            case .objectId:
+                let valueWithType = try ObjectId(value)
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
             default:
-                let valWithType = String(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valWithType, comparisonOperator: opComparison)
+                let valueWithType = String(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
             }
         } catch let error as FlexworkError {
             parseQuery = nil
@@ -158,10 +165,9 @@ public class FlexworkController {
         }
         
         //******************************************** testing
-        print("fieldType: \(fieldType)")
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
-        print("op: \(operation)")
+        print("operation: \(operation)")
         print("field: \(field)")
         print("value: \(value)")
         print("fieldType: \(fieldType)")
@@ -185,23 +191,45 @@ public class FlexworkController {
                         }
                         return nil
                     }
-                    switch type {
-                    case .int32:
+                    if type == .int32 {
                         element[key] = value.int
+                    }
+                    else {
+                        element[key] = value.storedValue
+                    }
+                    /*switch type {
+                    case .int32, .int64:
+                        element[key] = value.int
+                    case .binary:
+                        element[key] = value.storedValue
                     case .boolean:
                         element[key] = value.bool
                     case .double:
                         element[key] = value.double
+                    case .array, .document:
+                        element[key] = value.document
+                    case .dateTime:
+                        element[key] = value.storedValue
+                    case .objectId:
+                        element[key] = value.string
+                    case .regularExpression:
+                        element[key] = value.storedValue
+                    case .timestamp:
+                        element[key] = value.string
+                    case .javascriptCode, .javascriptCodeWithScope:
+                        element[key] = value.storedValue
+                    case .null:
+                        element[key] = nil
                     default:
                         element[key] = value.string
-                    }
+                    }*/
                 }
                 return element
             }
             print("return dict = \(returnDict)")
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: [])
-                print("\(jsonData)")
+                let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: .prettyPrinted)
+                print("jsondata = \(jsonData)")
                 try response.send(data: jsonData).end()
             } catch {
                 print("Error sending response")
@@ -230,7 +258,7 @@ public class FlexworkController {
         }
     }
 
-    private func getEnumComparisonType(op: String) -> Comparison {
+    private func getEnumComparisonType(_ op: String) -> Comparison {
         switch op {
         case "lessThan": 
             return .lessThan
