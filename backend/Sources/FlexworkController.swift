@@ -27,6 +27,7 @@ public class FlexworkController {
         router.all("/*", middleware: BodyParser())
         router.get("/", handler: onGetTest)
         router.get("/:dbname/:collectionname", handler: onGetItems)
+        router.get("/:dbname/:collectionname/all", handler: onGetAll)
         router.get("/:dbname/:collectionname/:filters/:binding", handler: onGetByMultipleFilters)
         router.post("/:dbname/:collectionname", handler: onPostItems)
         router.post("/:dbname/:collectionname/:items", handler: onPostMultipleItems)
@@ -271,10 +272,6 @@ public class FlexworkController {
         }
     }
 
-
-
-
-
     private func onPostItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
@@ -325,6 +322,64 @@ public class FlexworkController {
             Log.error("Error sending response")
         }
     }
+
+    private func onGetAll(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        //******************************************** testing
+        print("********************************************")
+        print("GET All Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        //********************************************
+        let dummyQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: .notEqualTo, field:"_id", fieldType: .objectId, value: "000000000000000000000000")
+        if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: dummyQuery!) {
+            let returnDict: [[String:Any]] = Array(docs).flatMap {
+                doc in
+
+                var element = [String:Any]()
+                for (key, value) in doc {
+                    guard key != "_id" else {
+                        continue
+                    }
+                    guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
+                        do {
+                            try response.status(.badRequest).send("Error. Field not exist").end()
+                        } catch {
+                            Log.error("Error sending response")
+                        }
+                        return nil
+                    }
+                    if type == .int32 {
+                        element[key] = value.int
+                    }
+                    else {
+                        element[key] = value.storedValue
+                    }
+                }
+                return element
+            }
+            print("return dict = \(returnDict)")
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: .prettyPrinted)
+                print("jsondata = \(jsonData)")
+                try response.status(.OK).send(data: jsonData).end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response")
+            }
+        } else {
+            do {
+                try response.status(.badRequest).send("Get failed. Cannot get requested data").end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response") 
+            }
+        }
+    }
+
+
+
 
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
