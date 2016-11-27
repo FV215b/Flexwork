@@ -25,10 +25,11 @@ public class FlexworkController {
     private func setupRouter() {
         router.all("/*", middleware: AllRemoteOriginMiddleware())
         router.all("/*", middleware: BodyParser())
+        router.get("/", handler: onGetTest)
         router.get("/:dbname/:collectionname", handler: onGetItems)
         router.get("/:dbname/:collectionname/:filters/:binding", handler: onGetByMultipleFilters)
-        router.get("/", handler: onGetTest)
         router.post("/:dbname/:collectionname", handler: onPostItems)
+        router.post("/:dbname/:collectionname/:items", handler: onPostMultipleItems)
         router.put("/:dbname/:collectionname", handler: onPutItems)
         router.delete("/:dbname/:collectionname", handler: onDeleteItems)
         router.delete("/:dbname/:collectionname/all", handler: onDeleteAll)
@@ -215,6 +216,64 @@ public class FlexworkController {
             }
         }
     }
+
+    private func onPostMultipleItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        let items = Int(request.parameters["items"] ?? "0")!
+        print("********************************************")
+        print("POST Multiple Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("items: \(items)")
+        guard let requestBody = request.body else {
+            do {
+                try response.status(.badRequest).send("Error. Request body is empty").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+            return
+        }
+        guard case let .json(json) = requestBody else {
+            do {
+                try response.status(.badRequest).send("Error. Body contains invalid JSON").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+            return
+        }
+        print("json = \(json)")
+        let arrayDict: [[String:Any]] = json.object as! [[String:Any]]
+        print("arrayDict = \(arrayDict)")
+        for dict in arrayDict {
+            var docDict = [(String, Value)]()
+            for (key, val) in dict {
+                guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else {
+                    do {
+                        try response.status(.badRequest).send("Error. Field not exist").end()
+                    } catch {
+                        Log.error("Error sending response")
+                    }
+                    return
+                }
+                let temp = convertToDocument(key: key, val: val, fieldType: fieldType)
+                docDict.append(temp)
+            }
+            print("docDict = \(docDict)")
+            let doc: Document = Document(dictionaryElements: docDict)
+            print("doc = \(doc)")
+            flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
+        }
+        do {
+            try response.status(.OK).send("Create \(items) records successfully").end()
+        } catch {
+            Log.error("Error sending response")
+        }
+    }
+
+
+
+
 
     private func onPostItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
