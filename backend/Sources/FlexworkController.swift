@@ -29,7 +29,7 @@ public class FlexworkController {
         //router.get("/get_json_body", handler: onGetJsonBody)
         router.get("/", handler: onGetTest)
         router.post("/:dbname/:collectionname", handler: onPostItems)
-        // router.put("/:dbname/:collectionname/:id", onPutItems)
+        router.put("/:dbname/:collectionname/", handler: onPutItems)
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         router.delete("/:dbname/:collectionname", handler: onDeleteItems)
     }
@@ -41,6 +41,95 @@ public class FlexworkController {
         }
     }
 
+    private func onPutItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        let operation = request.queryParameters["op"] ?? ""
+        let field = request.queryParameters["field"] ?? ""
+        let value = request.queryParameters["value"] ?? ""
+        let opComparison: Comparison = getEnumComparisonType(operation)
+        guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
+            do {
+                try response.status(.badRequest).send("Error. Field not exist").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+            return
+        }
+        //******************************************** testing
+        print("********************************************")
+        print("PUT Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("operation: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        print("fieldType: \(fieldType)")
+        //********************************************
+        let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
+        if let count = flexwork.count(databaseName: dbName, collectionName: colName, query: parseQuery!) {
+            if count != 0 {
+                guard let requestBody = request.body else {
+                    do {
+                        try response.status(.badRequest).send("Error. Request body is empty").end()
+                    } catch {
+                        Log.error("Error sending response")
+                    }
+                    return
+                }
+                guard case let .json(json) = requestBody else {
+                    do {
+                        try response.status(.badRequest).send("Error. Body contains invalid JSON").end()
+                    } catch {
+                        Log.error("Error sending response")
+                    }
+                    return
+                }
+                print("json = \(json)")
+                let dict: [String:Any] = json.object as! [String:Any]
+                print("dict = \(dict)")
+                var docDict = [(String, Value)]()
+                for (key, val) in dict {
+                    guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else {
+                        do {
+                            try response.status(.badRequest).send("Error. Field not exist").end()
+                        } catch {
+                            Log.error("Error sending response")
+                        }
+                        return
+                    }
+                    let temp = convertToDocument(key: key, val: val, fieldType: fieldType)
+                    docDict.append(temp)
+                }
+                print("docDict = \(docDict)")
+                let doc: Document = Document(dictionaryElements: docDict)
+                print("doc = \(doc)")
+                flexwork.update(databaseName: dbName, collectionName: colName, query: parseQuery!, document: doc)
+                do {
+                    try response.status(.OK).send("Update successfully").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+            else {
+                do {
+                    try response.status(.badRequest).send("Update failed. No matching record").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+        }
+        else {
+            do {
+                try response.status(.badRequest).send("Error Counting database").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+        }
+
+
+    }
+
     private func onDeleteItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
@@ -50,7 +139,7 @@ public class FlexworkController {
         let opComparison: Comparison = getEnumComparisonType(operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
-                try response.status(.badRequest).send("Field type does not exist").end()
+                try response.status(.badRequest).send("Error. Field not exist").end()
             } catch {
                 Log.error("Error sending response")
             }
@@ -67,11 +156,29 @@ public class FlexworkController {
         print("fieldType: \(fieldType)")
         //********************************************
         let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
-        flexwork.delete(databaseName: dbName, collectionName: colName, query: parseQuery!)
-        do {
-            try response.status(.OK).send("Delete successfully").end()
-        } catch {
-            Log.error("Error sending response")
+        if let count = flexwork.count(databaseName: dbName, collectionName: colName, query: parseQuery!) {
+            if count != 0 {
+                flexwork.delete(databaseName: dbName, collectionName: colName, query: parseQuery!)
+                do {
+                    try response.status(.OK).send("Delete successfully").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+            else {
+                do {
+                    try response.status(.badRequest).send("Delete failed. No matching record").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+        }
+        else {
+            do {
+                try response.status(.badRequest).send("Error Counting database").end()
+            } catch {
+                Log.error("Error sending response")
+            }
         }
     }
 
@@ -83,14 +190,19 @@ public class FlexworkController {
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
         guard let requestBody = request.body else {
-            print("Request body is nil")
-            response.status(.badRequest)
-            Log.error("Request body is nil")
+            do {
+                try response.status(.badRequest).send("Error. Request body is empty").end()
+            } catch {
+                Log.error("Error sending response")
+            }
             return
         }
         guard case let .json(json) = requestBody else {
-            response.status(.badRequest)
-            Log.error("Body contains invalid JSON")
+            do {
+                try response.status(.badRequest).send("Error. Body contains invalid JSON").end()
+            } catch {
+                Log.error("Error sending response")
+            }
             return
         }
         print("json = \(json)")
@@ -98,45 +210,16 @@ public class FlexworkController {
         print("dict = \(dict)")
         var docDict = [(String, Value)]()
         for (key, val) in dict {
-            if let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) {
-                let temp: (String, Value)
-                switch fieldType {
-                case .int32:
-                    temp = (key, ~Int32(val as! Int))
-                    print("\(key) has int32 \(val)")
-                case .int64:
-                    temp = (key, ~Int64(val as! Int))
-                    print("\(key) has int64 \(val)")
-                case .binary:
-                    temp = (key, ~((val as! Data) as! ValueConvertible))
-                    print("\(key) has binary \(val)")
-                case .boolean:
-                    temp = (key, ~(val as! Bool))
-                    print("\(key) has bool \(val)")
-                case .dateTime:
-                    temp = (key, ~(val as! Date))
-                    print("\(key) has dateTime \(val)")
-                case .double:
-                    temp = (key, ~(val as! Double))
-                    print("\(key) has double \(val)")
-                case .array, .document:
-                    temp = (key, ~(val as! Document))
-                    print("\(key) has array/document \(val)")
-                case .objectId:
-                    temp = (key, ~(val as! ObjectId))
-                    print("\(key) has objectID \(val)")
-                case .regularExpression:
-                    temp = (key, ~((val as! RegularExpression) as! ValueConvertible))
-                    print("\(key) has regular expression \(val)")
-                default:
-                    temp = (key, ~(val as! String))
-                    print("\(key) has string \(val)")
+            guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else {
+                do {
+                    try response.status(.badRequest).send("Error. Field not exist").end()
+                } catch {
+                    Log.error("Error sending response")
                 }
-                docDict.append(temp)
+                return
             }
-            else {
-                print("fieldType \(key) is nil")
-            }
+            let temp = convertToDocument(key: key, val: val, fieldType: fieldType)
+            docDict.append(temp)
         }
         print("docDict = \(docDict)")
 
@@ -159,7 +242,7 @@ public class FlexworkController {
         let opComparison: Comparison = getEnumComparisonType(operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
-                try response.status(.badRequest).send("Field type does not exist").end()
+                try response.status(.badRequest).send("Error. Field not exist").end()
             } catch {
                 Log.error("Error sending response")
             }
@@ -187,7 +270,7 @@ public class FlexworkController {
                     }
                     guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
                         do {
-                            try response.status(.badRequest).send("Field type does not exist").end()
+                            try response.status(.badRequest).send("Error. Field not exist").end()
                         } catch {
                             Log.error("Error sending response")
                         }
@@ -232,14 +315,14 @@ public class FlexworkController {
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: .prettyPrinted)
                 print("jsondata = \(jsonData)")
-                try response.send(data: jsonData).end()
+                try response.status(.OK).send(data: jsonData).end()
             } catch {
                 print("Error sending response")
                 Log.error("Error sending response")
             }
         } else {
             do {
-                try response.status(.badRequest).send("Cannot get requested data").end()
+                try response.status(.badRequest).send("Get failed. Cannot get requested data").end()
             } catch {
                 print("Error sending response")
                 Log.error("Error sending response") 
@@ -258,6 +341,43 @@ public class FlexworkController {
         } catch {
 
         }
+    }
+
+    private func convertToDocument(key: String, val: Any, fieldType: FieldType) -> (String, Value) {
+        let temp: (String, Value)
+        switch fieldType {
+        case .int32:
+            temp = (key, ~Int32(val as! Int))
+            print("\(key) has int32 \(val)")
+        case .int64:
+            temp = (key, ~Int64(val as! Int))
+            print("\(key) has int64 \(val)")
+        case .binary:
+            temp = (key, ~((val as! Data) as! ValueConvertible))
+            print("\(key) has binary \(val)")
+        case .boolean:
+            temp = (key, ~(val as! Bool))
+            print("\(key) has bool \(val)")
+        case .dateTime:
+            temp = (key, ~(val as! Date))
+            print("\(key) has dateTime \(val)")
+        case .double:
+            temp = (key, ~(val as! Double))
+            print("\(key) has double \(val)")
+        case .array, .document:
+            temp = (key, ~(val as! Document))
+            print("\(key) has array/document \(val)")
+        case .objectId:
+            temp = (key, ~(val as! ObjectId))
+            print("\(key) has objectID \(val)")
+        case .regularExpression:
+            temp = (key, ~((val as! RegularExpression) as! ValueConvertible))
+            print("\(key) has regular expression \(val)")
+        default:
+            temp = (key, ~(val as! String))
+            print("\(key) has string \(val)")
+        }
+        return temp
     }
 
     private func buildQueryWithType(dbName: String, colName: String, op: Comparison, field: String, fieldType: FieldType, value: String) -> Query? {
