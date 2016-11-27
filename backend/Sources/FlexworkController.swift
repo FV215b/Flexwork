@@ -30,8 +30,8 @@ public class FlexworkController {
         router.get("/", handler: onGetTest)
         router.post("/:dbname/:collectionname", handler: onPostItems)
         router.put("/:dbname/:collectionname", handler: onPutItems)
-        // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         router.delete("/:dbname/:collectionname", handler: onDeleteItems)
+        router.delete("/:dbname/:collectionname/all", handler: onDeleteAll)
     }
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
@@ -114,6 +114,42 @@ public class FlexworkController {
             else {
                 do {
                     try response.status(.badRequest).send("Update failed. No matching record").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+        }
+        else {
+            do {
+                try response.status(.badRequest).send("Error Counting database").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+        }
+    }
+
+    private func onDeleteAll(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        //******************************************** testing
+        print("********************************************")
+        print("DELETE All Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        //********************************************
+        let dummyQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: .notEqualTo, field:"_id", fieldType: .objectId, value: "000000000000000000000000")
+        if let count = flexwork.count(databaseName: dbName, collectionName: colName, query: dummyQuery!) {
+            if count != 0 {
+                flexwork.delete(databaseName: dbName, collectionName: colName, query: dummyQuery!)
+                do {
+                    try response.status(.OK).send("Delete all \(count) records successfully").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+            }
+            else {
+                do {
+                    try response.status(.badRequest).send("Delete failed. No record exist").end()
                 } catch {
                     Log.error("Error sending response")
                 }
