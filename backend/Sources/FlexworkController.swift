@@ -26,16 +26,16 @@ public class FlexworkController {
         router.all("/*", middleware: AllRemoteOriginMiddleware())
         router.all("/*", middleware: BodyParser())
         router.get("/:dbname/:collectionname", handler: onGetItems)
-        //router.get("/get_json_body", handler: onGetJsonBody)
+        router.get("/:dbname/:collectionname/:filters/:binding", handler: onGetByMultipleFilters)
         router.get("/", handler: onGetTest)
         router.post("/:dbname/:collectionname", handler: onPostItems)
-        router.put("/:dbname/:collectionname/", handler: onPutItems)
+        router.put("/:dbname/:collectionname", handler: onPutItems)
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
         router.delete("/:dbname/:collectionname", handler: onDeleteItems)
     }
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
-            try response.send("Connecting to Flexwork!").end() 
+            try response.status(.OK).send("Connecting to Flexwork!").end() 
         } catch {
             Log.error("Error in testing connection")
         }
@@ -47,6 +47,15 @@ public class FlexworkController {
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
+        //******************************************** testing
+        print("********************************************")
+        print("PUT Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("operation: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        //********************************************
         let opComparison: Comparison = getEnumComparisonType(operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
@@ -56,16 +65,7 @@ public class FlexworkController {
             }
             return
         }
-        //******************************************** testing
-        print("********************************************")
-        print("PUT Request...")
-        print("dbName: \(dbName)")
-        print("collectionName: \(colName)")
-        print("operation: \(operation)")
-        print("field: \(field)")
-        print("value: \(value)")
         print("fieldType: \(fieldType)")
-        //********************************************
         let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
         if let count = flexwork.count(databaseName: dbName, collectionName: colName, query: parseQuery!) {
             if count != 0 {
@@ -126,8 +126,6 @@ public class FlexworkController {
                 Log.error("Error sending response")
             }
         }
-
-
     }
 
     private func onDeleteItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
@@ -136,6 +134,15 @@ public class FlexworkController {
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
+        //******************************************** testing
+        print("********************************************")
+        print("DELETE Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("operation: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        //********************************************
         let opComparison: Comparison = getEnumComparisonType(operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
@@ -145,22 +152,13 @@ public class FlexworkController {
             }
             return
         }
-        //******************************************** testing
-        print("********************************************")
-        print("DELETE Request...")
-        print("dbName: \(dbName)")
-        print("collectionName: \(colName)")
-        print("operation: \(operation)")
-        print("field: \(field)")
-        print("value: \(value)")
         print("fieldType: \(fieldType)")
-        //********************************************
         let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
         if let count = flexwork.count(databaseName: dbName, collectionName: colName, query: parseQuery!) {
             if count != 0 {
                 flexwork.delete(databaseName: dbName, collectionName: colName, query: parseQuery!)
                 do {
-                    try response.status(.OK).send("Delete successfully").end()
+                    try response.status(.OK).send("Delete \(count) records successfully").end()
                 } catch {
                     Log.error("Error sending response")
                 }
@@ -239,6 +237,15 @@ public class FlexworkController {
         let operation = request.queryParameters["op"] ?? ""
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
+        //******************************************** testing
+        print("********************************************")
+        print("GET Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("operation: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        //********************************************
         let opComparison: Comparison = getEnumComparisonType(operation)
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
@@ -248,16 +255,7 @@ public class FlexworkController {
             }
             return
         }
-        //******************************************** testing
-        print("********************************************")
-        print("GET Request...")
-        print("dbName: \(dbName)")
-        print("collectionName: \(colName)")
-        print("operation: \(operation)")
-        print("field: \(field)")
-        print("value: \(value)")
         print("fieldType: \(fieldType)")
-        //********************************************
         let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value) 
         if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!) {
             let returnDict: [[String:Any]] = Array(docs).flatMap {
@@ -330,18 +328,97 @@ public class FlexworkController {
         }
     }
 
-    private func onGetJsonBody(request: RouterRequest, response: RouterResponse, next: () -> Void) {
-        guard let parseBody = request.body else {
-            next()
-            return
+    private func onGetByMultipleFilters(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        let filters = Int(request.parameters["filters"] ?? "0")!
+        let binding = request.parameters["binding"] ?? "and"
+        //******************************************** testing
+        print("********************************************")
+        print("GET Multiple Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("filters: \(filters)")
+        print("binding: \(binding)")
+        //********************************************
+        var arrayQuery = [Query?]()
+        for i in 1...filters {
+            let opName = "op\(i)"
+            let fieldName = "field\(i)"
+            let valueName = "value\(i)"
+            let operation = request.queryParameters["\(opName)"] ?? ""
+            let field = request.queryParameters["\(fieldName)"] ?? ""
+            let value = request.queryParameters["\(valueName)"] ?? ""
+            let opComparison: Comparison = getEnumComparisonType(operation)
+            guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
+                do {
+                    try response.status(.badRequest).send("Error. Field not exist").end()
+                } catch {
+                    Log.error("Error sending response")
+                }
+                return
+            }
+            print("operation\(i): \(operation)")
+            print("field\(i): \(field)")
+            print("value\(i): \(value)")
+            print("fieldType\(i): \(fieldType)")
+            let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
+            arrayQuery.append(parseQuery)      
         }
+        var sumQuery = arrayQuery[0]!
+        for i in 1..<arrayQuery.count {
+            if let q = arrayQuery[i] {
+                sumQuery = binding == "or" ? (sumQuery || q) : (sumQuery && q)
+            }
+        }
+        if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: sumQuery) {
+            let returnDict: [[String:Any]] = Array(docs).flatMap {
+                doc in
 
-        do {
-            try response.send("\(parseBody)").end()
-        } catch {
-
+                var element = [String:Any]()
+                for (key, value) in doc {
+                    guard key != "_id" else {
+                        continue
+                    }
+                    guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
+                        do {
+                            try response.status(.badRequest).send("Error. Field not exist").end()
+                        } catch {
+                            Log.error("Error sending response")
+                        }
+                        return nil
+                    }
+                    if type == .int32 {
+                        element[key] = value.int
+                    }
+                    else {
+                        element[key] = value.storedValue
+                    }
+                }
+                return element
+            }
+            print("return dict = \(returnDict)")
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: .prettyPrinted)
+                print("jsondata = \(jsonData)")
+                try response.status(.OK).send(data: jsonData).end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response")
+            }
+        } else {
+            do {
+                try response.status(.badRequest).send("Get failed. Cannot get requested data").end()
+            } catch {
+                print("Error sending response")
+                Log.error("Error sending response") 
+            }
         }
     }
+
+
+
+
 
     private func convertToDocument(key: String, val: Any, fieldType: FieldType) -> (String, Value) {
         let temp: (String, Value)
