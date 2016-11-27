@@ -28,10 +28,10 @@ public class FlexworkController {
         router.get("/:dbname/:collectionname", handler: onGetItems)
         //router.get("/get_json_body", handler: onGetJsonBody)
         router.get("/", handler: onGetTest)
-        router.post("/:dbname/:collectionname",handler: onPostItems)
+        router.post("/:dbname/:collectionname", handler: onPostItems)
         // router.put("/:dbname/:collectionname/:id", onPutItems)
         // router.patch("/:dbname/:collectionname/:id", onPatchItems)
-        // router.delete("/:dbname/:collectionname/:id", onDeleteItems)
+        router.delete("/:dbname/:collectionname", handler: onDeleteItems)
     }
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
@@ -41,11 +41,47 @@ public class FlexworkController {
         }
     }
 
+    private func onDeleteItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
+        let dbName = request.parameters["dbname"] ?? ""
+        let colName = request.parameters["collectionname"] ?? ""
+        let operation = request.queryParameters["op"] ?? ""
+        let field = request.queryParameters["field"] ?? ""
+        let value = request.queryParameters["value"] ?? ""
+        let opComparison: Comparison = getEnumComparisonType(operation)
+        guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
+            do {
+                try response.status(.badRequest).send("Field type does not exist").end()
+            } catch {
+                Log.error("Error sending response")
+            }
+            return
+        }
+        //******************************************** testing
+        print("********************************************")
+        print("DELETE Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
+        print("operation: \(operation)")
+        print("field: \(field)")
+        print("value: \(value)")
+        print("fieldType: \(fieldType)")
+        //********************************************
+        let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value)
+        flexwork.delete(databaseName: dbName, collectionName: colName, query: parseQuery!)
+        do {
+            try response.status(.OK).send("Delete successfully").end()
+        } catch {
+            Log.error("Error sending response")
+        }
+    }
+
     private func onPostItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
         let colName = request.parameters["collectionname"] ?? ""
-        print(dbName)
-        print(colName)
+        print("********************************************")
+        print("POST Request...")
+        print("dbName: \(dbName)")
+        print("collectionName: \(colName)")
         guard let requestBody = request.body else {
             print("Request body is nil")
             response.status(.badRequest)
@@ -108,7 +144,7 @@ public class FlexworkController {
         print("doc = \(doc)")
         flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
         do {
-            try response.status(.OK).send("Success").end()
+            try response.status(.OK).send("Create successfully").end()
         } catch {
             Log.error("Error sending response")
         }
@@ -121,50 +157,17 @@ public class FlexworkController {
         let field = request.queryParameters["field"] ?? ""
         let value = request.queryParameters["value"] ?? ""
         let opComparison: Comparison = getEnumComparisonType(operation)
-
         guard let fieldType = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: field) else {
             do {
                 try response.status(.badRequest).send("Field type does not exist").end()
             } catch {
                 Log.error("Error sending response")
             }
-            return 
+            return
         }
-
-        let parseQuery: Query?
-        do {
-            switch fieldType {
-            case .int32:
-                let valueWithType = Int32(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            case .int64:
-                let valueWithType = Int64(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)    
-            case .boolean:
-                let valueWithType = Bool(value)!
-                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            case .double:
-                let valueWithType = Double(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            case .document:
-                let valueWithType = try Document(extendedJSON: value)
-                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            case .objectId:
-                let valueWithType = try ObjectId(value)
-                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            default:
-                let valueWithType = String(value)!
-                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: opComparison)
-            }
-        } catch let error as FlexworkError {
-            parseQuery = nil
-            FlexworkError.handleError(flexworkError: error)
-        } catch {
-            parseQuery = nil
-            Log.error("Exception when building a query document")
-        }
-        
         //******************************************** testing
+        print("********************************************")
+        print("GET Request...")
         print("dbName: \(dbName)")
         print("collectionName: \(colName)")
         print("operation: \(operation)")
@@ -172,8 +175,7 @@ public class FlexworkController {
         print("value: \(value)")
         print("fieldType: \(fieldType)")
         //********************************************
-
-        
+        let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value) 
         if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!) {
             let returnDict: [[String:Any]] = Array(docs).flatMap {
                 doc in
@@ -256,6 +258,42 @@ public class FlexworkController {
         } catch {
 
         }
+    }
+
+    private func buildQueryWithType(dbName: String, colName: String, op: Comparison, field: String, fieldType: FieldType, value: String) -> Query? {
+        let parseQuery: Query?
+        do {
+            switch fieldType {
+            case .int32:
+                let valueWithType = Int32(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            case .int64:
+                let valueWithType = Int64(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)    
+            case .boolean:
+                let valueWithType = Bool(value)!
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            case .double:
+                let valueWithType = Double(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            case .document:
+                let valueWithType = try Document(extendedJSON: value)
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            case .objectId:
+                let valueWithType = try ObjectId(value)
+                try parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            default:
+                let valueWithType = String(value)!
+                parseQuery = QueryBuilder.buildQuery(fieldName: field, fieldVal: valueWithType, comparisonOperator: op)
+            }
+        } catch let error as FlexworkError {
+            parseQuery = nil
+            FlexworkError.handleError(flexworkError: error)
+        } catch {
+            parseQuery = nil
+            Log.error("Exception when building a query document")
+        }
+        return parseQuery
     }
 
     private func getEnumComparisonType(_ op: String) -> Comparison {
