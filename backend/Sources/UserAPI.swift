@@ -28,6 +28,7 @@ public class UserAPI {
             return "equalTo"
         }
     }
+    
     func getAll(_ db: String, _ col: String, completion: @escaping (_ resp: [[String:Any]]?) -> ()) {
         completion(testDB)
     }

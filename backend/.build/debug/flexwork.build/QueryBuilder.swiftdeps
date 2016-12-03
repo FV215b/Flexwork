@@ -6,24 +6,24 @@ provides-nominal:
 provides-member:
 - ["C8flexwork12QueryBuilder", ""]
 depends-top-level:
-- !private "<="
+- !private "!="
+- "Bool"
 - "String"
-- !private ">"
 - "QueryBuilder"
+- !private "FlexworkError"
+- !private ">"
+- !private "<="
 - "Query"
-- "Int64"
+- !private "=="
 - "Double"
 - "Comparison"
-- !private ">="
-- "StringLiteralType"
+- "ObjectId"
+- !private "<"
 - "Int32"
 - "Document"
-- !private "=="
-- !private "<"
-- "Bool"
-- !private "FlexworkError"
-- "ObjectId"
-- !private "!="
+- "Int64"
+- !private ">="
+- "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "FlexworkError"]
 - !private ["Ps9AnyObject", "errorMsg"]

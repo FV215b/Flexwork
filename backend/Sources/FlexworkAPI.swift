@@ -1,6 +1,5 @@
 import MongoKitten
 import Foundation
-//import LoggerAPI
 public protocol FlexworkAPI {
     func count(databaseName: String, collectionName: String, query: Query) -> Int?
     func delete(databaseName: String, collectionName: String, query: Query)

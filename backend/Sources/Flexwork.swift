@@ -61,6 +61,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+/*
     public func count(fieldName: String, fieldVal: String?) {
         
         do {
@@ -78,7 +79,9 @@ public class Flexwork: FlexworkAPI {
             // handle exception
         }
     }
+*/
 
+/*
     public func delete(fieldName: String, fieldVal: String?) {
 
         do {
@@ -94,7 +97,9 @@ public class Flexwork: FlexworkAPI {
             // handle exception
         }
     }
+*/
 
+/*
     public func insert(document: Document) {
         
         do {
@@ -108,8 +113,9 @@ public class Flexwork: FlexworkAPI {
             // handle exception
         }
     }
+*/
 
-
+/*
     public func find(fieldName: String, fieldVal: Int) {
         do {
             if !server.isConnected { try server.connect() }
@@ -128,7 +134,9 @@ public class Flexwork: FlexworkAPI {
             // handle exception
         }
     }
+*/
 
+/*
     public func update(fieldName: String, fieldVal: String?) {
         do {
             if !server.isConnected { try server.connect() }
@@ -149,8 +157,9 @@ public class Flexwork: FlexworkAPI {
             // handle exception
         }
     }
+*/
 
-    
+    // Methods in FlexworkAPI
     public func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType? {
         if let colConfig = dictionary[databaseName],
            let config = colConfig[collectionName] {
@@ -182,6 +191,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    // Methods in FlexworkAPI
     public func count(databaseName: String, collectionName: String, query: Query) -> Int? {
     	do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -193,6 +203,7 @@ public class Flexwork: FlexworkAPI {
         }
     }   
 
+    // Methods in FlexworkAPI
     public func delete(databaseName: String, collectionName: String, query: Query) {
         do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -203,6 +214,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    // Methods in FlexworkAPI
     public func update(databaseName: String, collectionName: String, query: Query, document: Document) {
         do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -211,7 +223,6 @@ public class Flexwork: FlexworkAPI {
             Log.error("Error when updating document in the collection: \(collectionName) in database: \(databaseName)")
         }
     }
-
 
     private func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
         do {

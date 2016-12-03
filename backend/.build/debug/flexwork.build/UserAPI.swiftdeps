@@ -6,43 +6,56 @@ provides-nominal:
 provides-member:
 - ["C8flexwork7UserAPI", ""]
 depends-top-level:
+- "Dictionary"
+- "StringLiteralType"
 - "UserAPI"
-- !private "print"
-- "Array"
 - !private "JSONSerialization"
-- "String"
-- !private "StringLiteralType"
-- !private "URL"
-- !private "NSError"
-- "AssignmentPrecedence"
-- !private "CastingPrecedence"
-- !private "Data"
-- !private "URLSession"
+- !private ">"
 - !private "UnicodeScalarType"
-- "Comparison"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- !private "=="
+- !private "||"
+- "IntegerLiteralType"
+- !private "URL"
+- !private ">="
+- !private "Int"
+- !private "&&"
+- "FloatLiteralType"
+- !private "<="
 - !private "URLRequest"
+- !private "NSError"
+- !private "!="
+- !private "Array"
+- "Comparison"
+- !private "print"
+- !private "<"
+- "String"
 depends-member:
+- !private ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "JSONSerialization"]
 - !private ["Ps9AnyObject", "String"]
 - !private ["Ps9AnyObject", "URL"]
 - !private ["Ps9AnyObject", "URLRequest"]
-- !private ["Ps9AnyObject", "URLSession"]
-- !private ["Ps9AnyObject", "dataTask"]
-- !private ["Ps9AnyObject", "jsonObject"]
-- !private ["Ps9AnyObject", "localizedDescription"]
+- !private ["Ps9AnyObject", "collectionName"]
+- !private ["Ps9AnyObject", "data"]
+- !private ["Ps9AnyObject", "databaseIP"]
+- !private ["Ps9AnyObject", "databaseName"]
+- !private ["Ps9AnyObject", "databasePort"]
+- !private ["Ps9AnyObject", "getComparisonType"]
 - !private ["Ps9AnyObject", "print"]
-- !private ["Ps9AnyObject", "resume"]
-- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "testDB"]
 - ["Ps9AnyObject", ""]
 - !private ["Sa", "Iterator"]
 - !private ["Sa", "_Element"]
 - !private ["Sa", "append"]
-- !private ["Sa", "deinit"]
+- ["Sa", "deinit"]
 - !private ["Sa", "init"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "Iterator"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "_Element"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "append"]
 - !private ["P21MongoCryptoEssentials13ArrayProtocol", "init"]
+- !private ["P4BSON17BSONBytesProtocol", "init"]
 - !private ["Ps23BidirectionalCollection", "Iterator"]
 - !private ["Ps23BidirectionalCollection", "_Element"]
 - !private ["Ps23BidirectionalCollection", "append"]
@@ -51,127 +64,152 @@ depends-member:
 - !private ["Ps22BidirectionalIndexable", "_Element"]
 - !private ["Ps22BidirectionalIndexable", "append"]
 - !private ["Ps22BidirectionalIndexable", "init"]
-- !private ["Sb", "deinit"]
+- !private ["P21MongoCryptoEssentials26BitshiftOperationsProtocol", "init"]
+- !private ["Ps17BitwiseOperations", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["P21MongoCryptoEssentials15ByteConvertible", "init"]
+- !private ["Ps7CVarArg", "init"]
 - !private ["Vs9Character", "deinit"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "Iterator"]
+- ["Ps10Collection", "Key"]
 - !private ["Ps10Collection", "SubSequence"]
+- ["Ps10Collection", "Value"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "append"]
 - !private ["Ps10Collection", "init"]
 - !private ["Ps10Collection", "subscript"]
-- !private ["Ps10Comparable", "init"]
+- ["Ps10Comparable", "init"]
 - ["O8flexwork10Comparison", "deinit"]
+- ["O8flexwork10Comparison", "equalTo"]
 - ["O8flexwork10Comparison", "greaterThan"]
 - ["O8flexwork10Comparison", "greaterThanOrEqualTo"]
 - ["O8flexwork10Comparison", "lessThan"]
 - ["O8flexwork10Comparison", "lessThanOrEqualTo"]
 - ["O8flexwork10Comparison", "notEqualTo"]
+- !private ["P21MongoCryptoEssentials21CryptoIntegerProtocol", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- ["Ps28CustomDebugStringConvertible", "Key"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
-- !private ["Ps28CustomDebugStringConvertible", "dataTask"]
+- !private ["Ps28CustomDebugStringConvertible", "data"]
+- !private ["Ps28CustomDebugStringConvertible", "httpBody"]
 - !private ["Ps28CustomDebugStringConvertible", "httpMethod"]
-- !private ["Ps28CustomDebugStringConvertible", "init"]
-- !private ["Ps28CustomDebugStringConvertible", "jsonObject"]
-- !private ["Ps28CustomDebugStringConvertible", "localizedDescription"]
-- !private ["Ps28CustomDebugStringConvertible", "resume"]
-- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "Iterator"]
+- ["Ps17CustomReflectable", "Key"]
 - !private ["Ps17CustomReflectable", "SubSequence"]
+- ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "httpBody"]
 - !private ["Ps17CustomReflectable", "httpMethod"]
-- !private ["Ps17CustomReflectable", "init"]
+- ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
+- ["Ps23CustomStringConvertible", "Key"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
+- ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "append"]
-- !private ["Ps23CustomStringConvertible", "dataTask"]
+- !private ["Ps23CustomStringConvertible", "data"]
+- !private ["Ps23CustomStringConvertible", "httpBody"]
 - !private ["Ps23CustomStringConvertible", "httpMethod"]
-- !private ["Ps23CustomStringConvertible", "init"]
-- !private ["Ps23CustomStringConvertible", "jsonObject"]
-- !private ["Ps23CustomStringConvertible", "localizedDescription"]
-- !private ["Ps23CustomStringConvertible", "resume"]
-- !private ["Ps23CustomStringConvertible", "shared"]
+- ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
-- !private ["V10Foundation4Data", "deinit"]
+- ["V10Foundation4Data", "deinit"]
 - !private ["Vs10Dictionary", "Index"]
+- ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "SubSequence"]
-- !private ["Vs10Dictionary", "deinit"]
+- ["Vs10Dictionary", "Value"]
+- ["Vs10Dictionary", "deinit"]
 - !private ["Vs10Dictionary", "subscript"]
 - !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "Element"]
-- !private ["Ps9Equatable", "dataTask"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "data"]
+- ["Ps9Equatable", "equalTo"]
 - ["Ps9Equatable", "greaterThan"]
 - ["Ps9Equatable", "greaterThanOrEqualTo"]
+- !private ["Ps9Equatable", "httpBody"]
 - !private ["Ps9Equatable", "httpMethod"]
-- !private ["Ps9Equatable", "init"]
-- !private ["Ps9Equatable", "jsonObject"]
+- ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "lessThan"]
 - ["Ps9Equatable", "lessThanOrEqualTo"]
-- !private ["Ps9Equatable", "localizedDescription"]
 - ["Ps9Equatable", "notEqualTo"]
-- !private ["Ps9Equatable", "resume"]
-- !private ["Ps9Equatable", "shared"]
-- !private ["Ps5Error", "localizedDescription"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "append"]
 - !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
+- ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
-- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps32ExpressibleByStringInterpolation", "init"]
-- !private ["Ps26ExpressibleByStringLiteral", "init"]
-- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Sf", "deinit"]
-- !private ["Ps8Hashable", "dataTask"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "data"]
+- ["Ps8Hashable", "equalTo"]
 - ["Ps8Hashable", "greaterThan"]
 - ["Ps8Hashable", "greaterThanOrEqualTo"]
+- !private ["Ps8Hashable", "httpBody"]
 - !private ["Ps8Hashable", "httpMethod"]
-- !private ["Ps8Hashable", "init"]
-- !private ["Ps8Hashable", "jsonObject"]
+- ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "lessThan"]
 - ["Ps8Hashable", "lessThanOrEqualTo"]
-- !private ["Ps8Hashable", "localizedDescription"]
 - ["Ps8Hashable", "notEqualTo"]
-- !private ["Ps8Hashable", "resume"]
-- !private ["Ps8Hashable", "shared"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "Iterator"]
+- ["Ps9Indexable", "Key"]
 - !private ["Ps9Indexable", "SubSequence"]
+- ["Ps9Indexable", "Value"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "append"]
 - !private ["Ps9Indexable", "init"]
 - !private ["Ps9Indexable", "subscript"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "Iterator"]
+- ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "SubSequence"]
+- ["Ps13IndexableBase", "Value"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "append"]
 - !private ["Ps13IndexableBase", "init"]
 - !private ["Ps13IndexableBase", "subscript"]
 - !private ["Vs16IndexingIterator", "Element"]
-- !private ["Si", "deinit"]
+- !private ["P21MongoCryptoEssentials9Initiable", "init"]
+- ["Si", "deinit"]
+- !private ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
-- !private ["C10Foundation17JSONSerialization", "jsonObject"]
-- !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
-- !private ["Ps25LosslessStringConvertible", "init"]
-- !private ["Ps10MirrorPath", "init"]
+- !private ["C10Foundation17JSONSerialization", "data"]
+- ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
 - !private ["Ps17MutableCollection", "Iterator"]
 - !private ["Ps17MutableCollection", "_Element"]
 - !private ["Ps17MutableCollection", "append"]
@@ -180,22 +218,9 @@ depends-member:
 - !private ["Ps16MutableIndexable", "_Element"]
 - !private ["Ps16MutableIndexable", "append"]
 - !private ["Ps16MutableIndexable", "init"]
-- !private ["P10Foundation8NSCoding", "localizedDescription"]
-- !private ["P10Foundation9NSCopying", "localizedDescription"]
-- !private ["P10Foundation9NSCopying", "resume"]
 - ["C10Foundation7NSError", "deinit"]
-- !private ["C10Foundation7NSError", "localizedDescription"]
-- !private ["C10Foundation8NSObject", "dataTask"]
-- !private ["C10Foundation8NSObject", "jsonObject"]
-- !private ["C10Foundation8NSObject", "localizedDescription"]
-- !private ["C10Foundation8NSObject", "resume"]
-- !private ["C10Foundation8NSObject", "shared"]
-- !private ["P10Foundation16NSObjectProtocol", "dataTask"]
-- !private ["P10Foundation16NSObjectProtocol", "jsonObject"]
-- !private ["P10Foundation16NSObjectProtocol", "localizedDescription"]
-- !private ["P10Foundation16NSObjectProtocol", "resume"]
-- !private ["P10Foundation16NSObjectProtocol", "shared"]
-- !private ["P10Foundation14NSSecureCoding", "localizedDescription"]
+- !private ["C10Foundation8NSObject", "data"]
+- !private ["P10Foundation16NSObjectProtocol", "data"]
 - !private ["Ps9OptionSet", "Element"]
 - ["Sq", "deinit"]
 - !private ["Ps22RandomAccessCollection", "Iterator"]
@@ -215,27 +240,31 @@ depends-member:
 - !private ["Ps25RangeReplaceableIndexable", "append"]
 - !private ["Ps25RangeReplaceableIndexable", "init"]
 - !private ["Ps16RawRepresentable", "Element"]
-- !private ["VC10Foundation17JSONSerialization14ReadingOptions", "Element"]
-- !private ["VC10Foundation17JSONSerialization14ReadingOptions", "deinit"]
+- !private ["P10Foundation20ReferenceConvertible", "httpBody"]
 - !private ["P10Foundation20ReferenceConvertible", "httpMethod"]
 - !private ["P10Foundation20ReferenceConvertible", "init"]
 - !private ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "Index"]
 - !private ["Ps8Sequence", "Iterator"]
+- ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "SubSequence"]
+- ["Ps8Sequence", "Value"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "append"]
 - !private ["Ps8Sequence", "init"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "init"]
 - !private ["Vs5Slice", "Index"]
 - !private ["Vs5Slice", "Iterator"]
 - !private ["Vs5Slice", "SubSequence"]
 - !private ["Vs5Slice", "_Element"]
+- !private ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
-- !private ["SS", "init"]
-- !private ["Ps16TextOutputStream", "init"]
-- !private ["Ps20TextOutputStreamable", "init"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
 - !private ["Su", "deinit"]
 - !private ["Vs6UInt16", "deinit"]
 - !private ["Vs6UInt32", "deinit"]
@@ -244,136 +273,165 @@ depends-member:
 - ["V10Foundation3URL", "deinit"]
 - !private ["V10Foundation3URL", "init"]
 - ["V10Foundation10URLRequest", "deinit"]
+- !private ["V10Foundation10URLRequest", "httpBody"]
 - !private ["V10Foundation10URLRequest", "httpMethod"]
 - !private ["V10Foundation10URLRequest", "init"]
-- !private ["C10Foundation10URLSession", "dataTask"]
-- ["C10Foundation10URLSession", "deinit"]
-- !private ["C10Foundation10URLSession", "shared"]
-- ["C10Foundation18URLSessionDataTask", "deinit"]
-- !private ["C10Foundation18URLSessionDataTask", "resume"]
-- !private ["P10Foundation18URLSessionProtocol", "dataTask"]
-- !private ["P10Foundation18URLSessionProtocol", "shared"]
-- !private ["C10Foundation14URLSessionTask", "resume"]
 - !private ["Sc", "deinit"]
 - ["C8flexwork7UserAPI", "Comparison"]
-- !private ["C8flexwork7UserAPI", "Data"]
+- !private ["C8flexwork7UserAPI", "Int"]
 - !private ["C8flexwork7UserAPI", "JSONSerialization"]
 - !private ["C8flexwork7UserAPI", "NSError"]
 - ["C8flexwork7UserAPI", "String"]
 - !private ["C8flexwork7UserAPI", "URL"]
 - !private ["C8flexwork7UserAPI", "URLRequest"]
-- !private ["C8flexwork7UserAPI", "URLSession"]
+- ["C8flexwork7UserAPI", "collectionName"]
+- ["C8flexwork7UserAPI", "databaseIP"]
+- ["C8flexwork7UserAPI", "databaseName"]
+- ["C8flexwork7UserAPI", "databasePort"]
 - ["C8flexwork7UserAPI", "deinit"]
 - ["C8flexwork7UserAPI", "get"]
+- ["C8flexwork7UserAPI", "getAll"]
+- ["C8flexwork7UserAPI", "getComparisonType"]
 - ["C8flexwork7UserAPI", "init"]
+- ["C8flexwork7UserAPI", "post"]
 - !private ["C8flexwork7UserAPI", "print"]
-- !private ["P4BSON16ValueConvertible", "init"]
+- ["C8flexwork7UserAPI", "testDB"]
+- !private ["P4BSON16ValueConvertible", "_getBuiltinLogicValue"]
+- ["P4BSON16ValueConvertible", "init"]
+- !private ["VC10Foundation17JSONSerialization14WritingOptions", "Element"]
+- ["VC10Foundation17JSONSerialization14WritingOptions", "deinit"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "append"]
 - !private ["Ps14_ArrayProtocol", "init"]
+- !private ["P10Foundation13_BitShiftable", "init"]
 - !private ["P10Foundation12_CFBridgable", "Index"]
 - !private ["P10Foundation12_CFBridgable", "Iterator"]
+- ["P10Foundation12_CFBridgable", "Key"]
 - !private ["P10Foundation12_CFBridgable", "SubSequence"]
+- ["P10Foundation12_CFBridgable", "Value"]
 - !private ["P10Foundation12_CFBridgable", "_Element"]
+- !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation12_CFBridgable", "append"]
-- !private ["P10Foundation12_CFBridgable", "init"]
-- !private ["P10Foundation12_CFBridgable", "localizedDescription"]
+- ["P10Foundation12_CFBridgable", "init"]
 - !private ["P10Foundation12_CFBridgable", "subscript"]
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
 - !private ["Ps24_DestructorSafeContainer", "_Element"]
 - !private ["Ps24_DestructorSafeContainer", "append"]
 - !private ["Ps24_DestructorSafeContainer", "init"]
-- !private ["P10Foundation19_EasyHandleDelegate", "resume"]
-- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
-- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
-- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
-- !private ["Ps9_Hashable", "dataTask"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "data"]
+- ["Ps9_Hashable", "equalTo"]
 - ["Ps9_Hashable", "greaterThan"]
 - ["Ps9_Hashable", "greaterThanOrEqualTo"]
+- !private ["Ps9_Hashable", "httpBody"]
 - !private ["Ps9_Hashable", "httpMethod"]
-- !private ["Ps9_Hashable", "init"]
-- !private ["Ps9_Hashable", "jsonObject"]
+- ["Ps9_Hashable", "init"]
 - ["Ps9_Hashable", "lessThan"]
 - ["Ps9_Hashable", "lessThanOrEqualTo"]
-- !private ["Ps9_Hashable", "localizedDescription"]
 - ["Ps9_Hashable", "notEqualTo"]
-- !private ["Ps9_Hashable", "resume"]
-- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["P10Foundation12_IntegerLike", "init"]
 - !private ["P10Foundation12_NSBridgable", "Index"]
 - !private ["P10Foundation12_NSBridgable", "Iterator"]
+- ["P10Foundation12_NSBridgable", "Key"]
 - !private ["P10Foundation12_NSBridgable", "SubSequence"]
+- ["P10Foundation12_NSBridgable", "Value"]
 - !private ["P10Foundation12_NSBridgable", "_Element"]
 - !private ["P10Foundation12_NSBridgable", "append"]
-- !private ["P10Foundation12_NSBridgable", "init"]
+- ["P10Foundation12_NSBridgable", "init"]
 - !private ["P10Foundation12_NSBridgable", "subscript"]
 - !private ["P10Foundation17_ObjectBridgeable", "Index"]
 - !private ["P10Foundation17_ObjectBridgeable", "Iterator"]
+- ["P10Foundation17_ObjectBridgeable", "Key"]
 - !private ["P10Foundation17_ObjectBridgeable", "SubSequence"]
+- ["P10Foundation17_ObjectBridgeable", "Value"]
 - !private ["P10Foundation17_ObjectBridgeable", "_Element"]
+- !private ["P10Foundation17_ObjectBridgeable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation17_ObjectBridgeable", "append"]
+- !private ["P10Foundation17_ObjectBridgeable", "httpBody"]
 - !private ["P10Foundation17_ObjectBridgeable", "httpMethod"]
-- !private ["P10Foundation17_ObjectBridgeable", "init"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
 - !private ["P10Foundation17_ObjectBridgeable", "subscript"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "Index"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "Iterator"]
+- ["P10Foundation21_ObjectTypeBridgeable", "Key"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "SubSequence"]
+- ["P10Foundation21_ObjectTypeBridgeable", "Value"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "_Element"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_getBuiltinLogicValue"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "append"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "httpBody"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "httpMethod"]
-- !private ["P10Foundation21_ObjectTypeBridgeable", "init"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
 - !private ["P10Foundation21_ObjectTypeBridgeable", "subscript"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "init"]
 depends-nominal:
 - "Ps9AnyObject"
-- !private "Sa"
+- "Sa"
 - !private "P21MongoCryptoEssentials13ArrayProtocol"
+- !private "P4BSON17BSONBytesProtocol"
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
-- !private "Sb"
+- !private "P21MongoCryptoEssentials26BitshiftOperationsProtocol"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "P21MongoCryptoEssentials15ByteConvertible"
+- !private "Ps7CVarArg"
 - !private "Vs9Character"
-- !private "Ps10Collection"
-- !private "Ps10Comparable"
+- "Ps10Collection"
+- "Ps10Comparable"
 - "O8flexwork10Comparison"
-- !private "Ps28CustomDebugStringConvertible"
-- !private "Ps29CustomPlaygroundQuickLookable"
-- !private "Ps17CustomReflectable"
-- !private "Ps23CustomStringConvertible"
-- !private "V10Foundation4Data"
-- !private "Vs10Dictionary"
+- !private "P21MongoCryptoEssentials21CryptoIntegerProtocol"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Data"
+- "Vs10Dictionary"
 - !private "Sd"
 - "Ps9Equatable"
-- !private "Ps5Error"
 - !private "Ps25ExpressibleByArrayLiteral"
-- !private "Ps30ExpressibleByDictionaryLiteral"
-- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
-- !private "Ps32ExpressibleByStringInterpolation"
-- !private "Ps26ExpressibleByStringLiteral"
-- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
 - "Ps8Hashable"
-- !private "Ps9Indexable"
-- !private "Ps13IndexableBase"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
-- !private "Si"
+- !private "P21MongoCryptoEssentials9Initiable"
+- "Si"
 - !private "Vs5Int16"
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - !private "C10Foundation17JSONSerialization"
-- !private "P10SwiftyJSON17JSONSubscriptType"
-- !private "Ps25LosslessStringConvertible"
-- !private "Ps10MirrorPath"
+- "P10SwiftyJSON17JSONSubscriptType"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
 - !private "Ps16MutableIndexable"
-- !private "P10Foundation8NSCoding"
-- !private "P10Foundation9NSCopying"
 - "C10Foundation7NSError"
 - !private "C10Foundation8NSObject"
 - !private "P10Foundation16NSObjectProtocol"
-- !private "P10Foundation14NSSecureCoding"
 - !private "Ps9OptionSet"
 - "Sq"
 - !private "Ps22RandomAccessCollection"
@@ -381,14 +439,16 @@ depends-nominal:
 - !private "Ps26RangeReplaceableCollection"
 - !private "Ps25RangeReplaceableIndexable"
 - !private "Ps16RawRepresentable"
-- !private "VC10Foundation17JSONSerialization14ReadingOptions"
 - !private "P10Foundation20ReferenceConvertible"
-- !private "Ps8Sequence"
+- "Ps8Sequence"
 - !private "Ps10SetAlgebra"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
 - !private "Vs5Slice"
+- !private "Ps10Strideable"
 - "SS"
-- !private "Ps16TextOutputStream"
-- !private "Ps20TextOutputStreamable"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
 - !private "Su"
 - !private "Vs6UInt16"
 - !private "Vs6UInt32"
@@ -396,26 +456,31 @@ depends-nominal:
 - !private "Vs5UInt8"
 - "V10Foundation3URL"
 - "V10Foundation10URLRequest"
-- "C10Foundation10URLSession"
-- "C10Foundation18URLSessionDataTask"
-- !private "P10Foundation18URLSessionProtocol"
-- !private "C10Foundation14URLSessionTask"
 - !private "Sc"
 - "C8flexwork7UserAPI"
-- !private "P4BSON16ValueConvertible"
+- "P4BSON16ValueConvertible"
+- "VC10Foundation17JSONSerialization14WritingOptions"
 - !private "Ps14_ArrayProtocol"
-- !private "P10Foundation12_CFBridgable"
+- !private "P10Foundation13_BitShiftable"
+- "P10Foundation12_CFBridgable"
 - !private "Ps24_DestructorSafeContainer"
-- !private "P10Foundation19_EasyHandleDelegate"
-- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
-- !private "Ps34_ExpressibleByBuiltinStringLiteral"
-- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
-- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - !private "Ps34_ExpressibleByFileReferenceLiteral"
 - "Ps9_Hashable"
-- !private "P10Foundation12_NSBridgable"
-- !private "P10Foundation17_ObjectBridgeable"
-- !private "P10Foundation21_ObjectTypeBridgeable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "P10Foundation12_IntegerLike"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
 depends-dynamic-lookup:
 depends-external:
 - "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
@@ -463,4 +528,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "6746095d589f78bc04499efedcf2beb2"
+interface-hash: "d08b54603d47240a372fec84791d4a71"

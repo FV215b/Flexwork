@@ -8,10 +8,10 @@ provides-nominal:
 provides-member:
 - ["O8flexwork9FieldType", ""]
 depends-top-level:
-- !private "IntegerLiteralType"
-- "Valuetype"
-- "=="
 - "FieldType"
+- !private "IntegerLiteralType"
+- "=="
+- "Valuetype"
 - !private "FloatLiteralType"
 depends-member:
 - !private ["P4BSON17BSONBytesProtocol", "hashValue"]
@@ -33,7 +33,7 @@ depends-member:
 - ["O8flexwork9FieldType", "array"]
 - ["O8flexwork9FieldType", "binary"]
 - ["O8flexwork9FieldType", "boolean"]
-- ["O8flexwork9FieldType", "dataTime"]
+- ["O8flexwork9FieldType", "dateTime"]
 - ["O8flexwork9FieldType", "deinit"]
 - ["O8flexwork9FieldType", "document"]
 - ["O8flexwork9FieldType", "double"]
@@ -157,4 +157,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "f0ada0701f8d11015a7df4d51e300bc0"
+interface-hash: "30dd0e8a0ee32b71876f971ce76ced91"

@@ -35,6 +35,7 @@ public class FlexworkController {
         router.delete("/:dbname/:collectionname", handler: onDeleteItems)
         router.delete("/:dbname/:collectionname/all", handler: onDeleteAll)
     }
+
     private func onGetTest(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         do {
             try response.status(.OK).send("Connecting to Flexwork!").end() 
@@ -530,7 +531,8 @@ public class FlexworkController {
                     guard key != "_id" else {
                         continue
                     }
-                    guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else{
+
+                    guard let type = flexwork.getFieldType(databaseName: dbName, collectionName: colName, fieldName: key) else {
                         do {
                             try response.status(.badRequest).send("Error. Field not exist").end()
                         } catch {
@@ -538,6 +540,7 @@ public class FlexworkController {
                         }
                         return nil
                     }
+                    
                     if type == .int32 {
                         element[key] = value.int
                     }
@@ -565,10 +568,6 @@ public class FlexworkController {
             }
         }
     }
-
-
-
-
 
     private func convertToDocument(key: String, val: Any, fieldType: FieldType) -> (String, Value) {
         let temp: (String, Value)
