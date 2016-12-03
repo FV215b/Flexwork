@@ -95,7 +95,17 @@ collectionConfig_1.addNewFieldType(fieldName: fieldName_3, type: fieldType_3)
 let collectionName_2 = "test_collection2"
 let collectionConfig_2 = CollectionConfiguration(collectionName: collectionName_2)
 
-let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2]]
+
+let collectionName_3 = "test_collection"
+let fieldName_1 = "id"
+let fieldType_1 = FieldType.string
+let fieldName_2 = "count"
+let fieldType_2 = FieldType.int32
+let collectionConfig_3 = CollectionConfiguration(collectionName: collectionName_1)
+collectionConfig_3.addNewFieldType(fieldName: fieldName_1, type: fieldType_1)
+collectionConfig_3.addNewFieldType(fieldName: fieldName_2, type: fieldType_2)
+
+let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2, collectionName_3: collectionConfig_3]]
 
 let dbConfig = DatabaseConfiguration(host: "52.87.158.72", port: UInt16(27017), username: nil, password: nil)
 
