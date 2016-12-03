@@ -80,28 +80,36 @@ flexwork.createCollection(name: "aspofdpsaofdjposajdfpojsafd", document: doc)
 print("Test Finish!")
 */
 
-let collectionName_1 = "test_collection"
-let fieldName_1 = "id"
+let collectionName_1 = "veggies_info"
+let fieldName_1 = "name"
 let fieldType_1 = FieldType.string
-let fieldName_2 = "count"
-let fieldType_2 = FieldType.int32
+let fieldName_2 = "team"
+let fieldType_2 = FieldType.string
+let fieldName_3 = "age"
+let fieldType_3 = FieldType.int32
 let collectionConfig_1 = CollectionConfiguration(collectionName: collectionName_1)
 collectionConfig_1.addNewFieldType(fieldName: fieldName_1, type: fieldType_1)
 collectionConfig_1.addNewFieldType(fieldName: fieldName_2, type: fieldType_2)
+collectionConfig_1.addNewFieldType(fieldName: fieldName_3, type: fieldType_3)
 
 let collectionName_2 = "test_collection2"
 let collectionConfig_2 = CollectionConfiguration(collectionName: collectionName_2)
 
 let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2]]
 
-let dbConfig = DatabaseConfiguration(host: "127.0.0.1", port: UInt16(27017), username: nil, password: nil)
+let dbConfig = DatabaseConfiguration(host: "52.87.158.72", port: UInt16(27017), username: nil, password: nil)
 
 let flexwork = Flexwork(dbConfig, dictionary: dictionary)
 
-let doc: Document = [
-    "id": "gh84",
-    "count": 66
-]
+//let doc: Document = [
+//    "id": "gh84",
+//    "count": 66
+//]
+//let doc: Document = [
+//    "name": "Jianyu Zhang",
+//    "team": "Veggies",
+//    "age": "25"
+//]
 
 // flexwork.test_insert(doc: doc)
 

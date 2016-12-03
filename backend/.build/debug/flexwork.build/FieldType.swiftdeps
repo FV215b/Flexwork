@@ -8,10 +8,10 @@ provides-nominal:
 provides-member:
 - ["O8flexwork9FieldType", ""]
 depends-top-level:
-- "FieldType"
-- !private "IntegerLiteralType"
 - "=="
 - "Valuetype"
+- "FieldType"
+- !private "IntegerLiteralType"
 - !private "FloatLiteralType"
 depends-member:
 - !private ["P4BSON17BSONBytesProtocol", "hashValue"]
