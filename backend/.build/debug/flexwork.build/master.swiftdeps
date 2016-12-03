@@ -1,16 +1,16 @@
 version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
 options: "63cb41902530646cd0498cccc75fd359"
-build_time: [534098978, 610987000]
+build_time: [534110087, 243416000]
 inputs:
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/UserAPI.swift": [534097293, 0]
-  "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/Flexwork.swift": [534097610, 0]
+  "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/Flexwork.swift": [534109122, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/FlexworkAPI.swift": [534097287, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/DatabaseConfiguration.swift": [533336933, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/FlexworkError.swift": [534097290, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/DictionaryConvertible.swift": [533336933, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/FieldType.swift": [534097839, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/Comparison.swift": [533336933, 0]
-  "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/main.swift": [534098949, 0]
+  "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/main.swift": [534109203, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/CollectionConfiguration.swift": [534097294, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/QueryBuilder.swift": [534097291, 0]
   "/home/jyzhang/Desktop/flexwork_current/project/backend/Sources/FlexworkController.swift": [534097289, 0]
