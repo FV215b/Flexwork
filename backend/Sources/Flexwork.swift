@@ -62,21 +62,6 @@ public class Flexwork: FlexworkAPI {
     }
 
 
-/*
-    public func insert(document: Document) {
-        
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            try collection.insert(document)
-        } catch {
-            // handle exception
-        }
-    }
-*/
 
 /*
     public func find(fieldName: String, fieldVal: Int) {
