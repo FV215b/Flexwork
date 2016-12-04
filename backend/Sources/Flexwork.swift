@@ -224,7 +224,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-    private func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
+    func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
             let database = server[databaseName]

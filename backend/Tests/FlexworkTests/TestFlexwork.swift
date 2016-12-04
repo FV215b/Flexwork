@@ -22,11 +22,12 @@ class TestFlexwork: XCTestCase {
     static var allTests: [(String, (TestFlexwork) -> () throws -> Void)] {
         return [
             ("testGetFieldType", testGetFieldType),
-            ("testInsertDocument", testInsertDocument)
+            ("testInsertDocument", testInsertDocument),
+            ("testFindDocument", testFindDocument)
         ]
     }
 
-    var flexwork: Flexwork?
+    var flexwork_opt: Flexwork?
 
     override func setUp() {
         let collectionConfig = CollectionConfiguration(collectionName: collectionName)
@@ -34,13 +35,30 @@ class TestFlexwork: XCTestCase {
         collectionConfig.addNewFieldType(fieldName: fieldName_2, type: fieldType_2)
         let dictionary = [databaseName: [collectionName: collectionConfig]]
         let dbConfig = DatabaseConfiguration(host: "54.86.5.24", port: UInt16(27017), username: nil, password: nil)
-        flexwork = Flexwork(dbConfig, dictionary: dictionary)
+        flexwork_opt = Flexwork(dbConfig, dictionary: dictionary)
         super.setUp()
+    }
+
+    override func tearDown() {
+        guard let flexwork = flexwork_opt else {
+            XCTFail()
+            exit(1)
+        }
+
+        // drop test_collection after testing. Cuz the existing data in the test_collection may compromise the later test.
+        do {
+            let collection = try flexwork.getCollection(databaseName: self.databaseName, collectionName: self.collectionName)
+            try collection.drop()
+        } catch {
+            XCTFail()
+            exit(1)
+        }
+        super.tearDown()  
     }
 
     func testGetFieldType() {
 
-        guard let flexwork = flexwork else {
+        guard let flexwork = flexwork_opt else {
             XCTFail()
             return
         }
@@ -63,7 +81,7 @@ class TestFlexwork: XCTestCase {
 
     func testInsertDocument() {
 
-        guard let flexwork = flexwork else {
+        guard let flexwork = flexwork_opt else {
             XCTFail()
             return
         }
@@ -75,6 +93,7 @@ class TestFlexwork: XCTestCase {
 
         flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc)
         
+        // construct a query with every field == field value inserted before.
         let query = QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_id", comparisonOperator: .equalTo) &&
                     QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(100), comparisonOperator: .equalTo)
         let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
@@ -83,10 +102,53 @@ class TestFlexwork: XCTestCase {
             return
         }
         
+        // check if there is only one document.
         var count = 0
         for _ in cursor {
             count += 1
         }
         XCTAssertEqual(count, 1)
+    }
+
+    func testFindDocument() {
+        guard let flexwork = flexwork_opt else {
+            XCTFail()
+            return
+        }
+
+        let testDoc1: Document = [
+            fieldName_1: "test_id",
+            fieldName_2: 90
+        ]
+
+        let testDoc2: Document = [
+            fieldName_1: "test_id",
+            fieldName_2: 89
+        ]
+
+        let testDoc3: Document = [
+            fieldName_1: "test_id",
+            fieldName_2: 88
+        ]
+
+        // Insert three test doc into the test_collection
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc1)
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc2)
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc3)
+
+        // build a query to query the document with count value less than 91. The expected number of doc returned is 3
+        let query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(91), comparisonOperator: .lessThan)
+                let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor = cursor_opt else {
+            XCTFail()
+            return
+        }
+        
+        // check if there is only one document.
+        var count = 0
+        for _ in cursor {
+            count += 1
+        }
+        XCTAssertEqual(count, 3)
     }
 }
