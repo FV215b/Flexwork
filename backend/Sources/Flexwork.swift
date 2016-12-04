@@ -62,28 +62,6 @@ public class Flexwork: FlexworkAPI {
     }
 
 
-
-/*
-    public func find(fieldName: String, fieldVal: Int) {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName <= fieldVal && "id" == "jy175"
-
-            let docs = try collection.find(matching: query)
-            for doc in docs {
-                print(doc)
-            }
-            
-        } catch {
-            // handle exception
-        }
-    }
-*/
-
 /*
     public func update(fieldName: String, fieldVal: String?) {
         do {
