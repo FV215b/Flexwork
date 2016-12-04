@@ -24,7 +24,8 @@ class TestFlexwork: XCTestCase {
             ("testGetFieldType", testGetFieldType),
             ("testInsertDocument", testInsertDocument),
             ("testFindDocument", testFindDocument),
-            ("testCountDocument", testCountDocument)
+            ("testCountDocument", testCountDocument),
+            ("testDeleteDocument", testDeleteDocument)
         ]
     }
 
@@ -198,5 +199,50 @@ class TestFlexwork: XCTestCase {
             count += 1
         }
         XCTAssertEqual(count, 3)
+    }
+
+    // Unit test for delete()
+    func testDeleteDocument() {
+        guard let flexwork = flexwork_opt else {
+            XCTFail()
+            return
+        }
+
+        let testDoc: Document = [
+            fieldName_1: "test_delete",
+            fieldName_2: 90
+        ]
+
+        // insert the test document into the test_collection
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc)        
+        // build a query to query the document with id equal to "test_delete". The expected number of doc returned is 1
+        // just make sure we insert the document into the collection successfully
+        let query = QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_delete", comparisonOperator: .equalTo)
+        var cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor = cursor_opt else {
+            XCTFail()
+            return
+        }
+
+        var count = 0
+        for _ in cursor {
+            count += 1
+        }
+        XCTAssertEqual(count, 1)
+
+        // delete the testDoc
+        flexwork.delete(databaseName: databaseName, collectionName: collectionName, query: query)
+        // do the same query again. This time the expected number of doc returned is 0
+        cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor_2 = cursor_opt else {
+            XCTFail()
+            return
+        }
+
+        count = 0
+        for _ in cursor_2 {
+            count += 1
+        }
+        XCTAssertEqual(count, 0)
     }
 }
