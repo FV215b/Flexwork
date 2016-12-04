@@ -25,7 +25,8 @@ class TestFlexwork: XCTestCase {
             ("testInsertDocument", testInsertDocument),
             ("testFindDocument", testFindDocument),
             ("testCountDocument", testCountDocument),
-            ("testDeleteDocument", testDeleteDocument)
+            ("testDeleteDocument", testDeleteDocument),
+            ("testUpdateDocument", testUpdateDocument)
         ]
     }
 
@@ -244,5 +245,71 @@ class TestFlexwork: XCTestCase {
             count += 1
         }
         XCTAssertEqual(count, 0)
+    }
+
+    func testUpdateDocument() {
+        guard let flexwork = flexwork_opt else {
+            XCTFail()
+            return
+        }
+
+        let testDoc: Document = [
+            fieldName_1: "test_update",
+            fieldName_2: 90
+        ]
+
+        // insert the test document into the test_collection
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc)        
+        // build a query to query the document with id equal to "test_update". The expected number of doc returned is 1
+        // just make sure we insert the document into the collection successfully
+        var query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(90), comparisonOperator: .equalTo) &&
+                    QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_update", comparisonOperator: .equalTo)
+        var cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor = cursor_opt else {
+            XCTFail()
+            return
+        }
+
+        var count = 0
+        for _ in cursor {
+            count += 1
+        }
+        XCTAssertEqual(count, 1)
+
+        let updatedDoc: Document = [
+            fieldName_1: "test_update",
+            fieldName_2: 100
+        ]
+        flexwork.update(databaseName: databaseName, collectionName: collectionName, query: query, document: updatedDoc)
+
+        // check the original document disappeared
+        query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(90), comparisonOperator: .equalTo) &&
+                    QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_update", comparisonOperator: .equalTo)
+        cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor_2 = cursor_opt else {
+            XCTFail()
+            return
+        }
+
+        count = 0
+        for _ in cursor_2 {
+            count += 1
+        }
+        XCTAssertEqual(count, 0)
+
+        // check the original document is updated with the new document
+        query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(100), comparisonOperator: .equalTo) &&
+                    QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_update", comparisonOperator: .equalTo)
+        cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor_3 = cursor_opt else {
+            XCTFail()
+            return
+        }
+
+        count = 0
+        for _ in cursor_3 {
+            count += 1
+        }
+        XCTAssertEqual(count, 1)
     }
 }
