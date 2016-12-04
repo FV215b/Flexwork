@@ -62,26 +62,6 @@ public class Flexwork: FlexworkAPI {
     }
 
 /*
-    public func count(fieldName: String, fieldVal: String?) {
-        
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "jz173"
-
-            let count = try collection.count(matching: query)
-
-            print("\(count) documents with \(fieldName) == \(fieldVal)")
-        } catch {
-            // handle exception
-        }
-    }
-*/
-
-/*
     public func delete(fieldName: String, fieldVal: String?) {
 
         do {
