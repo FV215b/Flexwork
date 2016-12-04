@@ -61,30 +61,6 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-
-/*
-    public func update(fieldName: String, fieldVal: String?) {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "gh84"
-
-            let updateDoc: Document = [
-                "id": "gh84",
-                "count": 99999
-            ]
-
-            try collection.update(matching: query, to: updateDoc)
-            
-        } catch {
-            // handle exception
-        }
-    }
-*/
-
     // Methods in FlexworkAPI
     public func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType? {
         if let colConfig = dictionary[databaseName],
