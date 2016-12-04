@@ -23,7 +23,8 @@ class TestFlexwork: XCTestCase {
         return [
             ("testGetFieldType", testGetFieldType),
             ("testInsertDocument", testInsertDocument),
-            ("testFindDocument", testFindDocument)
+            ("testFindDocument", testFindDocument),
+            ("testCountDocument", testCountDocument)
         ]
     }
 
@@ -56,6 +57,7 @@ class TestFlexwork: XCTestCase {
         super.tearDown()  
     }
 
+    // Unit test for getFieldType()
     func testGetFieldType() {
 
         guard let flexwork = flexwork_opt else {
@@ -79,6 +81,7 @@ class TestFlexwork: XCTestCase {
         XCTAssertEqual(fieldType2, fieldType_2)
     }
 
+    // Unit test for insert()
     func testInsertDocument() {
 
         guard let flexwork = flexwork_opt else {
@@ -87,14 +90,14 @@ class TestFlexwork: XCTestCase {
         }
 
         let testDoc: Document = [
-            fieldName_1: "test_id",
+            fieldName_1: "test_insert",
             fieldName_2: 100
         ]
 
         flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc)
         
         // construct a query with every field == field value inserted before.
-        let query = QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_id", comparisonOperator: .equalTo) &&
+        let query = QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_insert", comparisonOperator: .equalTo) &&
                     QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(100), comparisonOperator: .equalTo)
         let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
         guard let cursor = cursor_opt else {
@@ -110,6 +113,7 @@ class TestFlexwork: XCTestCase {
         XCTAssertEqual(count, 1)
     }
 
+    // Unit test for Find()
     func testFindDocument() {
         guard let flexwork = flexwork_opt else {
             XCTFail()
@@ -117,17 +121,17 @@ class TestFlexwork: XCTestCase {
         }
 
         let testDoc1: Document = [
-            fieldName_1: "test_id",
+            fieldName_1: "test_find",
             fieldName_2: 90
         ]
 
         let testDoc2: Document = [
-            fieldName_1: "test_id",
+            fieldName_1: "test_find",
             fieldName_2: 89
         ]
 
         let testDoc3: Document = [
-            fieldName_1: "test_id",
+            fieldName_1: "test_find",
             fieldName_2: 88
         ]
 
@@ -137,8 +141,52 @@ class TestFlexwork: XCTestCase {
         flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc3)
 
         // build a query to query the document with count value less than 91. The expected number of doc returned is 3
-        let query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(91), comparisonOperator: .lessThan)
-                let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        let query = QueryBuilder.buildQuery(fieldName: fieldName_2, fieldVal: Int64(91), comparisonOperator: .lessThan) &&
+                    QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_find", comparisonOperator: .equalTo)
+        let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
+        guard let cursor = cursor_opt else {
+            XCTFail()
+            return
+        }
+        
+        // check if there is only one document.
+        var count = 0
+        for _ in cursor {
+            count += 1
+        }
+        XCTAssertEqual(count, 3)
+    }
+
+    // Unit test for count()
+    func testCountDocument() {
+        guard let flexwork = flexwork_opt else {
+            XCTFail()
+            return
+        }
+
+        let testDoc1: Document = [
+            fieldName_1: "test_count",
+            fieldName_2: 90
+        ]
+
+        let testDoc2: Document = [
+            fieldName_1: "test_count",
+            fieldName_2: 89
+        ]
+
+        let testDoc3: Document = [
+            fieldName_1: "test_count",
+            fieldName_2: 88
+        ]
+
+        // insert the test document into the test_collection
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc1)
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc2)
+        flexwork.insert(databaseName: databaseName, collectionName: collectionName, document: testDoc3)
+
+        // build a query to query the document with id equal to "test_count". The expected number of doc returned is 3
+        let query = QueryBuilder.buildQuery(fieldName: fieldName_1, fieldVal: "test_count", comparisonOperator: .equalTo)
+        let cursor_opt = flexwork.find(databaseName: databaseName, collectionName: collectionName, query: query)
         guard let cursor = cursor_opt else {
             XCTFail()
             return
