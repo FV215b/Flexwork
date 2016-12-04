@@ -1,5 +1,8 @@
 import Foundation
 
+/**
+ * Define the necessary info for MongoDB connection.
+ */
 public struct DatabaseConfiguration {
 
     var host: String?
