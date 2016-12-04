@@ -6,45 +6,36 @@ provides-nominal:
 provides-member:
 - ["C8flexwork8Flexwork", ""]
 depends-top-level:
-- "AssignmentPrecedence"
-- !private "=="
-- "UInt16"
-- "Document"
-- !private "!"
-- "IntegerLiteralType"
-- "Int"
-- "Cursor"
-- "Flexwork"
-- "CollectionConfiguration"
-- !private "exit"
-- "StringLiteralType"
-- !private "??"
 - !private "UnicodeScalarType"
 - "DatabaseConfiguration"
-- "Query"
-- "FlexworkAPI"
-- !private "<="
-- "Server"
-- !private "Dictionary"
-- "String"
-- !private "Log"
-- !private "print"
+- "CollectionConfiguration"
 - !private "MongoKitten"
+- !private "exit"
+- !private "!"
 - "FieldType"
-- "FloatLiteralType"
+- "StringLiteralType"
+- "Query"
+- "UInt16"
+- "IntegerLiteralType"
+- "String"
+- "Int"
+- "AssignmentPrecedence"
+- !private "print"
 - !private "BooleanLiteralType"
-- !private "&&"
+- "Flexwork"
+- "Server"
+- !private "Log"
+- "FloatLiteralType"
+- "Cursor"
+- "Document"
+- "FlexworkAPI"
 depends-member:
-- !private ["Vs11AnyIterator", "Element"]
 - ["Ps9AnyObject", "Flexwork"]
-- !private ["Ps9AnyObject", "Iterator"]
 - !private ["Ps9AnyObject", "Log"]
 - !private ["Ps9AnyObject", "Server"]
 - ["Ps9AnyObject", "UInt16"]
-- !private ["Ps9AnyObject", "collectionName"]
 - !private ["Ps9AnyObject", "connect"]
 - ["Ps9AnyObject", "count"]
-- !private ["Ps9AnyObject", "databaseName"]
 - ["Ps9AnyObject", "defaultDatabaseName"]
 - !private ["Ps9AnyObject", "defaultMongoHost"]
 - !private ["Ps9AnyObject", "defaultMongoPort"]
@@ -83,16 +74,13 @@ depends-member:
 - !private ["C11MongoKitten10Collection", "update"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "Iterator"]
-- !private ["Ps10Collection", "Key"]
 - !private ["Ps10Collection", "SubSequence"]
-- !private ["Ps10Collection", "Value"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "subscript"]
 - ["C8flexwork23CollectionConfiguration", "deinit"]
 - !private ["C8flexwork23CollectionConfiguration", "getFieldType"]
 - ["Ps10Comparable", "init"]
 - ["P21MongoCryptoEssentials21CryptoIntegerProtocol", "init"]
-- !private ["C11MongoKitten6Cursor", "Iterator"]
 - ["C11MongoKitten6Cursor", "deinit"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
@@ -106,10 +94,7 @@ depends-member:
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps23CustomStringConvertible", "Index"]
-- !private ["Ps23CustomStringConvertible", "Iterator"]
-- !private ["Ps23CustomStringConvertible", "Key"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
-- !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "connect"]
 - !private ["Ps23CustomStringConvertible", "count"]
@@ -120,7 +105,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "remove"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "update"]
-- ["C11MongoKitten8Database", "deinit"]
+- !private ["C11MongoKitten8Database", "deinit"]
 - !private ["C11MongoKitten8Database", "subscript"]
 - ["V8flexwork21DatabaseConfiguration", "deinit"]
 - !private ["V8flexwork21DatabaseConfiguration", "host"]
@@ -131,27 +116,15 @@ depends-member:
 - !private ["Vs10Dictionary", "SubSequence"]
 - ["Vs10Dictionary", "deinit"]
 - !private ["Vs10Dictionary", "subscript"]
-- !private ["V4BSON8Document", "Key"]
-- !private ["V4BSON8Document", "Value"]
 - ["V4BSON8Document", "deinit"]
 - !private ["Sd", "deinit"]
-- !private ["Ps9Equatable", "Key"]
-- !private ["Ps9Equatable", "Value"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - ["Ps9Equatable", "init"]
-- !private ["Ps25ExpressibleByArrayLiteral", "Key"]
-- !private ["Ps25ExpressibleByArrayLiteral", "Value"]
-- !private ["Ps25ExpressibleByArrayLiteral", "init"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
-- !private ["Ps27ExpressibleByBooleanLiteral", "init"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
-- !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
-- !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
-- !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps25ExpressibleByFloatLiteral", "init"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
@@ -193,9 +166,7 @@ depends-member:
 - !private ["P8flexwork11FlexworkAPI", "Log"]
 - !private ["P8flexwork11FlexworkAPI", "Server"]
 - ["P8flexwork11FlexworkAPI", "UInt16"]
-- !private ["P8flexwork11FlexworkAPI", "collectionName"]
 - ["P8flexwork11FlexworkAPI", "count"]
-- !private ["P8flexwork11FlexworkAPI", "databaseName"]
 - ["P8flexwork11FlexworkAPI", "defaultDatabaseName"]
 - !private ["P8flexwork11FlexworkAPI", "defaultMongoHost"]
 - !private ["P8flexwork11FlexworkAPI", "defaultMongoPort"]
@@ -218,16 +189,12 @@ depends-member:
 - ["SQ", "deinit"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "Iterator"]
-- !private ["Ps9Indexable", "Key"]
 - !private ["Ps9Indexable", "SubSequence"]
-- !private ["Ps9Indexable", "Value"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "subscript"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "Iterator"]
-- !private ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "SubSequence"]
-- !private ["Ps13IndexableBase", "Value"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "subscript"]
 - !private ["Vs16IndexingIterator", "Element"]
@@ -255,14 +222,10 @@ depends-member:
 - ["Os5Never", "deinit"]
 - ["Sq", "deinit"]
 - ["V11MongoKitten5Query", "deinit"]
-- !private ["P11MongoKitten13QueryProtocol", "Key"]
-- !private ["P11MongoKitten13QueryProtocol", "Value"]
 - !private ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "Index"]
 - !private ["Ps8Sequence", "Iterator"]
-- !private ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "SubSequence"]
-- !private ["Ps8Sequence", "Value"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["C11MongoKitten6Server", "connect"]
@@ -288,14 +251,8 @@ depends-member:
 - !private ["Vs5UInt8", "deinit"]
 - !private ["Sc", "deinit"]
 - ["Ps15UnsignedInteger", "init"]
-- ["O4BSON5Value", "deinit"]
-- !private ["O4BSON5Value", "init"]
-- !private ["P4BSON16ValueConvertible", "Key"]
-- !private ["P4BSON16ValueConvertible", "Value"]
 - !private ["P4BSON16ValueConvertible", "_getBuiltinLogicValue"]
-- !private ["P4BSON16ValueConvertible", "deinit"]
 - ["P4BSON16ValueConvertible", "init"]
-- !private ["P11MongoKitten13ValueProtocol", "init"]
 - !private ["P10Foundation12_CFBridgable", "Index"]
 - !private ["P10Foundation12_CFBridgable", "SubSequence"]
 - !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
@@ -332,10 +289,7 @@ depends-member:
 - !private ["P10Foundation17_StructBridgeable", "init"]
 - !private ["P10Foundation21_StructTypeBridgeable", "init"]
 - !private ["P10Foundation15_SwiftBridgable", "init"]
-- !private ["P4BSON35__DocumentProtocolForArrayAdditions", "Key"]
-- !private ["P4BSON35__DocumentProtocolForArrayAdditions", "Value"]
 depends-nominal:
-- !private "Vs11AnyIterator"
 - "Ps9AnyObject"
 - "P4BSON17BSONBytesProtocol"
 - "P21MongoCryptoEssentials26BitshiftOperationsProtocol"
@@ -354,17 +308,15 @@ depends-nominal:
 - "Ps29CustomPlaygroundQuickLookable"
 - "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
-- "C11MongoKitten8Database"
+- !private "C11MongoKitten8Database"
 - "V8flexwork21DatabaseConfiguration"
 - "Vs10Dictionary"
 - "V4BSON8Document"
 - !private "Sd"
 - "Ps9Equatable"
-- !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
-- !private "Ps25ExpressibleByFloatLiteral"
 - "Ps27ExpressibleByIntegerLiteral"
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
@@ -398,7 +350,6 @@ depends-nominal:
 - "Os5Never"
 - "Sq"
 - "V11MongoKitten5Query"
-- !private "P11MongoKitten13QueryProtocol"
 - !private "Ps8Sequence"
 - "C11MongoKitten6Server"
 - !private "Vs5Slice"
@@ -414,9 +365,7 @@ depends-nominal:
 - !private "Vs5UInt8"
 - !private "Sc"
 - "Ps15UnsignedInteger"
-- "O4BSON5Value"
 - "P4BSON16ValueConvertible"
-- !private "P11MongoKitten13ValueProtocol"
 - "P10Foundation12_CFBridgable"
 - "Ps28_DisallowMixedSignArithmetic"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
@@ -437,7 +386,6 @@ depends-nominal:
 - !private "P10Foundation17_StructBridgeable"
 - !private "P10Foundation21_StructTypeBridgeable"
 - !private "P10Foundation15_SwiftBridgable"
-- !private "P4BSON35__DocumentProtocolForArrayAdditions"
 depends-dynamic-lookup:
 depends-external:
 - "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
@@ -485,4 +433,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "b21ac23d02c436dc1498bb6f2434b4ad"
+interface-hash: "bc743c6d902006ef80d2f9f48519fe41"

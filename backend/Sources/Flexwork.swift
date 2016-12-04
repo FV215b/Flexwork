@@ -61,96 +61,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-    public func count(fieldName: String, fieldVal: String?) {
-        
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "jz173"
-
-            let count = try collection.count(matching: query)
-
-            print("\(count) documents with \(fieldName) == \(fieldVal)")
-        } catch {
-            // handle exception
-        }
-    }
-
-    public func delete(fieldName: String, fieldVal: String?) {
-
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "jz173"
-
-            try collection.remove(matching: query)
-        } catch {
-            // handle exception
-        }
-    }
-
-    public func insert(document: Document) {
-        
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            try collection.insert(document)
-        } catch {
-            // handle exception
-        }
-    }
-
-
-    public func find(fieldName: String, fieldVal: Int) {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName <= fieldVal && "id" == "jy175"
-
-            let docs = try collection.find(matching: query)
-            for doc in docs {
-                print(doc)
-            }
-            
-        } catch {
-            // handle exception
-        }
-    }
-
-    public func update(fieldName: String, fieldVal: String?) {
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "gh84"
-
-            let updateDoc: Document = [
-                "id": "gh84",
-                "count": 99999
-            ]
-
-            try collection.update(matching: query, to: updateDoc)
-            
-        } catch {
-            // handle exception
-        }
-    }
-
-    
+    // Methods in FlexworkAPI
     public func getFieldType(databaseName: String, collectionName: String, fieldName: String) -> FieldType? {
         if let colConfig = dictionary[databaseName],
            let config = colConfig[collectionName] {
@@ -182,6 +93,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    // Methods in FlexworkAPI
     public func count(databaseName: String, collectionName: String, query: Query) -> Int? {
     	do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -193,6 +105,7 @@ public class Flexwork: FlexworkAPI {
         }
     }   
 
+    // Methods in FlexworkAPI
     public func delete(databaseName: String, collectionName: String, query: Query) {
         do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -203,6 +116,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
+    // Methods in FlexworkAPI
     public func update(databaseName: String, collectionName: String, query: Query, document: Document) {
         do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
@@ -212,8 +126,7 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-
-    private func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
+    func getCollection(databaseName: String, collectionName: String) throws -> MongoKitten.Collection {
         do {
             if !server.isConnected { try server.connect() }
             let database = server[databaseName]

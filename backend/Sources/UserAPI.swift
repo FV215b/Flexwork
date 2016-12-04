@@ -5,7 +5,6 @@ public class UserAPI {
     let port = "8090"
     let database = "test_db"
     let collection = "test_collection"
-    var testDB: [[String:Any]] = [["id":"rt113", "count":1130], ["id":"rt113", "count":75], ["id":"rt113", "count":23], ["id":"yz333", "count":23], ["id":"yz333", "count":75], ["id":"jy175", "count":66], ["id":"jy175", "count":75], ["id":"jz173", "count":113], ["id":"jz173", "count":173], ["id":"rt113", "count":113]]
     
     func test(completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
         let url = URL(string: "http://\(IP):\(port)/")!
@@ -56,52 +55,6 @@ public class UserAPI {
             completion(data, response, error)
         }
         task.resume()
-        
-        /*var result = [[String:Any]]()
-        switch operation {
-        case .equalTo:
-            for doc in self.testDB {
-                if (field == "id" && value == (doc["id"] as! String)) || (field == "count" && Int(value)! == (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        case .lessThan:
-            for doc in self.testDB {
-                if (field == "id" && value > (doc["id"] as! String)) || (field == "count" && Int(value)! > (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        case .lessThanOrEqualTo:
-            for doc in self.testDB {
-                if (field == "id" && value >= (doc["id"] as! String)) || (field == "count" && Int(value)! >= (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        case .greaterThan:
-            for doc in self.testDB {
-                if (field == "id" && value < (doc["id"] as! String)) || (field == "count" && Int(value)! < (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        case .greaterThanOrEqualTo:
-            for doc in self.testDB {
-                if (field == "id" && value <= (doc["id"] as! String)) || (field == "count" && Int(value)! <= (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        default:
-            for doc in self.testDB {
-                if (field == "id" && value != (doc["id"] as! String)) || (field == "count" && Int(value)! != (doc["count"] as! Int)) {
-                    result.append(doc)
-                }
-            }
-            completion(result)
-        }*/
     }
     
     func put(dbName: String, collectionName: String, operation: Comparison, field: String, value: String, newItem: [String:Any], completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
@@ -159,11 +112,6 @@ public class UserAPI {
             completion(data, response, error)
         }
         task.resume()
-        
-        /*var it: [String:Any] = item
-        it["count"] = Int(item["count"] as! String)!
-        self.testDB.append(it)
-        completion("Success")*/
     }
     
     func delete(dbName: String, collectionName: String, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {

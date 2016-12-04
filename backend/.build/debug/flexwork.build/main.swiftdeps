@@ -6,43 +6,56 @@ provides-top-level:
 - "fieldType_1"
 - "fieldName_2"
 - "fieldType_2"
+- "fieldName_3"
+- "fieldType_3"
 - "collectionConfig_1"
 - "collectionName_2"
 - "collectionConfig_2"
+- "collectionName_3"
+- "fieldName_3_1"
+- "fieldType_3_1"
+- "fieldName_3_2"
+- "fieldType_3_2"
+- "collectionConfig_3"
 - "dictionary"
 - "dbConfig"
 - "flexwork"
-- "doc"
 - "controller"
 provides-nominal:
 provides-member:
 depends-top-level:
-- "StringLiteralType"
-- "fieldName_1"
-- "fieldType_2"
-- "CollectionConfiguration"
-- "Dictionary"
-- "fieldType_1"
-- "dbConfig"
-- "dictionary"
-- "DatabaseConfiguration"
-- "collectionConfig_2"
-- "FlexworkController"
-- "Kitura"
-- "databaseName"
-- "IntegerLiteralType"
-- "controller"
-- "FieldType"
-- "FloatLiteralType"
-- "flexwork"
-- "doc"
-- "collectionName_1"
+- "fieldType_3"
+- "fieldName_3_2"
 - "fieldName_2"
-- "collectionConfig_1"
-- "Flexwork"
+- "DatabaseConfiguration"
+- "dbConfig"
+- "StringLiteralType"
+- "collectionConfig_3"
+- "CollectionConfiguration"
+- "FieldType"
 - "UInt16"
+- "IntegerLiteralType"
+- "fieldName_3_1"
+- "dictionary"
+- "Dictionary"
 - "collectionName_2"
-- "Document"
+- "controller"
+- "fieldType_3_2"
+- "fieldType_1"
+- "Flexwork"
+- "databaseName"
+- "fieldType_2"
+- "collectionName_1"
+- "collectionConfig_1"
+- "flexwork"
+- "fieldType_3_1"
+- "collectionConfig_2"
+- "FloatLiteralType"
+- "Kitura"
+- "collectionName_3"
+- "fieldName_1"
+- "fieldName_3"
+- "FlexworkController"
 depends-member:
 - ["Ps9AnyObject", "addHTTPServer"]
 - ["Ps9AnyObject", "addNewFieldType"]
@@ -76,23 +89,12 @@ depends-member:
 - ["Vs10Dictionary", "Key"]
 - ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
-- ["V4BSON8Document", "Key"]
-- ["V4BSON8Document", "Value"]
-- ["V4BSON8Document", "deinit"]
-- ["Ps9Equatable", "Key"]
-- ["Ps9Equatable", "Value"]
 - ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "int32"]
 - ["Ps9Equatable", "string"]
-- ["Ps25ExpressibleByArrayLiteral", "Key"]
-- ["Ps25ExpressibleByArrayLiteral", "Value"]
-- ["Ps25ExpressibleByArrayLiteral", "init"]
-- ["Ps27ExpressibleByBooleanLiteral", "init"]
 - ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - ["Ps30ExpressibleByDictionaryLiteral", "Value"]
-- ["Ps30ExpressibleByDictionaryLiteral", "init"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
-- ["Ps25ExpressibleByFloatLiteral", "init"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
@@ -124,8 +126,6 @@ depends-member:
 - ["Ps25LosslessStringConvertible", "init"]
 - ["Ps10MirrorPath", "init"]
 - ["Sq", "deinit"]
-- ["P11MongoKitten13QueryProtocol", "Key"]
-- ["P11MongoKitten13QueryProtocol", "Value"]
 - ["C6Kitura6Router", "deinit"]
 - ["Ps8Sequence", "Key"]
 - ["Ps8Sequence", "Value"]
@@ -138,12 +138,7 @@ depends-member:
 - ["Vs6UInt16", "deinit"]
 - ["Vs6UInt16", "init"]
 - ["Ps15UnsignedInteger", "init"]
-- ["O4BSON5Value", "deinit"]
-- ["O4BSON5Value", "init"]
-- ["P4BSON16ValueConvertible", "Key"]
-- ["P4BSON16ValueConvertible", "Value"]
 - ["P4BSON16ValueConvertible", "init"]
-- ["P11MongoKitten13ValueProtocol", "init"]
 - ["P10Foundation12_CFBridgable", "Key"]
 - ["P10Foundation12_CFBridgable", "Value"]
 - ["P10Foundation12_CFBridgable", "init"]
@@ -170,8 +165,6 @@ depends-member:
 - ["P10Foundation21_ObjectTypeBridgeable", "init"]
 - ["Ps11_Strideable", "init"]
 - ["Ps14_StringElement", "init"]
-- ["P4BSON35__DocumentProtocolForArrayAdditions", "Key"]
-- ["P4BSON35__DocumentProtocolForArrayAdditions", "Value"]
 depends-nominal:
 - "Ps9AnyObject"
 - "P4BSON17BSONBytesProtocol"
@@ -189,13 +182,9 @@ depends-nominal:
 - "Ps23CustomStringConvertible"
 - "V8flexwork21DatabaseConfiguration"
 - "Vs10Dictionary"
-- "V4BSON8Document"
 - "Ps9Equatable"
-- "Ps25ExpressibleByArrayLiteral"
-- "Ps27ExpressibleByBooleanLiteral"
 - "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
-- "Ps25ExpressibleByFloatLiteral"
 - "Ps27ExpressibleByIntegerLiteral"
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
@@ -217,7 +206,6 @@ depends-nominal:
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - "Sq"
-- "P11MongoKitten13QueryProtocol"
 - "C6Kitura6Router"
 - "Ps8Sequence"
 - "Ps10Strideable"
@@ -227,9 +215,7 @@ depends-nominal:
 - "Ps20TextOutputStreamable"
 - "Vs6UInt16"
 - "Ps15UnsignedInteger"
-- "O4BSON5Value"
 - "P4BSON16ValueConvertible"
-- "P11MongoKitten13ValueProtocol"
 - "P10Foundation12_CFBridgable"
 - "Ps28_DisallowMixedSignArithmetic"
 - "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
@@ -246,7 +232,6 @@ depends-nominal:
 - "P10Foundation21_ObjectTypeBridgeable"
 - "Ps11_Strideable"
 - "Ps14_StringElement"
-- "P4BSON35__DocumentProtocolForArrayAdditions"
 depends-dynamic-lookup:
 depends-external:
 - "/home/jyzhang/swift-3.0.1-RELEASE-ubuntu14.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
@@ -294,4 +279,4 @@ depends-external:
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/Socket.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/KituraTemplateEngine.swiftmodule"
 - "/home/jyzhang/Desktop/flexwork_current/project/backend/.build/debug/SwiftyJSON.swiftmodule"
-interface-hash: "88920df7c32ec23d99994bfc8b994190"
+interface-hash: "7f8cbdfb82f3187b098d9f9ba37917a8"
