@@ -10,7 +10,7 @@ Yuchen Zhou, Jiasheng Yang, Jianyu Zhang
 
 Instructor: Ric Telford
 
-Sponser: Ric Telford
+Sponsor: Ric Telford
 
 ### Flexwork ###
 
