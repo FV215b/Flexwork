@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     var router = UserAPI()
     var responseString = String()
+    var y: CGFloat = 0
     
     @IBOutlet weak var dbName: UITextField!
     @IBOutlet weak var colName: UITextField!
@@ -280,6 +281,22 @@ class ViewController: UIViewController {
         statusPicker4.dataSource = statusViewController4
         self.addChildViewController(statusViewController4)
         self.view.addSubview(statusPicker4)
+        addID1.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addID1.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        addID2.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addID2.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        addID3.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addID3.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        addCount1.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addCount1.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        addCount2.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addCount2.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        addCount3.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        addCount3.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        deleteField.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        deleteField.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
+        deleteValue.addTarget(self, action: #selector(ViewController.viewRaiseUp(_:)), for: .editingDidBegin)
+        deleteValue.addTarget(self, action: #selector(ViewController.viewFallDown(_:)), for: .editingDidEnd)
     }
 
     override func didReceiveMemoryWarning() {
@@ -289,6 +306,24 @@ class ViewController: UIViewController {
 
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    // For view rising up
+    func viewRaiseUp(_ sender: UITextField!) {
+        if y == 0 {
+            y = 130
+            self.view.bounds.origin.y += y
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    // For view dropping down
+    func viewFallDown(_ sender: UITextField!) {
+        if y == 130 {
+            self.view.bounds.origin.y -= y
+            self.view.layoutIfNeeded()
+            y = 0
+        }
     }
 }
 
