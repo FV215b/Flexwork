@@ -14,7 +14,7 @@ class AllRemoteOriginMiddleware: RouterMiddleware {
 // FlexworkController is used for handling http request and sending response back.
 public class FlexworkController {
     
-    public let flexwork: Flexwork!
+    public let flexwork: Flexwork! 
     public let router = Router()
 
     public init(backend: Flexwork) {
@@ -108,7 +108,7 @@ public class FlexworkController {
                 print("doc = \(doc)")
                 flexwork.update(databaseName: dbName, collectionName: colName, query: parseQuery!, document: doc)
                 do {
-                    try response.status(.OK).send("Update successfully").end()
+                    try response.status(.OK).send("Update \(count) records successfully").end()
                 } catch {
                     Log.error("Error sending response")
                 }
@@ -317,7 +317,7 @@ public class FlexworkController {
         print("doc = \(doc)")
         flexwork.insert(databaseName: dbName, collectionName: colName, document: doc)
         do {
-            try response.status(.OK).send("Create successfully").end()
+            try response.status(.OK).send("Create 1 record successfully").end()
         } catch {
             Log.error("Error sending response")
         }

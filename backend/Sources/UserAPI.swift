@@ -1,63 +1,64 @@
 import Foundation
 
-/**
- * Make something final
- *
- */
-
 public class UserAPI {
-    let databaseIP = "54.86.116.199"
-    let databasePort = "8090"
-    let databaseName = "test_db"
-    let collectionName = "test_collection"
+    let IP = "54.89.248.15"
+    let port = "8090"
+    let database = "test_db"
+    let collection = "test_collection"
     var testDB: [[String:Any]] = [["id":"rt113", "count":1130], ["id":"rt113", "count":75], ["id":"rt113", "count":23], ["id":"yz333", "count":23], ["id":"yz333", "count":75], ["id":"jy175", "count":66], ["id":"jy175", "count":75], ["id":"jz173", "count":113], ["id":"jz173", "count":173], ["id":"rt113", "count":113]]
     
-    func getComparisonType(_ op: Comparison) -> String {
-        switch op {
-        case .lessThan:
-            return "lessThan"
-        case .lessThanOrEqualTo:
-            return "lessThanOrEqualTo"
-        case .greaterThan:
-            return "greaterThan"
-        case .greaterThanOrEqualTo:
-            return "greaterThanOrEqualTo"
-        case .notEqualTo:
-            return "notEqualTo"
-        default:
-            return "equalTo"
-        }
-    }
-    func getAll(_ db: String, _ col: String, completion: @escaping (_ resp: [[String:Any]]?) -> ()) {
-        completion(testDB)
-    }
-    
-    func get(_ db: String, _ col: String, _ op: Comparison, _ field: String, _ value: String, completion: @escaping (_ resp: [[String:Any]]?) -> ()) {
-        let operation: String = getComparisonType(op)
-        let url = URL(string: "http://\(databaseIP):\(databasePort)/\(db)/\(col)?op=\(operation)&field=\(field)&value=\(value)")!
+    func test(completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let url = URL(string: "http://\(IP):\(port)/")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
-//P.S This part of code works when server is running
-        
-        /*let task = URLSession.shared.dataTask(with: request) {
+        let task = URLSession.shared.dataTask(with: request) {
             data, response, error in
-            if let sendBackData = data, let sendBackResponse = response {
-                do {
-                    print("response = \(sendBackResponse)")
-                    print("****************")
-                    print("data = \(sendBackData)")
-                    let result = try JSONSerialization.jsonObject(with: sendBackData, options: []) as! [[String:Any]]
-                    print("result = \(result)")
-                    completion(result)
-                } catch let error as NSError {
-                    print(error)
-                }
-            } else {
-                print("error = \(error!.localizedDescription)")*/
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func get(dbName: String, collectionName: String, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)/all")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func get(dbName: String, collectionName: String, operation: Comparison, field: String, value: String, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let op = getComparisonType(operation)
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)?op=\(op)&field=\(field)&value=\(value)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func get(dbName: String, collectionName: String, filters: [[String]], completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        var stringUrl = "http://\(IP):\(port)/\(dbName)/\(collectionName)/\(filters.count)/and?"
+        for i in 1...filters.count {
+            stringUrl.append("op\(i)=\(filters[i-1][0])&")
+            stringUrl.append("field\(i)=\(filters[i-1][1])&")
+            stringUrl.append("value\(i)=\(filters[i-1][2])&")
+        }
+        let url = URL(string: stringUrl)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
         
-        var result = [[String:Any]]()
-        switch op {
+        /*var result = [[String:Any]]()
+        switch operation {
         case .equalTo:
             for doc in self.testDB {
                 if (field == "id" && value == (doc["id"] as! String)) || (field == "count" && Int(value)! == (doc["count"] as! Int)) {
@@ -100,44 +101,108 @@ public class UserAPI {
                 }
             }
             completion(result)
-        }
-        
-            //}
-        //}
-        //task.resume()
+        }*/
     }
     
-    func post(_ db: String, _ col: String, _ item: [String:Any], completion: @escaping (_ response: String?) -> ()){
-        let url = URL(string: "http://\(databaseIP):\(databasePort)/\(databaseName)/\(collectionName)")!
+    func put(dbName: String, collectionName: String, operation: Comparison, field: String, value: String, newItem: [String:Any], completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let op = getComparisonType(operation)
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)?op=\(op)&field=\(field)&value=\(value)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",forHTTPHeaderField: "Accept")
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: newItem, options: [])
+        } catch let error as NSError {
+            print(error)
+        }
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func post(dbName: String, collectionName: String, item: [String:Any], completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()){
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",forHTTPHeaderField: "Accept")
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: item, options: [])
         } catch let error as NSError {
             print(error)
         }
         
-//P.S This part of code works when server is running
-        
-        /*let task = URLSession.shared.dataTask(with: request) {
+        let task = URLSession.shared.dataTask(with: request) {
             data, response, error in
-            if let sendBackData = data, let _ = response {
-                do {
-                    let result = try JSONSerialization.jsonObject(with: sendBackData, options: []) as! String
-                    print(result)
-                    completion(result)
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            else {*/
-        var it: [String:Any] = item
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func post(dbName: String, collectionName: String, items: [[String:Any]], completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()){
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)/\(items.count)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",forHTTPHeaderField: "Accept")
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: items, options: [])
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+        
+        /*var it: [String:Any] = item
         it["count"] = Int(item["count"] as! String)!
         self.testDB.append(it)
-        completion("Success")
-        
-            //}
-        //}
-        //task.resume()
+        completion("Success")*/
+    }
+    
+    func delete(dbName: String, collectionName: String, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)/all")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func delete(dbName: String, collectionName: String, operation: Comparison, field: String, value: String, completion: @escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()) {
+        let op = getComparisonType(operation)
+        let url = URL(string: "http://\(IP):\(port)/\(dbName)/\(collectionName)?op=\(op)&field=\(field)&value=\(value)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let task = URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            completion(data, response, error)
+        }
+        task.resume()
+    }
+    
+    func getComparisonType(_ op: Comparison) -> String {
+        switch op {
+        case .lessThan:
+            return "lessThan"
+        case .lessThanOrEqualTo:
+            return "lessThanOrEqualTo"
+        case .greaterThan:
+            return "greaterThan"
+        case .greaterThanOrEqualTo:
+            return "greaterThanOrEqualTo"
+        case .notEqualTo:
+            return "notEqualTo"
+        default:
+            return "equalTo"
+        }
     }
 }
