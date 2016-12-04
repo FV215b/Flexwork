@@ -61,23 +61,6 @@ public class Flexwork: FlexworkAPI {
         }
     }
 
-/*
-    public func delete(fieldName: String, fieldVal: String?) {
-
-        do {
-            if !server.isConnected { try server.connect() }
-
-            let database = server[databaseName]
-            let collection = database[collectionName]
-
-            let query: Query = fieldName == fieldVal ?? "jz173"
-
-            try collection.remove(matching: query)
-        } catch {
-            // handle exception
-        }
-    }
-*/
 
 /*
     public func insert(document: Document) {
