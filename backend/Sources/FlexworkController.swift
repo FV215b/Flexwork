@@ -109,7 +109,7 @@ public class FlexworkController {
                 print("doc = \(doc)")
                 flexwork.update(databaseName: dbName, collectionName: colName, query: parseQuery!, document: doc)
                 do {
-                    try response.status(.OK).send("Update \(count) records successfully").end()
+                    try response.status(.OK).send("Update record successfully").end()
                 } catch {
                     Log.error("Error sending response")
                 }
@@ -335,11 +335,11 @@ public class FlexworkController {
         //********************************************
         let dummyQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: .notEqualTo, field:"_id", fieldType: .objectId, value: "000000000000000000000000")
         if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: dummyQuery!) {
-            let returnDict: [[String:Any]] = Array(docs).flatMap {
-                doc in
-
+            var returnDict = [[String:Any]]()
+            for doc in docs {
                 var element = [String:Any]()
                 for (key, value) in doc {
+                    print("\(key): \(value)")
                     guard key != "_id" else {
                         continue
                     }
@@ -349,24 +349,43 @@ public class FlexworkController {
                         } catch {
                             Log.error("Error sending response")
                         }
-                        return nil
+                        return
                     }
                     if type == .int32 {
                         element[key] = value.int
                     }
+                    else if type == .array {
+                        var arrayDoc = [String]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            arrayDoc.append(ele.value.string)
+                        }
+                        element[key] = arrayDoc
+                        print("There is a array \(key): \(element[key])")
+                    }
+                    else if type == .document {
+                        var dictDoc = [String:Any]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            dictDoc[ele.key] = ele.value.string
+                        }
+                        element[key] = dictDoc
+                        print("There is a dictionary \(key): \(element[key])")
+                    }
                     else {
-                        element[key] = value.storedValue
+                        element[key] = value.storedValue ?? [""]
                     }
                 }
-                return element
+                returnDict.append(element)
             }
-            print("return dict = \(returnDict)")
+            print("return array = \(returnDict)")
             do {
+                print(JSONSerialization.isValidJSONObject(returnDict))
                 let jsonData = try JSONSerialization.data(withJSONObject: returnDict, options: .prettyPrinted)
                 print("jsondata = \(jsonData)")
                 try response.status(.OK).send(data: jsonData).end()
             } catch {
-                print("Error sending response")
+                print("Error converting to JSON data")
                 Log.error("Error sending response")
             }
         } else {
@@ -378,9 +397,6 @@ public class FlexworkController {
             }
         }
     }
-
-
-
 
     private func onGetItems(request: RouterRequest, response: RouterResponse, next: () -> Void) {
         let dbName = request.parameters["dbname"] ?? ""
@@ -431,32 +447,6 @@ public class FlexworkController {
                     else {
                         element[key] = value.storedValue
                     }
-                    /*switch type {
-                    case .int32, .int64:
-                        element[key] = value.int
-                    case .binary:
-                        element[key] = value.storedValue
-                    case .boolean:
-                        element[key] = value.bool
-                    case .double:
-                        element[key] = value.double
-                    case .array, .document:
-                        element[key] = value.document
-                    case .dateTime:
-                        element[key] = value.storedValue
-                    case .objectId:
-                        element[key] = value.string
-                    case .regularExpression:
-                        element[key] = value.storedValue
-                    case .timestamp:
-                        element[key] = value.string
-                    case .javascriptCode, .javascriptCodeWithScope:
-                        element[key] = value.storedValue
-                    case .null:
-                        element[key] = nil
-                    default:
-                        element[key] = value.string
-                    }*/
                 }
                 return element
             }
