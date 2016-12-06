@@ -10,7 +10,7 @@
 import Kitura
 import MongoKitten
 
-let databaseName = "veggies_info_db"
+let databaseName_1 = "veggies_info_db"
 
 let collectionName_1 = "test_collection_1"
 let collectionConfig_1 = CollectionConfiguration(collectionName: collectionName_1)
@@ -45,6 +45,7 @@ collectionConfig_2.addNewFieldType(fieldName: fieldName_27, type: fieldType_27)
 collectionConfig_2.addNewFieldType(fieldName: fieldName_28, type: fieldType_28)
 collectionConfig_2.addNewFieldType(fieldName: fieldName_29, type: fieldType_29)
 
+let databaseName_2 = "test_db"
 let collectionName_3 = "test_collection"
 let collectionConfig_3 = CollectionConfiguration(collectionName: collectionName_3)
 let fieldName_31 = "id"
@@ -54,7 +55,7 @@ let fieldType_32 = FieldType.int32
 collectionConfig_3.addNewFieldType(fieldName: fieldName_31, type: fieldType_31)
 collectionConfig_3.addNewFieldType(fieldName: fieldName_32, type: fieldType_32)
 
-let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2, collectionName_3: collectionConfig_3]]
+let dictionary = [databaseName_1: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2], databaseName_2: [collectionName_3: collectionConfig_3]]
 
 let dbConfig = DatabaseConfiguration(host: "127.0.0.1", port: UInt16(27017), username: nil, password: nil)
 

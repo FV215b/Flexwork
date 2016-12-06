@@ -355,10 +355,10 @@ public class FlexworkController {
                         element[key] = value.int
                     }
                     else if type == .array {
-                        var arrayDoc = [String]()
+                        var arrayDoc = [Any]()
                         for ele in value.document {
                             print("ele: \(ele)")
-                            arrayDoc.append(ele.value.string)
+                            arrayDoc.append(ele.value.storedValue ?? "")
                         }
                         element[key] = arrayDoc
                         print("There is a array \(key): \(element[key])")
@@ -367,7 +367,7 @@ public class FlexworkController {
                         var dictDoc = [String:Any]()
                         for ele in value.document {
                             print("ele: \(ele)")
-                            dictDoc[ele.key] = ele.value.string
+                            dictDoc[ele.key] = ele.value.storedValue ?? ""
                         }
                         element[key] = dictDoc
                         print("There is a dictionary \(key): \(element[key])")
@@ -425,9 +425,8 @@ public class FlexworkController {
         print("fieldType: \(fieldType)")
         let parseQuery: Query? = buildQueryWithType(dbName: dbName, colName: colName, op: opComparison, field:field, fieldType: fieldType, value: value) 
         if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: parseQuery!) {
-            let returnDict: [[String:Any]] = Array(docs).flatMap {
-                doc in
-
+            var returnDict = [[String:Any]]()
+            for doc in docs {
                 var element = [String:Any]()
                 for (key, value) in doc {
                     guard key != "_id" else {
@@ -444,11 +443,29 @@ public class FlexworkController {
                     if type == .int32 {
                         element[key] = value.int
                     }
+                    else if type == .array {
+                        var arrayDoc = [Any]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            arrayDoc.append(ele.value.storedValue ?? "")
+                        }
+                        element[key] = arrayDoc
+                        print("There is a array \(key): \(element[key])")
+                    }
+                    else if type == .document {
+                        var dictDoc = [String:Any]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            dictDoc[ele.key] = ele.value.storedValue ?? ""
+                        }
+                        element[key] = dictDoc
+                        print("There is a dictionary \(key): \(element[key])")
+                    }
                     else {
-                        element[key] = value.storedValue
+                        element[key] = value.storedValue ?? [""]
                     }
                 }
-                return element
+                returnDict.append(element)
             }
             print("return dict = \(returnDict)")
             do {
@@ -513,9 +530,8 @@ public class FlexworkController {
             }
         }
         if let docs = flexwork.find(databaseName: dbName, collectionName: colName, query: sumQuery) {
-            let returnDict: [[String:Any]] = Array(docs).flatMap {
-                doc in
-
+            var returnDict = [[String:Any]]()
+            for doc in docs {
                 var element = [String:Any]()
                 for (key, value) in doc {
                     guard key != "_id" else {
@@ -534,11 +550,29 @@ public class FlexworkController {
                     if type == .int32 {
                         element[key] = value.int
                     }
+                    else if type == .array {
+                        var arrayDoc = [Any]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            arrayDoc.append(ele.value.storedValue ?? "")
+                        }
+                        element[key] = arrayDoc
+                        print("There is a array \(key): \(element[key])")
+                    }
+                    else if type == .document {
+                        var dictDoc = [String:Any]()
+                        for ele in value.document {
+                            print("ele: \(ele)")
+                            dictDoc[ele.key] = ele.value.storedValue ?? ""
+                        }
+                        element[key] = dictDoc
+                        print("There is a dictionary \(key): \(element[key])")
+                    }
                     else {
-                        element[key] = value.storedValue
+                        element[key] = value.storedValue ?? [""]
                     }
                 }
-                return element
+                returnDict.append(element)
             }
             print("return dict = \(returnDict)")
             do {
@@ -568,9 +602,12 @@ public class FlexworkController {
         case .int64:
             temp = (key, ~Int64(val as! Int))
             print("\(key) has int64 \(val)")
-        case .binary:
-            temp = (key, ~((val as! Data) as! ValueConvertible))
+        /*case .binary:
+            let v = val as! String
+            let data = Data(base64Encoded: v)
+            temp = (key, ~Data(data!))
             print("\(key) has binary \(val)")
+        */
         case .boolean:
             temp = (key, ~(val as! Bool))
             print("\(key) has bool \(val)")
@@ -580,15 +617,31 @@ public class FlexworkController {
         case .double:
             temp = (key, ~(val as! Double))
             print("\(key) has double \(val)")
-        case .array, .document:
-            temp = (key, ~(val as! Document))
-            print("\(key) has array/document \(val)")
+        case .array:
+            let array = val as! [String]
+            var valueArray = [Value]()
+            for doc in array {
+                valueArray.append(~doc)
+            }
+            temp = (key, ~Document(array: valueArray))
+            print("\(key) has array \(val)")
+        case .document:
+            let dict = val as! [String:String]
+            var valueDict = [(String, Value)]()
+            for (key, value) in dict {
+                let t = (key, ~value)
+                valueDict.append(t)
+            }
+            temp = (key, ~Document(dictionaryElements: valueDict))
+            print("\(key) has document \(val)")
         case .objectId:
             temp = (key, ~(val as! ObjectId))
             print("\(key) has objectID \(val)")
-        case .regularExpression:
-            temp = (key, ~((val as! RegularExpression) as! ValueConvertible))
+        /*case .regularExpression:
+            let pattern = val as! String
+            temp = (key, ~RegularExpression(pattern: pattern, options: .CaseInsensitive, error: nil))
             print("\(key) has regular expression \(val)")
+        */
         default:
             temp = (key, ~(val as! String))
             print("\(key) has string \(val)")
