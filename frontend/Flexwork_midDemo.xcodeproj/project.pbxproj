@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B994CD0C1DE93105007E2F4E /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994CD0B1DE93105007E2F4E /* PickerController.swift */; };
-		B994CD0F1DE93124007E2F4E /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994CD0D1DE93124007E2F4E /* Comparison.swift */; };
 		B994CD101DE93124007E2F4E /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994CD0E1DE93124007E2F4E /* UserAPI.swift */; };
 		B9F9BD661DE3C6E2005C0F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9BD651DE3C6E2005C0F7E /* AppDelegate.swift */; };
 		B9F9BD681DE3C6E2005C0F7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9BD671DE3C6E2005C0F7E /* ViewController.swift */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		B994CD0B1DE93105007E2F4E /* PickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
-		B994CD0D1DE93124007E2F4E /* Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comparison.swift; path = ../../backend/Sources/Comparison.swift; sourceTree = "<group>"; };
 		B994CD0E1DE93124007E2F4E /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = ../../backend/Sources/UserAPI.swift; sourceTree = "<group>"; };
 		B9F9BD621DE3C6E2005C0F7E /* Flexwork_midDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flexwork_midDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F9BD651DE3C6E2005C0F7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 		B9F9BD641DE3C6E2005C0F7E /* Flexwork_midDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B994CD0D1DE93124007E2F4E /* Comparison.swift */,
 				B994CD0E1DE93124007E2F4E /* UserAPI.swift */,
 				B994CD0B1DE93105007E2F4E /* PickerController.swift */,
 				B9F9BD651DE3C6E2005C0F7E /* AppDelegate.swift */,
@@ -148,7 +145,6 @@
 			files = (
 				B994CD0C1DE93105007E2F4E /* PickerController.swift in Sources */,
 				B9F9BD681DE3C6E2005C0F7E /* ViewController.swift in Sources */,
-				B994CD0F1DE93124007E2F4E /* Comparison.swift in Sources */,
 				B994CD101DE93124007E2F4E /* UserAPI.swift in Sources */,
 				B9F9BD661DE3C6E2005C0F7E /* AppDelegate.swift in Sources */,
 			);
