@@ -15,23 +15,16 @@ public class Flexwork: FlexworkAPI {
     static let defaultPassword = "password"
 
     let server: Server!
-    //let collectionConfigDictionary: [String: CollectionConfiguration]
     let dictionary: [String: [String: CollectionConfiguration]]
-
-    // These two vars are used for testing only
-    let databaseName = Flexwork.defaultDatabaseName
-    let collectionName = "test_collection"
     
-    // Find database if it is already running
     public init(_ dbConfig: DatabaseConfiguration, dictionary: [String: [String: CollectionConfiguration]]) {
         
         self.dictionary = dictionary
         var authorization: (username: String, password: String, against: String)? = nil
         guard let host = dbConfig.host,
               let port = dbConfig.port else {
-
-                    Log.info("Host and port were not provided")
-                    exit(1)
+            Log.error("Host and port were not provided")
+            exit(1)
         }
 
         if let username = dbConfig.username, let password = dbConfig.password {
@@ -42,7 +35,7 @@ public class Flexwork: FlexworkAPI {
             server = try Server(at: host, port: port, using: authorization, automatically: true)
         } catch {
             print("Error: MongoDB is not available on host: \(host) and port: \(port)")
-            Log.info("MongoDB is not available on host: \(host) and port: \(port)")
+            Log.error("MongoDB is not available on host: \(host) and port: \(port)")
             exit(1)
         }
     }
@@ -56,7 +49,7 @@ public class Flexwork: FlexworkAPI {
         do {
             server = try Server("mongodb://\(username):\(password)@\(host):\(port)", automatically: true)
         } catch {
-            Log.info("MongoDB is not available on host: \(host) and port: \(port)")
+            Log.error("MongoDB is not available on host: \(host) and port: \(port)")
             exit(1) 
         }
     }
@@ -110,7 +103,6 @@ public class Flexwork: FlexworkAPI {
         do {
             let collection = try getCollection(databaseName: databaseName, collectionName: collectionName)
             try collection.remove(matching: query)
-            
         } catch {
             Log.error("Error when deleting document in the collection: \(collectionName) in database: \(databaseName)")
         }

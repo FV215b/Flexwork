@@ -38,7 +38,7 @@ collectionConfig_3.addNewFieldType(fieldName: fieldName_3_2, type: fieldType_3_2
 
 let dictionary = [databaseName: [collectionName_1: collectionConfig_1, collectionName_2: collectionConfig_2, collectionName_3: collectionConfig_3]]
 
-let dbConfig = DatabaseConfiguration(host: "54.91.87.59", port: UInt16(27017), username: nil, password: nil)
+let dbConfig = DatabaseConfiguration(host: "54.91.189.221", port: UInt16(27017), username: nil, password: nil)
 
 let flexwork = Flexwork(dbConfig, dictionary: dictionary)
 
